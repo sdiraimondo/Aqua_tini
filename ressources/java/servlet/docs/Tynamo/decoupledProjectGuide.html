@@ -1,0 +1,308 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Guide to Decoupling Your Project</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Guide to Decoupling Your Project</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        It may be the case that you wish to leave the Tynamo&trade; distribution
+        alone, and keep all your source and configuration files in a separate
+        place.  This is possible to do, and does not take much effort to
+        accomplish.
+        </p>
+
+        <p>
+        The intended audience of this guide is those who have become moderately
+        familiar with the Tynamo&trade; setup process.
+        </p>
+
+        <h2>Summary</h2>
+
+        <p>
+        In short, only the files to be sent to your TINI, your sources, and
+        the two <em>*.properties</em> files need to be in your own project
+        directory.  When you set the <tt>basedir</tt> Ant property, you will
+        have completely separated your project from the Tynamo&trade;
+        distribution.
+        </p>
+
+        <hr />
+
+        <h2>Steps</h2>
+
+        <ol>
+        <li class="spaced">
+            First, create your own project directory.  For example, create
+            <em>/Projects/coolserver</em>.  The disussion that follows will
+            use this example.
+            </li>
+        <li class="spaced">
+            Next, create the following subdirectories:
+            <ul>
+            <li><em>src</em> &mdash; This will contain your source files.</li>
+            <li><em>tini</em> &mdash; This will contain all the files you wish
+                to be transferred to your TINI.</li>
+            </ul>
+            </li>
+        <li class="spaced">
+            Lastly, copy <em>build.properties</em> and <em>deploy.properties</em>
+            to the project directory.
+            </li>
+        </ol>
+
+        <p>
+        <strong><big>[</big></strong>If you will be modifying the
+        <em>build.xml</em> script then copy this file as well.  In this case,
+        make sure to change the <code>deploy.root</code> property inside the
+        script to the location of the Tynamo&trade; distribution.  To do this,
+        replace the line that contains</p>
+        <blockquote class="example">
+        <pre>&lt;dirname property="distro.root" file="${ant.file}"/&gt;</pre>
+        </blockquote>
+        <p>with a line that looks like</p>
+        <blockquote class="example">
+        <pre><strong>&lt;property name="distro.root" value="/tynamo-tini-1.0"/&gt;</strong></pre>
+        </blockquote>
+        <p>
+        Be sure, also, to replace <em>"/tynamo-tini-1.0"</em> with the actual
+        location of the distribution.<strong><big>]</big></strong></p>
+
+        <hr />
+
+        <h2>Project Location &mdash; How to Use Ant</h2>
+
+        <p>
+        The <em>build.xml</em> file, by default, executes from the distribution
+        location.  To override this, set the <tt><em>basedir</em></tt>
+        property when starting Ant.
+        </p>
+
+        <p>
+        For example, say your project directory is located in
+        <em>/Projects/coolserver</em> and your Tynamo&trade; distribution is
+        located in <em>/tynamo-tini-1.0</em>.  The two ways of setting this as
+        your base project directory are as follows:
+        </p>
+        <ol>
+        <li>
+        Change to <em>/Projects/coolserver</em> and execute:
+        <pre class="example">ant -Dbasedir=. -f /tynamo-tini-1.0/build.xml</pre>
+        OR:
+        </li>
+        <li>
+        <pre class="example">ant -Dbasedir=/Projects/coolserver -f /tynamo-tini-1.0/build.xml</pre>
+        </li>
+        </ol>
+
+        <p>
+        The second option is more explicit, and probably safer to use in the
+        presence of many different projects and project files.
+        </p>
+
+        <p>
+        <big><strong><em>Note:</em></strong></big> Starting Ant this way is
+        unnecessary if you have chosen to copy the <em>build.xml</em> file to
+        your project directory.
+        </p>
+
+        <hr />
+
+        <h2>Project Files</h2>
+
+        <p>
+        All your project files are arranged in the same way as the Tynamo&trade;
+        distribution, just located in a different directory.
+        </p>
+
+        <h3>Source Files</h3>
+
+        <p>
+        Place all your source files into the <em>src/</em> directory you have
+        just created (or another location of your choosing), and set up the
+        <em>build.properties</em> file to use this as the source files
+        location.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>src.paths=src
+src.files=com/mycompany/servlet/**/*.java</pre>
+        </blockquote>
+
+        <h3>TINI Files</h3>
+
+        <p>
+        All the files to be transferred to your TINI server should reside in
+        the <em>tini/</em> directory.  You can set up the contents by using
+        the example in the distribution:
+        </p>
+        <ul>
+        <li><em>tini/bin/</em> contains the webserver binary and configuration
+            files,</li>
+        <li><em>tini/http-root/</em> contains all your HTML, images, and
+            web-accessible content, and</li>
+        <li><em>tini/logs/</em> is left empty, and will contain your server and
+            transfer log files.  Note that the <em>webserver.props</em> file
+            controls where the logs are placed, so this can be changed or
+            deleted.</li>
+        </ul>
+
+        <h3>Build and Deployment Configuration</h3>
+
+        <p>
+        The <em>build.properties</em> and <em>deploy.properties</em> files are
+        set up as usual.  Please consult the documentation for further details.
+        The relevant documents include <a href="building.html">Building a
+        Custom Web Server</a> and <a href="deploying.html">Deploying
+        Tynamo&trade;-TINI with Ant</a>.
+        </p>
+
+        <!--<h2>Understanding the Configuration Files</h2>
+
+        <p>
+        It is worthwhile to summarize the function of each configuration file
+        so that you can best understand how to manipulate them.
+        </p>
+
+        <table border="1" cellpadding="3">
+            <tr>
+                <th bgcolor="#ffffe0" align="left" valign="top">build.xml</th>
+                <td>This is the <a href="http://ant.apache.org/">Ant</a> build
+                    script, and it references <em>build.properties</em> and
+                    <em>deploy.properties</em>.  It is an integral part of the
+                    distribution and may change between versions, so this file
+                    should be kept in its original location to facilitate
+                    future updates.
+                    </td>
+            </tr>
+            <tr>
+                <th bgcolor="#ffffe0" align="left" valign="top">build.properties</th>
+                <td>This controls which project files are compiled, and which
+                    classes are included in your custom build.  This file can
+                    be copied into your own project location.</td>
+            </tr>
+            <tr>
+                <th bgcolor="#ffffe0" align="left" valign="top">deploy.properties</th>
+                <td>The settings here determine where your server and all its
+                    support files are sent.  This file can be copied into your
+                    own project location.</td>
+            </tr>
+        </table>
+
+        <h2>Changing the Project Location</h2>
+
+        <p>
+        The <em>build.xml</em> file by default executes from the distribution
+        location.  To override this, set the <tt><em>basedir</em></tt>
+        property when starting Ant.
+        </p>
+
+        <p>
+        For example, say your project directory is located in
+        <em>/Projects/coolserver</em> and your Tynamo&trade; distribution is
+        located in <em>/tynamo-1.0</em>.  The two ways of setting this as your
+        base project directory are as follows:
+        </p>
+        <ol>
+        <li>
+        Change to <em>/Projects/coolserver</em> and execute:
+        <pre style="background-color: #f0f0ff">ant -Dbasedir=. -f /tynamo-1.0/build.xml</pre>
+        OR:
+        </li>
+        <li>
+        <pre style="background-color: #f0f0ff">ant -Dbasedir=/Projects/coolserver -f /tynamo-1.0/build.xml</pre>
+        </li>
+        </ol>
+
+        <h2>Customizing Your Build</h2>
+
+        <p>
+        The steps below will guide you through an example setup.  A directory
+        named <em>/Projects/coolserver</em> is used as the project root, and
+        <em>/tynamo-1.0</em> is used as the location of your Tynamo&trade;
+        distribution.  These can be changed, of course, to suit your needs.
+        </p>
+
+        <ol>
+        <li class="spaced">
+            Create <em>/Projects/coolserver</em> and then create the following
+            subdirectories:
+            <ul style="background-color: #f0f0ff">
+            <li>src</li>
+            <li>tini</li>
+            <li>tini/bin</li>
+            <li>tini/http-root</li>
+            <li>tini/logs</li>
+            </ul>
+            </li>
+            <p>
+            Everything underneath <em>tini/</em> is intended to be transferred
+            to your TINI server.
+            </p>
+        <li class="spaced">
+            Copy <em>build.properties</em> and <em>deploy.properties</em> from
+            the distribution to the project root.
+            </li>
+        <li class="spaced">
+            Copy the files from <em>tini/bin/</em> in the distribution into
+            <em>tini/bin/</em> in the project root.  The list should include
+            <em>webserver.props</em>, <em>servlets.props</em>, <em>mimeTypes.props</em>
+            and possibly the <em>WebServer</em> script.  Next, modify these to
+            suit your needs.
+            <p>
+            You don't need to copy the <em>.tini</em> binaries from the
+            default distribution because you will be building your own.
+            </p>
+            </li>
+        <li class="spaced">
+            Place all your HTML, images, and web-accessible resources
+            underneath <em>tini/http-root/</em> in the project root.
+            </li>
+        <li class="spaced">
+            Place all your source code underneath <em>src/</em> in the project
+            root.
+            </li>
+        <li class="spaced">
+            In <em>build.properties</em>, add <tt>src</tt> to the
+            <tt>src.paths</tt> list, and add your source files to the
+            <tt>src.files</tt> list.
+            </li>
+        <li class="spaced">
+            Finally, start Ant with the <tt>basedir</tt> property set to the
+            project root, as described above.</li>
+        </ol>-->
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

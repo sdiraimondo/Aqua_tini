@@ -1,0 +1,103 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Get Started Right Away</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Get Started <em>Right Away</em></td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        If you want to deploy the Tynamo&trade; server and try it out right
+        away, without having to build and configure your own servlets, then
+        this guide is for you.  There are a number of example servlets already
+        included in the default build process.
+        </p>
+
+        <h2>Steps</h2>
+
+        <ol>
+        <li class="spaced">
+            First, install the latest versions of <a href="http://ant.apache.org/">Ant</a>
+            and <a href="http://jakarta.apache.org/commons/net/index.html">Jakarta Commons/Net</a>.
+            There are some brief instructions in the <a href="tutorial.html#li0">Tutorial</a>.
+            </li>
+        <li class="spaced">
+            Next, ensure your TINI is properly set up, and then modify the
+            <em>deploy.properties</em> file to point to the TINI's address.
+            For example, if the address is <tt>192.168.0.7</tt>, then change
+            the <code>deploy.server</code> line to read:
+            <blockquote class="example">
+            <pre>deploy.server=192.168.0.7</pre>
+            </blockquote>
+
+            If the login and password are something other than <tt>root</tt>
+            and <tt>tini</tt>, then change the <code>deploy.userid</code> and
+            <code>deploy.password</code> lines as well.
+            </li>
+        <li class="spaced">
+            On the command line, change to the directory where this distribution
+            was installed and type:
+            <blockquote class="example">
+            <pre>ant clean build deploy</pre>
+            </blockquote>
+            If Ant was correctly installed, then the <em>build.xml</em> script
+            will be executed and a binary named <em>webserver.tini</em> will
+            be created in the <em>tini/bin/</em> directory, after which all
+            the necessary files will be transferred to the TINI.
+            </li>
+        <li class="spaced">
+            Lastly, telnet to the TINI and type:
+            <blockquote class="example">
+            <pre>source /web/bin/WebServer</pre>
+            </blockquote>
+
+            The webserver will start and listen to requests on port 80.  Try
+            navigating to the following URL with your browser, after replacing
+            the address with the correct value:
+            <blockquote class="example">
+            <pre>http://192.168.0.7/</pre>
+            </blockquote>
+
+            You should see a page similar to the following:
+
+            <p class="centered">
+            <img title="Screen Capture" src="images/capture.png" alt="[Screen Capture]" width="400" height="230" />
+            </p>
+            </li>
+        </ol>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

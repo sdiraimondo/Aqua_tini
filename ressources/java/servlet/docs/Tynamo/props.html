@@ -1,0 +1,382 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Server Configuration</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Server Configuration</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        This document describes properties that are used to configure the server
+        and servlet container.  The file containing these properties is found by
+        specifying its location as the first argument to the program's main entry
+        point.
+        </p>
+
+        <p>There are three subsections:</p>
+
+        <ul>
+        <li><a href="#server">Server Properties</a></li>
+        <li><a href="#logging">Logging Properties</a></li>
+        <li><a href="#servlet">Servlet Containter Properties</a></li>
+        </ul>
+
+        <hr />
+
+        <a name="server"></a><h2>Server Properties</h2>
+
+        <p>
+        These properties configure the HTTP server.
+        </p>
+
+        <table border="1" width="100%" cellpadding="3">
+        <tr class="tableHeader">
+            <th>Property Name</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.backlog"></a><code>server.backlog</code></td>
+            <td>-1</td>
+            <td>Specifies the connection backlog for the <code>ServerSocket</code>.
+                A value less than <code>0</code> indicates that the default value
+                should be used.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.bufferSize"></a><code>server.bufferSize</code></td>
+            <td>512</td>
+            <td>Size, in bytes, of any input or output buffers.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.hostname"></a><code>server.hostname</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>This is the default host name of the server.  If this is specified
+                and an absolute URL or "Host" header specify a different host,
+                then a <code>400 Bad Request</code> will be returned.  If this
+                property is not specified then the server will ignore the host
+                part of the request.  The servlet container, however, will make a
+                "best guess" for the server name.</td>
+        </tr>
+
+        <!--<tr valign="top">
+            <td><code><a name="server.mailhost">server.mailhost</a></code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Sets the mailhost to use for logging and for the sendmail servlet.
+                There is no default value, but this will use TININet.getMailhost()
+                if it can.</td>
+        </tr>-->
+
+        <tr valign="top">
+            <td><a name="server.maxHandlers"></a><code>server.maxHandlers</code></td>
+            <td>4</td>
+            <td>Maximum number of requests that the server will process at once.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.maxRequestURILength"></a><code>server.maxRequestURILength</code></td>
+            <td>-1</td>
+            <td>Maximum size of of the Request-URI that the server will accept.
+                The server will respond with <code>414 Request-URI Too Long</code>
+                for anything over this limit.  A negative number means there is no
+                limit.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.mimeTypesFile"></a><code>server.mimeTypesFile</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td><p>Specifies the location of the MIME types configuration file.
+                This file is a standard <em>properties</em> file that maps file
+                extensions to a MIME type.  For example, a line containing:</p>
+                <blockquote class="example">
+                <pre>.txt=text/plain</pre>
+                </blockquote>
+                <p>would map the ".txt" extension to the "text/plain" type.</p>
+                <p>Please see the <a href="mimeTypes.html">MIME Types</a>
+                document for more information.</p>
+                </td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.minGCInterval"></a><code>server.minGCInterval</code></td>
+            <td>30</td>
+            <td>Minimum number of seconds between server internal cleanup calls.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.port"></a><code>server.port</code></td>
+            <td>80</td>
+            <td>The server listens for requests on this port.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.requestTimeout"></a><code>server.requestTimeout</code></td>
+            <td>10</td>
+            <td>Number of seconds the server will wait for input from a
+                connection.  A <code>408 Request Timeout</code> will be sent after
+                this time.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.rootDir"></a><code>server.rootDir</code></td>
+            <td>/http-root</td>
+            <td>Specifies the root directory for serving files.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.sendServerHeader"></a><code>server.sendServerHeader</code></td>
+            <td>false</td>
+            <td>Indicates whether the "Server" header field will be sent with each
+                response.  The HTTP specification encourages that implementors
+                make this a configurable option ("HTTP/1.1", RFC 2616, p. 141).
+                This is a Boolean value.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.shutdownEnabled"></a><code>server.shutdownEnabled</code></td>
+            <td>false</td>
+            <td>The server can be shut down if a special password URL is
+                requested.  This property enables this feature.  This is a Boolean
+                value.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.shutdownPasswordFile"></a><code>server.shutdownPasswordFile</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>If this property is set then the special password URL is stored in
+                the specified file.  This property is only utilized if the
+                shutdown feature is enabled with <code>server.shutdownEnabled</code>.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.verbose"></a><code>server.verbose</code></td>
+            <td>false</td>
+            <td>Specifies that all the configuration properties be printed to the
+                log at startup.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.welcomeFile"></a><code>server.welcomeFile</code></td>
+            <td>index.html</td>
+            <td>Specifies the default welcome file name.  The server will look for
+                this file if a directory is specified in the Request-URI.</td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="logging"></a><h2>Logging Properties</h2>
+
+        <p>
+        These properties configure the server logging features.
+        </p>
+
+        <table border="1" width="100%">
+        <tr class="tableHeader">
+            <th>Property Name</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.logFile"></a><code>server.log.logFile</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Specifies the location of the log file.  This file will contain
+                all data passed to one of the <code>log</code> methods of the
+                server/servlet container.  Setting this property to a single dash,
+                "-", will direct all output to <code>System.out</code>.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.mailFrom"></a><code>server.log.mailFrom</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>This specifies where the emailed log files are 'from'.  This should
+                be an email address.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.mailTo"></a><code>server.log.mailTo</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Email address to which log files are sent once they reach the
+                maximum size given in the <code>server.log.maxSize</code>
+                property.<br />
+                The <code>mail.host</code> system property and the system
+                mailhost are both checked for the proper destination.
+                The <em>ipconfig</em> command or the TINI API can be used to
+                set the system mailhost.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.maxSize"></a><code>server.log.maxSize</code></td>
+            <td>10000</td>
+            <td>The log files can reach this maximum size before being sent to the
+                address specified in the <code>server.log.mailTo</code> property.
+                If the log is not mailed, then it is truncated to this length.
+                Specify something very large if you don't want the log to be
+                truncated.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.stackTraceEnabled"></a><code>server.log.stackTraceEnabled</code></td>
+            <td>false</td>
+            <td>Specifies that any logged exceptions will have their stack traces
+                printed to the log, in addition to its type and message.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="server.log.transferLogFile"></a><code>server.log.transferLogFile</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Specifies the location of the transfer log file.  This file will
+                contain details about every transaction with the server.  Setting
+                this property to a single dash, "-", will direct all output to
+                <code>System.out</code>.</td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="servlet"></a><h2>Servlet Container Properties</h2>
+
+        <p>
+        These properties configure the servlet container.
+        </p>
+
+        <table border="1" width="100%">
+        <tr class="tableHeader">
+            <th>Property Name</th>
+            <th>Default Value</th>
+            <th>Description</th>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.classpath"></a><code>servlet.classpath</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td><p>The servlet classloader will search this classpath, in
+                addition to the default and user classpaths, for servlet
+                classes <em>if</em> servlet reloading is enabled.  (See the
+                <code><a href="#servlet.reloadingEnabled">servlet.reloadingEnabled</a></code>
+                configuration property and the
+                <code><a href="building.html#include.servletReloading">include.servletReloading</a></code>
+                build property.)  If servlet reloading is required, then this property
+                should be specified.  The reason is that classes loaded from
+                the default and user paths may be cached and unavailable for
+                reloading.</p>
+                <p>Use a <code>':'</code> for the path separator on the TINI.
+                For example, a valid <code>servlet.classpath</code> setting
+                may be:</p>
+                <blockquote class="example">
+                <pre>servlet.classpath=/web/servlet/classes:/servlet/classes</pre>
+                </blockquote>
+                </td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.contextParams"></a><code>servlet.contextParams</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Specifies the <code>ServletContext</code> initialization
+                parameters, formatted as a comma-separated list of
+                <code>name=value</code> pairs.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.maxTimeBeforeDestroy"></a><code>servlet.maxTimeBeforeDestroy</code></td>
+            <td>20</td>
+            <td>When reloading a servlet, the previous instance is destroyed.
+                However, the container must wait until all requests using the
+                servlet are finished.  According to the specification, a servlet
+                container can wait for the duration of some time limit, and when
+                this time is exceeded, can destroy the servlet, even if some
+                requests are not complete.
+                <p>To quote:</p>
+                <blockquote class="quoted">
+                <p>"Before the servlet container can call the destroy method,
+                it must allow any threads that are currently running in the
+                service method of the servlet to either complete, or exceed a
+                server defined time limit, before the container can proceed
+                with calling the destroy method."</p>
+                </blockquote>
+                <p>This property specifies this time limit.  If it is zero, then
+                the container will wait indefinitely until all requests are
+                completed.  It is ignored if servlet reloading is not enabled
+                (<code><a href="#servlet.reloadingEnabled">servlet.reloadingEnabled</a></code>
+                property).</p>
+                </td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.propsFile"></a><code>servlet.propsFile</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Specifies the location of the servlet properties file.  This file
+                contains details on how the servlets are deployed.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.reloadingEnabled"></a><code>servlet.reloadingEnabled</code></td>
+            <td>false</td>
+            <td>Specifies that servlet reloading is enabled.  Please refer to the
+                <a href="#servlet.maxTimeBeforeDestroy">servlet.maxTimeBeforeDestroy</a>
+                property.  Note that this setting does not affect the
+                <a href="servletReloading.html#LoaderServlet">Loader
+                Servlet</a>.
+                </td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.sessionTimeout"></a><code>servlet.sessionTimeout</code></td>
+            <td>300</td>
+            <td>Specifies the default session timeout, in seconds.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><a name="servlet.tempdir"></a><code>servlet.tempdir</code></td>
+            <td><em>&lt;none&gt;</em></td>
+            <td>Specifies the directory to use for the
+                <code>javax.servlet.context.tempdir</code> context attribute.
+                This attribute will not be set if a valid directory is not valid,
+                or if this property is not set.</td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

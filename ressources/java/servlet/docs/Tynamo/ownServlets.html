@@ -1,0 +1,92 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Writing Your Own Servlets</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Writing Your Own Servlets</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        The process of writing your own servlets for the Tynamo&trade; server
+        does not change: you can retrieve an <code>OutputStream</code> or
+        <code>Writer</code> and output data just as you have done before; cookies
+        and session data can be stored; requests can be forwarded to, or
+        included in, another servlet.  In other words, write your servlets as
+        normal.  All servlet features are available to you.
+        </p>
+
+        <p>
+        Configuration is done via the <a href="servletProps.html">servlet
+        properties</a> file.
+        </p>
+
+        <p>
+        You must be aware of a few features and restrictions, however.  The
+        restrictions are found <a href="features.html#restrictions">here</a>,
+        and the extras are as follows:
+        </p>
+
+        <ol>
+        <li class="spaced">
+            The <code>com.qindesign.http.serverProps</code> context attribute
+            stores a <code>Hashtable</code> object from which you can access all
+            of the webserver properties.  They are read-only.  For example, you
+            can determine what the request timeout is, which port the server is
+            listening to, and the minimum time between each GC.
+            </li>
+        <li class="spaced">
+            The <code>com.qindesign.http.startTime</code> context attribute stores
+            a <code>Long</code> object indicating the time in milliseconds the
+            server was started.
+            </li>
+        <li class="spaced">
+            This server supports the "Basic" authentication scheme of
+            <a href="http://www.ietf.org/rfc/rfc2617.txt">RFC 2617</a>.  In order to
+            use this facility, extend <code>com.qindesign.servlet.AuthenticatedHttpServlet</code>
+            instead of the usual <code>javax.servlet.http.HttpServlet</code>.
+            <p>
+            Successfully authenticated requests are passed to the <code>doGet</code>
+            and <code>doPost</code> methods, and unauthorized requests are sent
+            to similarly-named <code>doUnauthorizedGet</code> and <code>doUnauthorizedPost</code>
+            methods.  Note that only the "GET" and "POST" methods are supported.
+            If there is a need for others, please let us know.</p>
+            <p>
+            An example demonstrating how to use this feature can be found in
+            the <a href="exampleServlets.html#AuthExample">example servlets</a>.
+            </p>
+            </li>
+        </ol>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

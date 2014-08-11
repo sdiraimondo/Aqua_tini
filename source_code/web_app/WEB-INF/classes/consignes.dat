@@ -1,0 +1,7 @@
+TemperatureConsigneMoins=24.0
+TemperatureConsignePlus=26.0
+ToleranceTemperature=1.0
+NiveauConsigne=3.0
+PhMoins=6.5
+PhPlus=8.0
+PhTolerance=0.5

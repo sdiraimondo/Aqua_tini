@@ -1,0 +1,98 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class lecture extends HttpServlet
+{
+
+	public void init()
+	{
+	
+  	}
+
+	public void doGet (HttpServletRequest request, HttpServletResponse res) throws ServletException, IOException 
+	{
+		res.setContentType("text/html");
+		PrintWriter out = res.getWriter();
+		
+		String nomFichier ="/usr/local/jakarta-tomcat-4.1.31/webapps/aqua/WEB-INF/classes/alarme.log";
+		String ligne;
+
+		BufferedReader entree = new BufferedReader (new FileReader(nomFichier));
+		out.println("<HTML>");
+		out.println("<HEAD>");
+		out.println("<TITLE>Paramétrage des consignes</TITLE");
+		out.println("</HEAD>");
+		out.println("<BODY>");
+		do
+		{
+			ligne = entree.readLine();
+			if(ligne != null) 
+			out.println(ligne);
+			out.println("<br>");
+		}
+		while(ligne != null);
+		entree.close();
+		
+		
+		
+		
+		
+		
+		
+	response.setContentType("application/download"); 
+        response.setHeader("Content-Disposition", "attachment;filename=\"" + nomFichier + "\""); 
+
+
+        ServletOutputStream out = response.getOutputStream(); 
+        File file = null; 
+        BufferedInputStream from = null; 
+        try 
+        { 
+          //dans mon cas le filepath et le path complet après création d'un temp file 
+          file = new File(filepath); 
+          response.setContentLength((int) file.length()); 
+          int bufferSize = 64 * 1024; 
+          long time = System.currentTimeMillis(); 
+          
+          try { 
+            from = new BufferedInputStream(new FileInputStream(file), bufferSize * 2); 
+            byte[] bufferFile = new byte[bufferSize]; 
+            for (int i = 0; ; i++) 
+            { 
+              int len = from.read(bufferFile); 
+              if (len < 0) 
+                break; 
+              out.write(bufferFile, 0, len); 
+            } 
+            out.flush(); 
+          } finally { 
+            try { from.close(); } catch (Exception e) { } 
+            try { out.close(); } catch (Exception e)  {} 
+          } 
+          time = (System.currentTimeMillis() - time) / 1000; // seconds download 
+          double kb = (file.length() * 1.0 / 1024); 
+          
+          if (file != null) 
+            file.delete(); 
+        }   catch (Exception e)   { 
+          
+          return; 
+        } finally { 
+          try {   file.delete();}   catch (Exception ex) {} 
+        }
+		
+		
+		
+		
+		
+		out.println("</BODY>");
+		out.println("</HTML>");
+		out.close();
+	}
+	
+	public String getServletInfo() 
+	{
+		return "Paramétrage des consignes";
+	}
+} 

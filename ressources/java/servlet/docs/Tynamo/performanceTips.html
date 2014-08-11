@@ -1,0 +1,190 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Servlet Performance Tips</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Servlet Performance Tips</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>This document contains tips for writing faster servlets.</p>
+
+        <ul>
+        <li class="spaced">
+            Use the request's <code>ServletOutputStream</code> rather than its
+            <code>PrintWriter</code> when you can because it avoids the extra
+            character conversion overhead.  The <code>print</code> and
+            <code>println</code> convenience methods are in both types of output.
+            In other words, use <code>getOutputStream()</code> rather than
+            <code>getWriter()</code>.  However, if you are outputting
+            data with a character set other than ISO-8859-1, then you will still
+            need to use the <code>PrintWriter</code>.
+            </li>
+        <li class="spaced">
+            Writing byte arrays are much faster than "print"ing strings.  Watch
+            out for the extra memory overhead, though, of calling the string's
+            <code>getBytes</code> method.  When using a byte array like this, it
+            is not always necessary to call this method each time the string is to
+            be printed.  The array can instead be cached in the servlet's
+            <code>init</code> method, and then freed in its <code>destroy</code>
+            method.
+            </li>
+        <li class="spaced">
+            If a parameter value is to be used more than once or twice, then avoid
+            the overhead of calling <code>getParameter</code> multiple times.
+            Instead, cache the value.  For example:
+            <blockquote class="example">
+            <pre>String param = req.getParameter("myparam");
+
+// ...Use param multiple times...</pre>
+            </blockquote>
+            </li>
+        <li class="spaced">
+            Reduce memory consumption by writing strings individually, rather than
+            concatenating them first.  This does not apply to concatenating
+            constant strings because the Java compiler already does this for you.
+            For example, this is okay:
+            <blockquote class="example">
+            <pre>out.print("One" + " Two"
+          + " Three");</pre>
+            </blockquote>
+            but this will consume more memory:
+            <blockquote class="example">
+            <pre>out.print("Value is " + someValue + ". So there");</pre>
+            </blockquote>
+            The following is equivalent, and will consume less memory:
+            <blockquote class="example">
+            <pre>out.print("Value is ");
+out.print(someValue);
+out.print(". So there.");</pre>
+            </blockquote>
+            </li>
+        <li class="spaced">
+            In order for persistent connections to work effectively, the content
+            length must be set so that one side knows when the other is finished
+            sending data.  Setting the content length whenever it is known may
+            improve performance by decreasing the number of connections a client
+            needs to make to the server.
+            </li>
+        <li class="spaced">
+            If it is known that the output is encoded strictly with the ISO-8859-1
+            character set, then outputting single characters with <code>write</code>
+            instead of <code>print</code> is slightly faster.  For example,
+            <blockquote class="example">
+            <pre>out.write('.');</pre> <p><em>vs.</em></p> <pre>out.print('.');</pre>
+            </blockquote>
+            Furthermore, printing single characters using strings is slower than
+            printing them as <code>char</code> values.  For example,
+            <blockquote class="example">
+            <pre>out.print('.');</pre> <p><em>vs.</em></p> <pre>out.print(".");</pre>
+            </blockquote>
+            </li>
+        <li class="spaced">
+            If a servlet handles form data that affects page content, an author
+            will often use the servlet to generate the entire page.  The dynamic
+            content may be only a small portion of the document, however, and the
+            servlet will spend a significant amount of time outputting static
+            content.  One option is to place the dynamic data into its own frame
+            whose content is served by the servlet, and the static data into
+            another frame served by an ordinary URL.  The static part may even
+            include form controls, but this can still be placed into an ordinary
+            HTML file.
+            <p>
+            (See <a href="http://www.coolservlets.com/developer/tips/tip02.html">Working
+            With Frames and Servlets</a>.)</p>
+            </li>
+        <li class="spaced">
+            If you override the <code>init()</code> method when creating a subclass
+            of <code>HttpServlet</code> or <code>GenericServlet</code>, then call
+            <code>super.init()</code> at the start of the method.  This will cause
+            the servlet startup to be recorded in the log.
+            </li>
+        <li class="spaced">
+            Fields do not need to be initialized to their default values.  Java
+            guarantees that when the class or object is created, each field will
+            hold a well-defined default value.  Objects will default to <code>null</code>,
+            numbers to zero, and Boolean values to <code>false</code>.  For
+            example, these statements are redundant:
+            <blockquote class="example">
+            <pre>private Object myObj = null;
+private int count = 0;
+private boolean flag = false;</pre>
+            </blockquote>
+            They are exactly equivalent to:
+            <blockquote class="example">
+            <pre>private Object myObj;
+private int count;
+private boolean flag;</pre>
+            </blockquote>
+            </li>
+        </ul>
+
+        <h2>Useful Performance Links</h2>
+
+        <ul>
+        <li><a href="http://www.precisejava.com/javaperf/j2ee/Servlets.htm">Best
+            Practices to improve performance in Servlets</a> from
+            <a href="http://www.precisejava.com/">PreciseJava</a>
+            <h3>Key Points</h3>
+            <ul>
+            <li>Use init() method to cache static data</li>
+            <li>Use StringBuffer rather than using + operator when you concatenate multiple strings</li>
+            <li>Use print() method rather than println() method</li>
+            <li>Use ServletOutputStream rather than PrintWriter to send binary data</li>
+            <li>Initialize the PrintWriter with proper size</li>
+            <li>Flush the data partly</li>
+            <li>Minimize code in the synchronized block</li>
+            <li>Set the content length</li>
+            <li>Release resources in destroy() method.</li>
+            <li>Implement getLastModified() method to use browser cache and server cache</li>
+            <li>Use application server caching facility</li>
+            <li>Use Mixed session mechanisms such as HttpSession with hidden fields</li>
+            <li>Remove HttpSession objects explicitly in your program whenever you finish the task</li>
+            <li>Reduce session time out value as much as possible</li>
+            <li>Use 'transient' variables to reduce serialization overhead if your HttpSession tracking mechanism uses serialization process.</li>
+            <li>Disable servlet auto reloading feature.</li>
+            <li>Use thread pool for your servlet engine and define the size as per application requirement.</li>
+            </ul>
+            <br />
+            </li>
+        <li><a href="http://www.javaperformancetuning.com/tips/j2ee_srvlt.shtml">Servlet
+            and JSP performance tips</a> from <a href="http://www.javaperformancetuning.com/">Java
+            Performance Tuning</a>
+            </li>
+        <li><a href="http://www.coolservlets.com/developer/tips/index.html">Servlet
+            Programming Tips</a> from <a href="http://www.coolservlets.com/">CoolServlets.com</a>
+            </li>
+        </ul>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

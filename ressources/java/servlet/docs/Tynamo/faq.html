@@ -1,0 +1,311 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Tynamo(TM)-TINI FAQ</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Tynamo&trade;-TINI FAQ</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>This document contains answers to frequently asked questions about
+        Tynamo&trade;-TINI.</p>
+
+        <p>Topics:</p>
+
+        <ul>
+        <li><a href="#general">General</a></li>
+        <li><a href="#building">Building</a></li>
+        <li><a href="#deploying">Deploying</a></li>
+        <li><a href="#servlets">Servlets</a></li>
+        <li><a href="#execution">Execution</a></li>
+        </ul>
+
+        <hr />
+
+        <a name="general"></a><h2>General</h2>
+
+        <ul>
+        <li class="spaced">
+            <strong>What does 'conditionally compliant' mean?</strong>
+            <p>
+            'Conditionally compliant' means that the server satisfies a certain
+            minimum level of the requirements of the HTTP specification.
+            Please consult Section 1.2 of
+            <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec1.html#sec1.2">RFC
+            2616, Hypertext Transfer Protocol -- HTTP/1.1</a>.</p>
+            </li>
+        </ul>
+
+        <a name="building"></a><h2>Building</h2>
+
+        <ul>
+        <li class="spaced">
+            <strong>The build is reported as successful, but no binary was
+            built, and it displays this message: "<em>[tini] Could not find
+            BuildDependency. Make sure you have it in your classpath</em>".
+            What does this mean?</strong>
+            <p>
+            This usually means that Ant cannot find the TINI tools with which
+            to convert your classes into a <tt>.tini</tt> executable.  Check
+            that the <code><a href="building.html#tini.path">tini.path</a></code>
+            setting in your <em><a href="building.html#buildConfig">build.properties</a></em>
+            file is correct.  If you've used backslashes ('\'), then ensure
+            that you use two backslashes when you mean one.  For example, if
+            your TINI firmware is in <em>C:\tini1.12</em>, then specify
+            </p>
+
+            <blockquote class="example">
+            <pre>tini.path=C:\\tini1.12</pre>
+            </blockquote>
+
+            <p>
+            The reason for this is that properties files interpret the
+            backslash as an escape, changing the meaning of the following
+            character.  For example, <code>"\t"</code> represents a tab, and
+            <code>"\\"</code> represents a single backslash.
+            </p>
+
+            <p>
+            The preferred solution, however, is to use forward slashes for all
+            file separators.  For example, use
+            </p>
+
+            <blockquote class="example">
+            <pre>tini.path=C:/tini1.12</pre>
+            </blockquote>
+
+            <p>
+            instead.
+            </p>
+            </li>
+        <li class="spaced">
+            <strong>Why does Ant give me the error, 'The &lt;condition&gt; task
+            doesn't support the nested "isset" element.'?</strong>
+            <p>
+            You need to use Ant version 1.5.x or later.</p>
+            </li>
+        <li class="spaced">
+            <strong>How do I decrease the size of the <em>.tini</em> binary?</strong>
+            <p>
+            Try removing unneeded <code>OneWireContainer</code> objects from the
+            build by deleting the appropriate lines from
+            <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+            in the <em><a href="building.html#buildConfig">build.properties</a></em>
+            file.  Servlet reloading also takes up space with lots of
+            reflection information, so this can also be excluded from the
+            build.  Please see <a href="servletReloading.html#building">Building
+            Reloading into the Binary</a>.</p>
+            </li>
+        </ul>
+
+        <a name="deploying"></a><h2>Deploying</h2>
+
+        <ul>
+        <li class="spaced">
+            <strong>Why doesn't FTP work, using the <a href="deploying.html">deploy</a>
+            task or otherwise?</strong>
+            <p>
+            Try setting the FTP client to passive mode.  For the
+            <em>deploy</em> task, change
+            <tt><span class="blue">passive=</span><span class="green">"no"</span></tt>
+            to <tt><span class="blue">passive=</span><span class="green">"yes"</span></tt>
+            in all the <tt><span class="navy">&lt;ftp&gt;</span></tt> tags in
+            your <em>build.xml</em> file.</p>
+            </li>
+        </ul>
+
+        <a name="servlets"></a><h2>Servlets</h2>
+
+        <ul>
+        <li class="spaced">
+            <strong>How do I add my own 1-Wire servlet?</strong>
+            <p>
+            Well, there are two ways:</p>
+            <ol>
+            <li>You can include it via the example <a href="exampleServlets.html#OneWireServlet">OneWireServlet</a>.
+                </li>
+            <li>Alternatively, you could write your own servlet that has nothing
+                to do with the 1-Wire example, and map your own request path.
+                Please see the <a href="ownServlets.html">writing your own
+                servlets</a> document.</li>
+            </ol>
+            </li>
+        <li class="spaced">
+            <strong>How do I add support for more 1-Wire containers?</strong>
+            <p>
+            Simply add the appropriate <code>OneWireContainer</code> object to the
+            <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+            and <code><a href="building.html#reflect.classes">reflect.classes</a></code>
+            properties in the
+            <em><a href="building.html#buildConfig">build.properties</a></em>
+            file.
+            </p>
+            <p>For example, to add support for the Thermocron iButton, add
+            "OneWireContainer21" to <code>dependency.groups</code> and
+            "com.dalsemi.onewire.container.OneWireContainer21" to
+            <code>reflect.classes</code></p>
+            </li>
+        </ul>
+
+        <a name="execution"></a><h2>Execution</h2>
+
+        <ul>
+        <li class="spaced">
+            <strong>How do I make the server start faster?</strong>
+            <p>
+            Try removing unnecessary lines from the
+            <em><a href="servletProps.html">servlet.props</a></em> file.
+            </p>
+            </li>
+        <li class="spaced">
+            <strong>My logs say that my logfiles were mailed, but I don't receive
+            them.  Why is this so?</strong>
+            <p>
+            There is a very strong possibility your mailhost isn't set.  You can
+            accomplish this with the
+            <tt class="noWrap">ipconfig -h &lt;mailhost&gt;</tt> Slush
+            command.  Another possibility is that your mail server does not
+            accept mail with a "From" domain it does not recognize.</p>
+            </li>
+        <li class="spaced">
+            <strong>Why are there frequent <code>IOException</code>s in the
+            log?</strong>
+            <p>
+            If the remote connection closes its connection before the server is
+            finished reading or sending information, then an <code>IOException</code>
+            will be thrown when attempting to read from or write to the socket
+            connection.  This exception is not ignored by the server since there
+            may be other reasons for this type of error within your own servlet.
+            </p>
+            <p>
+            Now, while most errors within a servlet should be wrapped inside a
+            <code>ServletException</code>, this may not be the case, and so an
+            <code>IOException</code> may indicate a servlet problem not related
+            to the connection.</p>
+            </li>
+        <li class="spaced">
+            <strong>My server always responds with a "400 Bad Request" or "Invalid
+            host." message.</strong>
+            <p>
+            The solution is to comment out the
+            <code><a href="props.html#server.hostname">server.hostname</a></code>
+            property in the <a href="props.html#server">server configuration</a>
+            file.</p>
+            <p>
+            All HTTP/1.1 requests must have a "Host:" header in the request.  If
+            the value of this header does not match the
+            <code><a href="props.html#server.hostname">server.hostname</a></code>
+            property, then this message will be returned.  Unless you know for
+            sure that HTTP clients will be requesting this specific host, this
+            property should not be set.</p>
+            </li>
+        <li class="spaced">
+            <strong>Why does it give me the error, "Insufficient contiguous heap",
+            when trying to start the server?</strong>
+            <p>
+            The TINI doesn't handle heap fragmentation very well, so even though
+            your free memory may seem more than sufficient, there may not be a
+            continuous block of memory with sufficient space for the server.  Try
+            rebooting, and if that doesn't fix the problem, try clearing the heap
+            and reloading the application.</p>
+            <p>
+            Note: You can reboot with the '-h' option to clear the heap.</p>
+            </li>
+        <li class="spaced">
+            <strong>Why can't I find or instantiate class <i>X</i>?</strong>
+            <p>
+            If building the server for TINI firmware 1.1x, make sure to include
+            the full class name in the <code><a href="building.html#reflect.classes">reflect.classes</a></code>
+            build property.  Also, be sure to include the correct dependency group
+            in the <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+            property if needed (1-Wire classes, for example).  Lastly, ensure that
+            the syntax of each entry in the build file is correct.  For example,
+            if a list spans multiple lines, then there should be a ",\" at each
+            line break.</p>
+            <p>
+            Note that this problem can also manifest itself as a <tt>404 Not
+            Found</tt> error when trying to access a servlet that "you just
+            know is there".</p>
+            </li>
+        <li class="spaced">
+            <strong>Why are new sessions created when it should be using a
+            previously created one?</strong>
+            <p>
+            Make sure to get the session <em>before</em> calling
+            <code>getOutputStream()</code>.  The reason is that session IDs
+            are usually stored in the headers, and a call to
+            <code>getOutputStream()</code> does not allow any more headers to
+            be sent.  This is what is meant by a "committed response".</p>
+            </li>
+        <li class="spaced">
+            <strong>Why am I getting a <code>NullPointerException</code> when
+            constructing a new <code>URL</code> object?</strong>
+            <p>
+            First, make sure that the appropriate URL handler classes are
+            included in the build (see
+            <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+            and
+            <code><a href="building.html#reflect.classes">reflect.classes</a></code>).
+            If this does not solve the problem, then make sure you are using
+            firmware 1.12 or later.
+            </p>
+            <p>
+            There is a bug inside the algorithm that looks for appropriate
+            handler classes for <code>URL</code>s.  It exists in firmware
+            versions 1.11, 1.02f, and earlier.  It is fixed in firmware 1.12.
+            </p>
+            </li>
+        <li class="spaced">
+            <strong>Why is a <code>MalformedURLException</code> being thrown
+            when creating a new <code>URL</code> object?</strong>
+            <p>
+            A <code>MalformedURLException</code> is thrown when the string
+            could not be parsed as a valid URL, or a valid protocol
+            <em>implementation</em> could not be found.  First check that the
+            string is correct.  Next, ensure that the proper protocol handler
+            classes are included, either in your source, or in the dependency
+            classes.</p>
+            <p>
+            For example, to support the "http" protocol, add "HTTP" to the
+            <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+            build property and "com.dalsemi.protocol.http.Handler" to
+            <code><a href="building.html#classes.classes">reflect.classes</a></code>.
+            </p>
+            <p>
+            In other words, if you're sure the URL is correct, then some
+            classes are probably missing from the build.</p>
+            </li>
+        </ul>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

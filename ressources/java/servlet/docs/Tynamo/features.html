@@ -1,0 +1,157 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Tynamo(TM)-TINI Features &amp; Restrictions</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Features &amp; Restrictions</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>This server was written with two things in mind:</p>
+
+        <ol>
+        <li><strong>Compliance</strong> with the specifications, and</li>
+        <li><strong>Efficiency:</strong> High speed &amp; Low memory usage</li>
+        </ol>
+
+        <p>Every design decision in this project considered these two points.</p>
+
+        <p>
+        Below are listed the <a href="#features">notable features</a> and
+        <a href="#restrictions">minor restrictions</a> of this server.
+        </p>
+
+        <hr />
+
+        <a name="features"></a><h2>Notable Features</h2>
+
+        There are a number of features that serparate this server from the pack.
+        These include:
+
+        <ul>
+        <li>Conditionally HTTP/1.1 compilant.</li>
+        <li>Servlet 2.2 compilant (minus some minor things specified in
+            <a href="#restrictions">restrictions</a>).</li>
+        <li>Persistent connections.</li>
+        <li>Understands the "Chunked" transfer-coding.</li>
+        <li>Basic authentication.</li>
+        <li>Multiline headers.</li>
+        <li>Support for nonstandard HTTP methods.</li>
+        <li>URL rewriting for sessions.</li>
+        <li>Quoted cookie values.</li>
+        <li>Authenticated GET and POST servlets do not require any change to the
+            code other than changing the superclass from <code>HttpServlet</code>
+            to <code>AuthenticatedHttpServlet</code>.</li>
+        <li>Remote server shutdown.</li>
+        <li>Optional servlet reloading for firmware 1.1 and above.</li>
+        <li>Pays attention to <code>UnavailableException</code>s.</li>
+        <li>The author's goal is compilance with the specifications.</li>
+        </ul>
+
+        <hr />
+
+        <a name="restrictions"></a><h2>Restrictions</h2>
+
+        <p>
+        This server was designed explicitly for the TINI, a very powerful,
+        yet small, embedded device.  Hence, there are a few minor restrictions
+        that must be considered and accounted for in your designs.
+        </p>
+
+        <h3>Servlet 2.2 Restrictions</h3>
+
+        <ul>
+        <li>Response buffer size of 0.  This means that simply retrieving an
+            output stream or writer will commit the response.</li>
+        <li>No relative URLs permitted in <code>HttpServletResponse.sendRedirect</code>.</li>
+        <li>The response is not "closed" after <code>HttpServletResponse.sendError</code>,
+            <code>HttpServletResponse.sendRedirect</code>,
+            <code>RequestDispatcher.forward</code>, or when the amount of
+            content specified in the "Content-Length" header has been written to
+            the response.<br />
+            Except for the case of exceeding the specified content length,
+            there are no checks performed that catch a servlet writing out
+            content after these events.</li>
+        <li>No JSP.</li>
+        <li>Currently only one <code>ServletContext</code> for all requested paths.</li>
+        <li>Must add cookies and sessions <em>before</em> the response is committed.</li>
+        <li>Does not pay attention to the time indicated by <code>UnavailableException</code>.
+            A "Retry-After" header is sent during when servicing, but the container
+            does not wait to recreate the servlet for another request during
+            initialization.</li>
+        <li>The <code>javax.servlet.context.tempdir</code> context attribute is
+            not set if a valid directory is not specified in the <code>servlet.tempdir</code>
+            configuration property.</li>
+        <li>Any class a servlet uses is a candidate for dynamic classloading,
+            however, only the servlet class is checked for freshness.  In other
+            words, classes are only reloaded when the servlet class changes.</li>
+        <li>When servlet reloading is enabled, servlet authors should take care to
+            stop all threads and clean up any resources in the <code>destroy</code>
+            method.  The reason is that <code>TINIClassLoader.unloadClasses</code>
+            is used when a servlet is reloaded, and this forces all the class
+            memory to be cleared, potentially causing other objects to point to
+            invalid references.</li>
+        <li>When servlet reloading is <em>not</em> enabled, the <code>destroy</code>
+            method is called on a servlet immediately after a permanent
+            <code>UnavailableException</code> is detected.  This means that the
+            servlet author should take care to properly synchronize and manage any
+            resources used during the <code>service</code> method.</li>
+        <li>There is a similar note for when the server is shut down.  When
+            servlet reloading is not enabled, the <code>destroy</code> method is
+            called immediately, and any threads running in the <code>service</code>
+            method are not given a chance to complete.  In other words, the
+            <em>server defined time limit</em> is zero.</li>
+        </ul>
+
+        <h3>HTTP/1.1 Restrictions</h3>
+
+        <ul>
+        <li>The "Expect" header is not supported.</li>
+        <li>Path parameters are only allowed at the end of a path.</li>
+        <li>Persistent connections are not used with the "chunked" transfer
+            encoding.</li>
+        </ul>
+
+        <h3>Misc. Notes</h3>
+
+        <ul>
+        <li>If a different crystal is used to drive the TINI, then the server time
+            will not always be correct.  This is because the timekeeping mechanism
+            relies on <code>TINIOS.uptimeMillis()</code> and not
+            <code>System.currentTimeMillis()</code>.  The second method uses the
+            real-time clock and will be correct always, but it is also much
+            slower.</li>
+        </ul>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

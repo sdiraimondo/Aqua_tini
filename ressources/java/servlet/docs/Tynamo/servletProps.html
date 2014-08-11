@@ -1,0 +1,290 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Servlet Configuration Properties</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Servlet Configuration Properties</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        This document describes how to configure servlets.  The conventions used
+        are the same as those defined in Sections 10 &amp; 13 of the Servlet 2.2
+        <a href="http://java.sun.com/products/servlet/2.2/">Specification</a>
+        ("Mapping Requests to Servlets" &amp; "Deployment Descriptor").
+        </p>
+
+        <p>
+        The server looks for a configuration file specified by the
+        <code><a href="props.html#servlet.propsFile">servlet.propsFile</a></code>
+        property.  (In the <a href="props.html#servlet">Servlet Properties</a>
+        section of the server configuration file.)  Note that a smaller file
+        takes less time to load, so if there are few unnecessary lines in the
+        file, then the server will start faster.  For example, references to
+        servlets that are not built into the <em>.tini</em> binary can be
+        removed safely.
+        </p>
+
+        <p>
+        It should be stated first that there is only one servlet context, and that
+        all the servlets defined here are within this scope.  This means two
+        things.  First, that each servlet shares the same context initialization
+        parameters and attributes, and second, that each servlet is known to all
+        others via a named request dispatcher.
+        </p>
+
+        <p>There are five subsections:</p>
+
+        <ul>
+        <li><a href="#mapping">Specifying a Mapping</a></li>
+        <li><a href="#class">Servlet Code</a></li>
+        <li><a href="#initParams">Initialization Parameters</a></li>
+        <li><a href="#loadOnStartup">Servlet Creation</a></li>
+        <li><a href="#defaultServlet">Configuring the Default Servlet</a></li>
+        </ul>
+
+        <!--<p>
+        Section 13 of the Servlet 2.2
+        <a href="http://java.sun.com/products/servlet/2.2/">specification</a>,
+        "Deployment Descriptor", describes a way to configure servlets and the
+        servlet container.  The properties file used to configure the servlets
+        tries to stick as close as possible to the naming conventions used there.
+        </p>-->
+
+        <hr />
+
+        <a name="mapping"></a><h2>Specifying a Mapping</h2>
+
+        <p>Specifying a mapping is as simple as declaring:</p>
+        <blockquote class="example">
+        <pre><em>&lt;servlet name&gt;</em>.mapping=<em>&lt;path&gt;</em></pre>
+        </blockquote>
+        <p>where <code><em>&lt;path&gt;</em></code> is the URL path used to access
+        the servlet and <code><em>&lt;servlet name&gt;</em></code> is an internal
+        pointer to the servlet object.  The name can be anything you like, and
+        does not have to match the servlet's classname.  Note that servlets
+        can be accessed by their name from a "named request dispatcher".</p>
+
+        <p>
+        All the rules for finding a particular servlet based on the requested URI
+        follow those outlined in Section 10 "Mapping Requests to Servlets" in the
+        specification.  Additionally, there is a default servlet provided for
+        those paths that do not map to any servlet.
+        </p>
+
+        <p>
+        All servlets must have a mapping, even if it is blank.  Those that don't
+        are ignored by the servlet container.  Blank mappings make the servlet
+        only accessible to a RequestDispatcher, from inside another servlet.
+        </p>
+
+        <p>
+        For example, say you want to access <em>MyUsefulServlet</em> via
+        "http://<em>tini_address</em>/servlet/useful".  The proper mapping
+        would be:
+        </p>
+        <blockquote class="example">
+        <pre>MyUsefulServlet.mapping=/servlet/useful</pre>
+        </blockquote>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="class"></a><h2>Servlet Code</h2>
+
+        <p>Specify the classname for a servlet with this line:</p>
+        <blockquote class="example">
+        <pre><em>&lt;servlet name&gt;</em>.class=<em>&lt;classname&gt;</em></pre>
+        </blockquote>
+        <p>where <code><em>&lt;classname&gt;</em></code> is the full classname of a
+        class that implements the <code>javax.servlet.Servlet</code> interface.
+        (Note that by subclassing <code>javax.servlet.http.HttpServlet</code>, you
+        are still meeting this condition.)</p>
+
+        <p>
+        It is possible for more than one servlet to share the same class.  If the
+        same class is being used by more than one servlet, then a new instance
+        will be created for each.
+        </p>
+
+        <p>
+        For example, the class for <em>MyUsefulServlet</em> may be:
+        </p>
+        <blockquote class="example">
+        <pre>MyUsefulServlet.class=com.something.servlet.TaskServlet</pre>
+        </blockquote>
+
+        <h3>Important Note</h3>
+
+        <p>
+        If your servlets are used with TINI firmware 1.10 or later, then you must
+        include reflection information in the build.  The reason is that the
+        servlet container uses <code>Class.forName</code>, and this method only
+        works properly if reflection information is included.  You only need,
+        however, to include servlet classes in the list.
+        </p>
+
+        <p>
+        You can include reflection information by listing each servlet's full
+        class name in the <code>reflect.classes</code> property inside the
+        <code>build.properties</code> file.  The names should be separated by
+        commas.
+        </p>
+
+        <h3>Aliases</h3>
+
+        <p>
+        There is a second way to specify that a servlet uses the same class as
+        another.  Using the <code>.aliasFor</code> tag specifies that the servlet
+        share the <em>same instance</em> of the class used by the aliased servlet.
+        </p>
+
+        <p>The syntax for this property is:</p>
+        <blockquote class="example">
+        <pre><em>&lt;servlet name&gt;</em>.aliasFor=<em>&lt;aliased servlet name&gt;</em></pre>
+        </blockquote>
+        <p>where <code><em>&lt;aliased servlet name&gt;</em></code> is the servlet
+        whose class instance is shared by
+        <code><em>&lt;servlet name&gt;</em></code>.</p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="initParams"></a><h2>Initialization Parameters</h2>
+
+        <p>Use the <code>.initParams</code> tag to specify any initialization
+        parameters for the servlet.  Each parameter is of the form
+        <code><em>&lt;name&gt;</em>=<em>&lt;value&gt;</em></code>, and separated
+        by commas:</p>
+        <blockquote class="example">
+        <pre><em>&lt;servlet name&gt;</em>.initParams=<em>&lt;name1&gt;</em>=<em>&lt;value1&gt;</em>,<em>&lt;name2&gt;</em>=<em>&lt;value2&gt;</em>,...</pre>
+        </blockquote>
+
+        <p>For example:</p>
+        <blockquote class="example">
+        <pre>MyUsefulServlet.initParams=color=blue,rotate=left</pre>
+        </blockquote>
+
+        <p>These parameters are accessed in the usual manner from a servlet's
+        <code>ServletConfig</code> object.  Please consult the servlet
+        documentation for more details.</p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="loadOnStartup"></a><h2>Servlet Creation</h2>
+
+        <p>
+        Servlets are normally loaded and initialized when they are first used.
+        To load and initialize a servlet when the server starts, however,
+        simply specify a value of <code>true</code> for the <code>.loadOnStartup</code>
+        tag:
+        </p>
+        <blockquote class="example">
+        <pre><em>&lt;servlet name&gt;</em>.loadOnStartup=true</pre>
+        </blockquote>
+
+        <p>
+        Loading a servlet on server startup is useful when certain tasks need
+        to be executed at this time.  For example, perhaps a PPP connection
+        over a modem needs to be established to connect the TINI to the
+        network.  Or, perhaps a servlet takes a while to initialize; it may be
+        best to load it when the server starts to avoid any delays when
+        accessing it for the first time.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="defaultServlet"></a><h2>Configuring the Default Servlet</h2>
+
+        <p>
+        The "default servlet" is the servlet that gets called when no other
+        servlet can be found that matches the requested resource.  For
+        example, if no servlet mapping has been specified for
+        <em>/my/requested/resource</em>, then a request for this is passed to
+        the default servlet.
+        </p>
+
+        <p>
+        The default servlet that is included in Tynamo&trade; has one configuration
+        option that allows directory listings to be viewed.  In order to set this
+        option, the servlet must be included in the servlet properties file like
+        this:
+        </p>
+
+        <blockquote class="example">
+        <pre>default.mapping=/
+default.class=com.qindesign.servlet.DefaultServlet
+default.initParams=canBrowseDirs=true
+default.loadOnStartup=true</pre>
+        </blockquote>
+
+        <p>
+        A few notes of explanation are worthwhile:
+        </p>
+        <ul>
+        <li>The name of the servlet is "default" in the above configuration, but
+            can be anything you like.  The servlet container knows this is the
+            default servlet because of a mapping value of '/', not because of the
+            name.</li>
+        <li>The directory browsing option is configured with the "canBrowseDirs"
+            init. parameter.</li>
+        <li>The "loadOnStartup" option is not required, and will default to a
+            value of <code>false</code>.  It is often the case that a web server
+            will be used at least once for loading a file (eg. HTML), so loading
+            this servlet on startup will speed up the first access.</li>
+        <li>It is possible to use another class for the default servlet, but it
+            may not recognize the same configuration options.</li>
+        </ul>
+
+        <h3><code>canBrowseDirs</code></h3>
+
+        If this is set to <code>true</code> then the servlet will allow a browser
+        to view the directory contents of those directories that do not contain a
+        welcome file (usually <em>index.html</em>).
+
+        <p>
+        The default is <code>false</code>.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

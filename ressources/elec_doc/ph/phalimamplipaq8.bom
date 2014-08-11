@@ -1,0 +1,186 @@
+ACCEL Bill of Materials                              phalimamplipaq8.sch
+
+========================================================================
+
+File Design Information:
+
+Title:    Capteur et ampli Ph
+Author:   CV /JS
+Date:     01/10/02
+Revision: 1.9
+
+
+Type              Pattern           Value                Designators
+------------------------------------------------------------------------
+
+BORNIER2          BORNIER2                               J1 
+Qty = 1
+
+ISFET             BORNIER4                               U3 
+Qty = 1
+
+CAP100            CAP100            68 pF                C1 
+Qty = 1
+
+CAP-CERAM-200     CAP200            0.1uF/100v           C3 C4 
+Qty = 2
+
+CAP-CHIM-R2       CAP200RP          1uF/10v              C5 
+Qty = 1
+
+CAP250RP          CAP250RP          100 uF/16V           C2 
+Qty = 1
+
+TESTPOINT         COSSE-POIGNARD                         TP1 TP2 TP3 
+                                                         TP4 TP5 TP6 
+                                                         TP7 TP8 TP9 
+                                                         TP10 
+Qty = 10
+
+DIN2X32MC         DIN64MC                                J2 
+Qty = 1
+
+TS942             DIP8                                   U2 U5 U7 
+Qty = 3
+
+TL497             DIP14                                  U1 
+Qty = 1
+
+ZENER             DO-7              5V1                  D3 
+Qty = 1
+
+DIODE             DO-35             1N4148               D2 
+Qty = 1
+
+1N4004            DO-41             {Value}              D1 
+Qty = 1
+
+IND               IND400            100 uH               L1 
+------------------------------------------------------------------------
+
+14-Oct-02  21:43                                              Page    1
+
+ACCEL Bill of Materials                              phalimamplipaq8.sch
+
+========================================================================
+
+
+Qty = 1
+
+POTH              POT1H             5K                   P4 
+Qty = 1
+
+                                    20K                  P2 P3 
+Qty = 2
+
+                                    50K                  P5 
+Qty = 1
+
+                                    500                  P1 
+Qty = 1
+
+R025W             RES1/4W           1.2k                 R3 R6 
+Qty = 2
+
+                                    1.8                  R1 
+Qty = 1
+
+                                    2.7k                 R5 
+Qty = 1
+
+                                    4.7k                 R15 
+Qty = 1
+
+                                    5.6k                 R2 
+Qty = 1
+
+                                    8.2k                 R18 
+Qty = 1
+
+                                    10k                  R8 R10 
+Qty = 2
+
+                                    12k                  R7 R16 
+Qty = 2
+
+                                    27k                  R4 
+Qty = 1
+
+                                    100k                 R11 R12 R13 
+                                                         R14 
+Qty = 4
+
+                                    150k                 R17 
+Qty = 1
+
+                                    680                  R9 
+Qty = 1
+
+CAVAL             SIL3              {Value}              I1 
+Qty = 1
+------------------------------------------------------------------------
+
+14-Oct-02  21:43                                              Page    2
+
+ACCEL Bill of Materials                              phalimamplipaq8.sch
+
+========================================================================
+
+
+
+LM334             TO92M                                  U4 U6 
+Qty = 2
+
+LM385             TO92N             {Value}              U8 
+Qty = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------
+
+14-Oct-02  21:43                                              Page    3
+

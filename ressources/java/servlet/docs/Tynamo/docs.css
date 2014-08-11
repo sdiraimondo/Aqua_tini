@@ -1,0 +1,45 @@
+/*
+ * Stylesheet for Tynamo(TM)-TINI documentation.
+ *
+ * (c) 2003-2004 Shawn Silverman
+ */
+
+body { font-family: Verdana, sans-serif; background-color: black }
+
+a.menu:link { text-decoration:none; color: yellow; background-color: transparent }
+a.menu:visited { text-decoration:none; color: yellow; background-color: transparent }
+a.menu:hover { color: red; background-color: transparent }
+
+table.centered { margin: auto }
+
+td.logo { border: dashed black 1px; background-color: white }
+td.header { background-color: yellow }
+td.headerTitle { white-space: nowrap; font-size: 2em; font-weight: bold }
+td.menu { border: solid yellow; border-width: 2px 0px; background-color: black; font-size: 0.83em }
+td.mainContent { padding: 1em 0.33em 1em 1em; background-color: white }
+td.footer { background-color: white }
+tr.tableHeader, th.tableHeader, td.tableHeader { background-color: #ffffe0 }
+
+li.spaced { margin: 1.33em 0 }
+dt.spaced { margin: 1.33em 0 0 0 }
+ol.alpha { list-style-type: upper-alpha }
+img.linked { border: none; vertical-align: middle }
+img.footerLogo { vertical-align: top }
+p.centered { text-align: center }
+p.rightAligned { text-align: right }
+p.noMargin { margin: 0 }
+
+pre.sourceCode { font-size: smaller }
+blockquote.sourceCode { background-color: #f0f0f0 }
+blockquote.renderedHTML { background-color: #f0f0f0; border: solid black 1px }
+
+.example { background-color: #f0f0ff }
+.quoted { background-color: #f0f0f0 }
+
+.red { color: red }
+.green { color: green }
+.blue { color: blue }
+.navy { color: navy }
+
+.noWrap { white-space: nowrap }
+.smallCaps { font-variant: small-caps }

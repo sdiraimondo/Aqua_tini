@@ -1,0 +1,329 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Provided Example Servlets</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Provided Example Servlets</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        There are a number of example servlets, with source code, provided
+        with this distribution.  This document explains and discusses how to
+        use each one.
+        </p>
+
+        <p>
+        Please note that not all the example servlets will be built into your
+        binary if you include the <code>ExampleServlets</code> dependency
+        group (see <a href="building.html#ownClasses">Including Your Own
+        Classes</a> and <code><a href="building.html#dependency.groups">dependency.groups</a></code>)
+        in your <a href="building.html#buildConfig">build.properties</a> file.
+        Consult the <em>examples/servlet_examples_dep.txt</em> file in the
+        distribution for the correct dependency group.
+        </p>
+
+        <ol>
+        <li><a href="#SendMail">SendMail</a></li>
+        <li><a href="#Shutdown">Shutdown</a></li>
+        <li><a href="#AuthExample">AuthExample</a></li>
+        <li><a href="#OneWireServlet">OneWireServlet</a></li>
+        <li><a href="#RequestInfo">RequestInfo</a></li>
+        <li><a href="#TiniInfo">TiniInfo</a></li>
+        <li><a href="#FastOneWireServlet">FastOneWireServlet</a></li>
+        <li><a href="#SimpleOneWireServlet">SimpleOneWireServlet</a></li>
+        <li><a href="#LogViewer">LogViewer</a></li>
+        <li><a href="#ServerPush">ServerPush</a></li>
+        </ol>
+
+        <a name="SendMail"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.SendMailServlet</th>
+        </tr>
+        <tr>
+            <td>
+                <p>Sends mail to a single address specified by the init. parameter,
+                <code>mailTo</code>.  Mail is sent via a POST request and there
+                are four parameters.  They are:</p>
+                <ol>
+                <li><code>from</code> &ndash; the sender's address.</li>
+                <li><code>subject</code> &ndash; the subject line.</li>
+                <li><code>content</code> &ndash; the message content.</li>
+                <li><code>nextPath</code> &ndash; location to forward the request once the
+                    mail is sent.</li>
+                </ol>
+                <p>All four parameters are optional, however, not including any of
+                the information is probably of limited value.</p>
+                <p>It is required that both the <code>mailTo</code> initialization
+                parameter and the mailhost be set, or else this will throw a
+                ServletException.  The parameter is set in the <em>servlet.props</em>
+                file like this:</p>
+                <blockquote class="example">
+                <pre>SendMail.initParams=mailTo=some@mail.address</pre>
+                </blockquote>
+                <p>Included in the distribution are two files that make use of this
+                servlet: <em>feedback.html</em> and <em>feedback-sent.html</em>.
+                These are found in the sample <em>http-root/</em> directory.  The
+                first is a form that allows a user to fill out an email.  Once
+                this is sent, they are forwarded to the second document.</p>
+                <!--<p>If you are running the 1.1 firmware, then to compile this into
+                your application, you must include the 'MAILTO' dependency group
+                in the <a href="building.html#dependency.groups">dependency.groups</a>
+                build property.</p>-->
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="Shutdown"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.ShutdownServlet</th>
+        </tr>
+        <tr>
+            <td>
+                <p>Capable of shutting down the server.  This makes use of Basic
+                authentication to authorize a shutdown.  An initilization parameter
+                named <code>passwd</code> stores the username and password.  The
+                format is: <code>passwd=user:pass</code>.</p>
+                <p>This servlet is only capable of shutting down the server if two
+                conditions are satisfied.  First, the
+                <code><a href="props.html#server.shutdownEnabled">server.shutdownEnabled</a></code>
+                server property must be set to <code>true</code>, and second, the
+                <code><a href="props.html#server.shutdownPasswordFile">server.shutdownPasswordFile</a></code>
+                server property must be set to a valid file.  If the user passes
+                the authentication, then a link to a special shutdown URL will be
+                provided.</p>
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="AuthExample"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.AuthExampleServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Demonstrates the use of authentication in a servlet.  The username
+                &amp; password are "test" &amp; "test", and the realm is "realm".
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="OneWireServlet"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.OneWireServlet</th>
+        </tr>
+        <tr>
+            <td>
+                <p>Allows exploration of the 1-Wire network attached to the TINI.
+                This servlet allows you to drill down from the adapters, through
+                the devices, and into the internal memory of each device.</p>
+                <p>This servlet can be configured to provide alternative information
+                for each family code by specifying an "include" servlet in the list
+                of initialization parameters.  For example, here is a possible
+                snippet for a <em>servlets.props</em> file:</p>
+                <p><strong><em>[Very important NOTE: JDK 1.1, and therefore TINI,
+                does not support continuation lines with the '\' character.  Thus,
+                make sure you put the <code>initParams</code> on one line.  The
+                use of this in the following example is just for
+                illustration.]</em></strong></p>
+                <blockquote class="example">
+                <pre>#
+# Useful servlet that can explore all aspects of a 1-Wire system
+#
+OneWireServlet.mapping=/servlet/OneWireServlet
+OneWireServlet.class=com.qindesign.servlet.example.OneWireServlet
+OneWireServlet.initParams=familyCode10=TemperatureInclude,\
+                          familyCode21=TemperatureInclude,\
+                          familyCode05=SwitchInclude,\
+                          familyCode12=SwitchInclude,\
+                          familyCode1f=SwitchInclude
+#
+# Family code includes for use by OneWireServlet
+#
+TemperatureInclude.mapping=
+TemperatureInclude.class=com.qindesign.servlet.example.TemperatureInclude
+SwitchInclude.mapping=
+SwitchInclude.class=com.qindesign.servlet.example.SwitchInclude</pre>
+                </blockquote>
+                <p>Note the use of two additional servlets, one for temperature
+                and one for switches.  You can write your own family code servlets
+                simply by adding yours to the initialization parameters of this
+                servlet.  Specify
+                <code class="noWrap">familyCode<em>XX</em>=<em>&lt;servlet name&gt;</em></code>.
+                </p>
+                <p>There are two request attributes that will be passed to
+                these servlets.  These are <code>container</code> and
+                <code>queryString</code>.  The <code>container</code> attribute
+                will contain an instance of the specific container class appropriate
+                for the family code, and <code>queryString</code> will contain the
+                exact query string necessary to append to the request for access to
+                the included servlet.</p>
+                <p>In addition, there is a base <strong><code>OneWireSensorInclude</code></strong>
+                class that provides checking for a valid request, and also prints
+                a small header summarizing the name and address of the device.
+                The <code>TemperatureInclude</code> and <code>SwitchInclude</code>
+                servlets extend this class.</p>
+                <p>Please consult the source code for additional information.</p>
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="RequestInfo"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.RequestInfoServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Displays details about your HTTP request.  This includes
+                information about the Request-Line, and a list of all the
+                request headers and parameters.
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="TiniInfo"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.TiniInfoServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Displays detailed information about the TINI on which the
+                server is running.  The server uptime is also shown.
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="FastOneWireServlet"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.FastOneWireServlet</th>
+        </tr>
+        <tr>
+            <td>
+                <p>Explores the 1-Wire network connected to the TINI.  The output
+                is XML.  This means it is more easily machine-parsable than the
+                output from <a href="#OneWireServlet">OneWireServlet</a>.  It also
+                means it is a little bit faster.</p>
+                <p>The servlet is flexible in that it allows you to list adapters
+                and devices.  Please consult the source code and Javadocs for a
+                description of the request format and XML output.</p>
+                <p>To add this example to your server, add "FastOneWireServlet" to
+                the <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+                property in the <em><a href="building.html#buildConfig">build.properties</a></em>
+                file.  Also add the appropriate classname to
+                <code><a href="building.html#reflect.classes">reflect.classes</a></code>.
+                </p>
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="SimpleOneWireServlet"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.SimpleOneWireServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Shows information from one 1-Wire device.  The output is plain
+                text.  Please consult the source code and Javadocs for a
+                description of the request format and output.
+                <p>To add this example to your server, add "SimpleOneWireServlet" to
+                the <code><a href="building.html#dependency.groups">dependency.groups</a></code>
+                property in the <em><a href="building.html#buildConfig">build.properties</a></em>
+                file.  Also add the appropriate classname to
+                <code><a href="building.html#reflect.classes">reflect.classes</a></code>.
+                </p>
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="LogViewer"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.LogViewerServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Shows the current contents of the server and transfer logs.
+                This demonstrates how to use the server configuration
+                properties stored in the context attributes.
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <a name="ServerPush"></a>
+        <table border="1" cellpadding="3" width="100%">
+        <tr>
+            <th class="tableHeader">com.qindesign.servlet.example.ServerPushServlet</th>
+        </tr>
+        <tr>
+            <td>
+                Demonstrates how to send data using a "server push" technique.
+                It is known to work with the Netscape and Opera browsers, but
+                not with Internet Explorer.
+                <p>The page counts from one to the value specified in a
+                "count" parameter.</p>
+            </td>
+        </tr>
+        </table>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,3639 @@
+f_d_p7.drc:
+
+Net Class To Net Class Clearances (in   mm):
+--------------------------------------------
+Net Class Names     Pad-Pad  Pad-Line Line-Line   Pad-Via  Via-Line   Via-Via
+
+
+
+Net Clearances (In   mm):
+-------------------------
+Net Name            Pad-Pad  Pad-Line Line-Line   Pad-Via  Via-Line   Via-Via
+
+
+
+Net Class Clearances (in   mm):
+-------------------------------
+Net Class Name      Pad-Pad  Pad-Line Line-Line   Pad-Via  Via-Line   Via-Via
+
+
+
+Global Clearances (in   mm):
+----------------------------
+
+Hole-Hole Clearance:   0.33
+Silk Screen Clearance: 0.30
+
+Layer Name          Pad-Pad  Pad-Line Line-Line   Pad-Via  Via-Line   Via-Via
+
+Top                    0.30      0.30      0.30      0.30      0.30      0.30
+Bottom                 0.30      0.30      0.30      0.30      0.30      0.30
+
+DRC Report Options:
+-------------------
+
+Net List Compare:       On
+Net List Violations:    On
+Unrouted Nets:          On
+Clearance Violations:   On
+Text Violations:        On
+Silk Violations:        On
+Unconnected Pins:       On
+Copper Pour Violations: On
+Drill Violations:       Off
+Plane Violations:       Off
+
+DRC Errors:
+-----------
+
+
+COMPARING WITH NETLIST G:\gesautaq\f_d_p\fdp6.net:
+
+Netlist filename: G:\gesautaq\f_d_p\fdp6.net
+
+0 warning(s) detected.
+0 error(s) detected.
+
+NETLIST VIOLATIONS:
+
+
+0 warning(s) detected.
+0 error(s) detected.
+
+CLEARANCE VIOLATIONS:
+
+Error 1 -- Clearance Violation between:
+   * Line at ( 87.63, 83.82):( 89.54, 83.82) mm [Top layer]
+   * Pad J1-35 at ( 88.90, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 2 -- Clearance Violation between:
+   * Line at ( 87.63, 83.82):( 89.54, 83.82) mm [Top layer]
+   * Pad J1-34 at ( 88.90, 85.09) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 3 -- Clearance Violation between:
+   * Pad J2-2 at (116.84, 85.09) mm [Bottom layer]
+   * Line at (117.48, 83.82):(116.21, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 4 -- Clearance Violation between:
+   * Pad J2-2 at (116.84, 85.09) mm [Bottom layer]
+   * Line at (118.75, 85.09):(117.48, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 5 -- Clearance Violation between:
+   * Pad J2-2 at (116.84, 85.09) mm [Bottom layer]
+   * Line at (117.48, 86.36):(116.21, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 6 -- Clearance Violation between:
+   * Pad J2-2 at (116.84, 85.09) mm [Bottom layer]
+   * Line at (116.21, 86.36):(115.57, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 7 -- Clearance Violation between:
+   * Line at (118.11, 83.82):(120.65, 83.82) mm [Top layer]
+   * Pad J2-35 at (119.38, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 8 -- Clearance Violation between:
+   * Line at (118.11, 83.82):(120.65, 83.82) mm [Top layer]
+   * Pad J2-34 at (119.38, 85.09) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 9 -- Clearance Violation between:
+   * Pad J3-2 at (147.32, 85.09) mm [Bottom layer]
+   * Line at (149.23, 85.09):(147.96, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 10 -- Clearance Violation between:
+   * Pad J3-2 at (147.32, 85.09) mm [Bottom layer]
+   * Line at (147.96, 86.36):(146.69, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 11 -- Clearance Violation between:
+   * Pad J3-2 at (147.32, 85.09) mm [Bottom layer]
+   * Line at (146.69, 86.36):(146.05, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 12 -- Clearance Violation between:
+   * Pad J3-2 at (147.32, 85.09) mm [Bottom layer]
+   * Line at (147.96, 83.82):(146.69, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 13 -- Clearance Violation between:
+   * Line at (148.59, 83.82):(151.13, 83.82) mm [Top layer]
+   * Pad J3-35 at (149.86, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 14 -- Clearance Violation between:
+   * Line at (148.59, 83.82):(151.13, 83.82) mm [Top layer]
+   * Pad J3-34 at (149.86, 85.09) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 15 -- Clearance Violation between:
+   * Pad J4-2 at (177.80, 85.09) mm [Bottom layer]
+   * Line at (178.44, 83.82):(177.17, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 16 -- Clearance Violation between:
+   * Pad J4-2 at (177.80, 85.09) mm [Bottom layer]
+   * Line at (177.17, 86.36):(176.53, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 17 -- Clearance Violation between:
+   * Pad J4-2 at (177.80, 85.09) mm [Bottom layer]
+   * Line at (178.44, 86.36):(177.17, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 18 -- Clearance Violation between:
+   * Pad J4-2 at (177.80, 85.09) mm [Bottom layer]
+   * Line at (179.71, 85.09):(178.44, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 19 -- Clearance Violation between:
+   * Line at (179.07, 83.82):(181.61, 83.82) mm [Top layer]
+   * Pad J4-35 at (180.34, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 20 -- Clearance Violation between:
+   * Line at (179.07, 83.82):(181.61, 83.82) mm [Top layer]
+   * Pad J4-34 at (180.34, 85.09) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 21 -- Clearance Violation between:
+   * Pad J6-2 at (208.28, 85.09) mm [Bottom layer]
+   * Line at (210.19, 85.09):(208.92, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 22 -- Clearance Violation between:
+   * Pad J6-2 at (208.28, 85.09) mm [Bottom layer]
+   * Line at (208.92, 86.36):(207.65, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 23 -- Clearance Violation between:
+   * Pad J6-2 at (208.28, 85.09) mm [Bottom layer]
+   * Line at (207.65, 86.36):(207.01, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 24 -- Clearance Violation between:
+   * Pad J6-2 at (208.28, 85.09) mm [Bottom layer]
+   * Line at (208.92, 83.82):(207.65, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 25 -- Clearance Violation between:
+   * Line at (209.55, 83.82):(212.09, 83.82) mm [Top layer]
+   * Pad J6-35 at (210.82, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 26 -- Clearance Violation between:
+   * Line at (209.55, 83.82):(212.09, 83.82) mm [Top layer]
+   * Pad J6-34 at (210.82, 85.09) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 27 -- Clearance Violation between:
+   * Pad J5-2 at (238.76, 85.09) mm [Bottom layer]
+   * Line at (239.40, 83.82):(238.13, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 28 -- Clearance Violation between:
+   * Pad J5-2 at (238.76, 85.09) mm [Bottom layer]
+   * Line at (238.13, 86.36):(237.49, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 29 -- Clearance Violation between:
+   * Pad J5-2 at (238.76, 85.09) mm [Bottom layer]
+   * Line at (239.40, 86.36):(238.13, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 30 -- Clearance Violation between:
+   * Pad J5-2 at (238.76, 85.09) mm [Bottom layer]
+   * Line at (240.67, 85.09):(239.40, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 31 -- Clearance Violation between:
+   * Line at ( 87.63, 81.28):( 89.54, 81.28) mm [Top layer]
+   * Pad J1-35 at ( 88.90, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 32 -- Clearance Violation between:
+   * Line at ( 87.63, 81.28):( 89.54, 81.28) mm [Top layer]
+   * Pad J1-36 at ( 88.90, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 33 -- Clearance Violation between:
+   * Pad J2-3 at (116.84, 82.55) mm [Bottom layer]
+   * Line at (117.48, 83.82):(116.21, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 34 -- Clearance Violation between:
+   * Pad J2-3 at (116.84, 82.55) mm [Bottom layer]
+   * Line at (118.75, 82.55):(117.48, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 35 -- Clearance Violation between:
+   * Pad J2-3 at (116.84, 82.55) mm [Bottom layer]
+   * Line at (117.48, 81.28):(116.21, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 36 -- Clearance Violation between:
+   * Pad J2-3 at (116.84, 82.55) mm [Bottom layer]
+   * Line at (116.21, 83.82):(115.57, 83.19) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 37 -- Clearance Violation between:
+   * Line at (118.11, 81.28):(120.65, 81.28) mm [Top layer]
+   * Pad J2-35 at (119.38, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 38 -- Clearance Violation between:
+   * Line at (118.11, 81.28):(120.65, 81.28) mm [Top layer]
+   * Pad J2-36 at (119.38, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 39 -- Clearance Violation between:
+   * Pad J3-3 at (147.32, 82.55) mm [Bottom layer]
+   * Line at (149.23, 82.55):(147.96, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 40 -- Clearance Violation between:
+   * Pad J3-3 at (147.32, 82.55) mm [Bottom layer]
+   * Line at (147.96, 83.82):(146.69, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 41 -- Clearance Violation between:
+   * Pad J3-3 at (147.32, 82.55) mm [Bottom layer]
+   * Line at (146.69, 83.82):(146.05, 83.19) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 42 -- Clearance Violation between:
+   * Pad J3-3 at (147.32, 82.55) mm [Bottom layer]
+   * Line at (147.96, 81.28):(146.69, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 43 -- Clearance Violation between:
+   * Line at (148.59, 81.28):(151.13, 81.28) mm [Top layer]
+   * Pad J3-35 at (149.86, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 44 -- Clearance Violation between:
+   * Line at (148.59, 81.28):(151.13, 81.28) mm [Top layer]
+   * Pad J3-36 at (149.86, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 45 -- Clearance Violation between:
+   * Pad J4-3 at (177.80, 82.55) mm [Bottom layer]
+   * Line at (178.44, 81.28):(177.17, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 46 -- Clearance Violation between:
+   * Pad J4-3 at (177.80, 82.55) mm [Bottom layer]
+   * Line at (177.17, 83.82):(176.53, 83.19) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 47 -- Clearance Violation between:
+   * Pad J4-3 at (177.80, 82.55) mm [Bottom layer]
+   * Line at (178.44, 83.82):(177.17, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 48 -- Clearance Violation between:
+   * Pad J4-3 at (177.80, 82.55) mm [Bottom layer]
+   * Line at (179.71, 82.55):(178.44, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 49 -- Clearance Violation between:
+   * Line at (179.07, 81.28):(181.61, 81.28) mm [Top layer]
+   * Pad J4-35 at (180.34, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 50 -- Clearance Violation between:
+   * Line at (179.07, 81.28):(181.61, 81.28) mm [Top layer]
+   * Pad J4-36 at (180.34, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 51 -- Clearance Violation between:
+   * Pad J6-3 at (208.28, 82.55) mm [Bottom layer]
+   * Line at (210.19, 82.55):(208.92, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 52 -- Clearance Violation between:
+   * Pad J6-3 at (208.28, 82.55) mm [Bottom layer]
+   * Line at (208.92, 83.82):(207.65, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 53 -- Clearance Violation between:
+   * Pad J6-3 at (208.28, 82.55) mm [Bottom layer]
+   * Line at (207.65, 83.82):(207.01, 83.19) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 54 -- Clearance Violation between:
+   * Pad J6-3 at (208.28, 82.55) mm [Bottom layer]
+   * Line at (208.92, 81.28):(207.65, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 55 -- Clearance Violation between:
+   * Line at (209.55, 81.28):(212.09, 81.28) mm [Top layer]
+   * Pad J6-35 at (210.82, 82.55) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 56 -- Clearance Violation between:
+   * Line at (209.55, 81.28):(212.09, 81.28) mm [Top layer]
+   * Pad J6-36 at (210.82, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 57 -- Clearance Violation between:
+   * Pad J5-3 at (238.76, 82.55) mm [Bottom layer]
+   * Line at (239.40, 81.28):(238.13, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 58 -- Clearance Violation between:
+   * Pad J5-3 at (238.76, 82.55) mm [Bottom layer]
+   * Line at (238.13, 83.82):(237.49, 83.19) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 59 -- Clearance Violation between:
+   * Pad J5-3 at (238.76, 82.55) mm [Bottom layer]
+   * Line at (239.40, 83.82):(238.13, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 60 -- Clearance Violation between:
+   * Pad J5-3 at (238.76, 82.55) mm [Bottom layer]
+   * Line at (240.67, 82.55):(239.40, 83.82) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 61 -- Clearance Violation between:
+   * Line at ( 87.63, 78.74):( 89.54, 78.74) mm [Top layer]
+   * Pad J1-36 at ( 88.90, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 62 -- Clearance Violation between:
+   * Line at ( 87.63, 78.74):( 89.54, 78.74) mm [Top layer]
+   * Pad J1-37 at ( 88.90, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 63 -- Clearance Violation between:
+   * Pad J2-4 at (116.84, 80.01) mm [Bottom layer]
+   * Line at (117.48, 78.74):(116.21, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 64 -- Clearance Violation between:
+   * Pad J2-4 at (116.84, 80.01) mm [Bottom layer]
+   * Line at (116.21, 81.28):(115.57, 80.65) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 65 -- Clearance Violation between:
+   * Pad J2-4 at (116.84, 80.01) mm [Bottom layer]
+   * Line at (117.48, 81.28):(116.21, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 66 -- Clearance Violation between:
+   * Pad J2-4 at (116.84, 80.01) mm [Bottom layer]
+   * Line at (118.75, 80.01):(117.48, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 67 -- Clearance Violation between:
+   * Line at (118.11, 78.74):(120.65, 78.74) mm [Top layer]
+   * Pad J2-36 at (119.38, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 68 -- Clearance Violation between:
+   * Line at (118.11, 78.74):(120.65, 78.74) mm [Top layer]
+   * Pad J2-37 at (119.38, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 69 -- Clearance Violation between:
+   * Pad J3-4 at (147.32, 80.01) mm [Bottom layer]
+   * Line at (147.96, 78.74):(146.69, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 70 -- Clearance Violation between:
+   * Pad J3-4 at (147.32, 80.01) mm [Bottom layer]
+   * Line at (149.23, 80.01):(147.96, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 71 -- Clearance Violation between:
+   * Pad J3-4 at (147.32, 80.01) mm [Bottom layer]
+   * Line at (147.96, 81.28):(146.69, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 72 -- Clearance Violation between:
+   * Pad J3-4 at (147.32, 80.01) mm [Bottom layer]
+   * Line at (146.69, 81.28):(146.05, 80.65) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 73 -- Clearance Violation between:
+   * Line at (148.59, 78.74):(151.13, 78.74) mm [Top layer]
+   * Pad J3-36 at (149.86, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 74 -- Clearance Violation between:
+   * Line at (148.59, 78.74):(151.13, 78.74) mm [Top layer]
+   * Pad J3-37 at (149.86, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 75 -- Clearance Violation between:
+   * Pad J4-4 at (177.80, 80.01) mm [Bottom layer]
+   * Line at (177.17, 81.28):(176.53, 80.65) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 76 -- Clearance Violation between:
+   * Pad J4-4 at (177.80, 80.01) mm [Bottom layer]
+   * Line at (178.44, 81.28):(177.17, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 77 -- Clearance Violation between:
+   * Pad J4-4 at (177.80, 80.01) mm [Bottom layer]
+   * Line at (179.71, 80.01):(178.44, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 78 -- Clearance Violation between:
+   * Pad J4-4 at (177.80, 80.01) mm [Bottom layer]
+   * Line at (178.44, 78.74):(177.17, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 79 -- Clearance Violation between:
+   * Line at (179.07, 78.74):(181.61, 78.74) mm [Top layer]
+   * Pad J4-36 at (180.34, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 80 -- Clearance Violation between:
+   * Line at (179.07, 78.74):(181.61, 78.74) mm [Top layer]
+   * Pad J4-37 at (180.34, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 81 -- Clearance Violation between:
+   * Pad J6-4 at (208.28, 80.01) mm [Bottom layer]
+   * Line at (208.92, 78.74):(207.65, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 82 -- Clearance Violation between:
+   * Pad J6-4 at (208.28, 80.01) mm [Bottom layer]
+   * Line at (210.19, 80.01):(208.92, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 83 -- Clearance Violation between:
+   * Pad J6-4 at (208.28, 80.01) mm [Bottom layer]
+   * Line at (208.92, 81.28):(207.65, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 84 -- Clearance Violation between:
+   * Pad J6-4 at (208.28, 80.01) mm [Bottom layer]
+   * Line at (207.65, 81.28):(207.01, 80.65) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 85 -- Clearance Violation between:
+   * Line at (209.55, 78.74):(212.09, 78.74) mm [Top layer]
+   * Pad J6-36 at (210.82, 80.01) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 86 -- Clearance Violation between:
+   * Line at (209.55, 78.74):(212.09, 78.74) mm [Top layer]
+   * Pad J6-37 at (210.82, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 87 -- Clearance Violation between:
+   * Pad J5-4 at (238.76, 80.01) mm [Bottom layer]
+   * Line at (240.67, 80.01):(239.40, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 88 -- Clearance Violation between:
+   * Pad J5-4 at (238.76, 80.01) mm [Bottom layer]
+   * Line at (239.40, 81.28):(238.13, 81.28) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 89 -- Clearance Violation between:
+   * Pad J5-4 at (238.76, 80.01) mm [Bottom layer]
+   * Line at (238.13, 81.28):(237.49, 80.65) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 90 -- Clearance Violation between:
+   * Pad J5-4 at (238.76, 80.01) mm [Bottom layer]
+   * Line at (239.40, 78.74):(238.13, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 91 -- Clearance Violation between:
+   * Pad J1-39 at ( 88.90, 72.39) mm [Top layer]
+   * Line at ( 87.63, 71.12):( 89.54, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 92 -- Clearance Violation between:
+   * Pad J1-39 at ( 88.90, 72.39) mm [Top layer]
+   * Line at ( 87.63, 73.66):( 89.54, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 93 -- Clearance Violation between:
+   * Line at (116.21, 73.66):(115.57, 73.03) mm [Bottom layer]
+   * Pad J2-7 at (116.84, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 94 -- Clearance Violation between:
+   * Line at (117.48, 73.66):(116.21, 73.66) mm [Bottom layer]
+   * Pad J2-6 at (116.84, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 95 -- Clearance Violation between:
+   * Line at (117.48, 73.66):(116.21, 73.66) mm [Bottom layer]
+   * Pad J2-7 at (116.84, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 96 -- Clearance Violation between:
+   * Line at (118.75, 72.39):(117.48, 73.66) mm [Bottom layer]
+   * Pad J2-7 at (116.84, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 97 -- Clearance Violation between:
+   * Pad J2-39 at (119.38, 72.39) mm [Top layer]
+   * Line at (118.11, 73.66):(120.65, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 98 -- Clearance Violation between:
+   * Pad J2-39 at (119.38, 72.39) mm [Top layer]
+   * Line at (118.11, 71.12):(120.65, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 99 -- Clearance Violation between:
+   * Line at (146.69, 73.66):(146.05, 73.03) mm [Bottom layer]
+   * Pad J3-7 at (147.32, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 100 -- Clearance Violation between:
+   * Line at (147.96, 73.66):(146.69, 73.66) mm [Bottom layer]
+   * Pad J3-6 at (147.32, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 101 -- Clearance Violation between:
+   * Line at (147.96, 73.66):(146.69, 73.66) mm [Bottom layer]
+   * Pad J3-7 at (147.32, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 102 -- Clearance Violation between:
+   * Line at (149.23, 72.39):(147.96, 73.66) mm [Bottom layer]
+   * Pad J3-7 at (147.32, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 103 -- Clearance Violation between:
+   * Pad J3-39 at (149.86, 72.39) mm [Top layer]
+   * Line at (148.59, 73.66):(151.13, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 104 -- Clearance Violation between:
+   * Pad J3-39 at (149.86, 72.39) mm [Top layer]
+   * Line at (148.59, 71.12):(151.13, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 105 -- Clearance Violation between:
+   * Line at (177.17, 73.66):(176.53, 73.03) mm [Bottom layer]
+   * Pad J4-7 at (177.80, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 106 -- Clearance Violation between:
+   * Line at (178.44, 73.66):(177.17, 73.66) mm [Bottom layer]
+   * Pad J4-6 at (177.80, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 107 -- Clearance Violation between:
+   * Line at (178.44, 73.66):(177.17, 73.66) mm [Bottom layer]
+   * Pad J4-7 at (177.80, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 108 -- Clearance Violation between:
+   * Line at (179.71, 72.39):(178.44, 73.66) mm [Bottom layer]
+   * Pad J4-7 at (177.80, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 109 -- Clearance Violation between:
+   * Pad J4-39 at (180.34, 72.39) mm [Top layer]
+   * Line at (179.07, 73.66):(181.61, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 110 -- Clearance Violation between:
+   * Pad J4-39 at (180.34, 72.39) mm [Top layer]
+   * Line at (179.07, 71.12):(181.61, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 111 -- Clearance Violation between:
+   * Line at (207.65, 73.66):(207.01, 73.03) mm [Bottom layer]
+   * Pad J6-7 at (208.28, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 112 -- Clearance Violation between:
+   * Line at (208.92, 73.66):(207.65, 73.66) mm [Bottom layer]
+   * Pad J6-6 at (208.28, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 113 -- Clearance Violation between:
+   * Line at (208.92, 73.66):(207.65, 73.66) mm [Bottom layer]
+   * Pad J6-7 at (208.28, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 114 -- Clearance Violation between:
+   * Line at (210.19, 72.39):(208.92, 73.66) mm [Bottom layer]
+   * Pad J6-7 at (208.28, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 115 -- Clearance Violation between:
+   * Pad J6-39 at (210.82, 72.39) mm [Top layer]
+   * Line at (209.55, 73.66):(212.09, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 116 -- Clearance Violation between:
+   * Pad J6-39 at (210.82, 72.39) mm [Top layer]
+   * Line at (209.55, 71.12):(212.09, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 117 -- Clearance Violation between:
+   * Line at (238.13, 73.66):(237.49, 73.03) mm [Bottom layer]
+   * Pad J5-7 at (238.76, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 118 -- Clearance Violation between:
+   * Line at (239.40, 73.66):(238.13, 73.66) mm [Bottom layer]
+   * Pad J5-6 at (238.76, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 119 -- Clearance Violation between:
+   * Line at (239.40, 73.66):(238.13, 73.66) mm [Bottom layer]
+   * Pad J5-7 at (238.76, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 120 -- Clearance Violation between:
+   * Line at (240.67, 72.39):(239.40, 73.66) mm [Bottom layer]
+   * Pad J5-7 at (238.76, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 121 -- Clearance Violation between:
+   * Pad J1-42 at ( 88.90, 64.77) mm [Top layer]
+   * Line at ( 87.63, 66.04):( 89.54, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 122 -- Clearance Violation between:
+   * Pad J1-42 at ( 88.90, 64.77) mm [Top layer]
+   * Line at ( 87.63, 63.50):( 89.54, 63.50) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 123 -- Clearance Violation between:
+   * Line at (116.21, 66.04):(115.57, 65.41) mm [Bottom layer]
+   * Pad J2-10 at (116.84, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 124 -- Clearance Violation between:
+   * Line at (117.48, 66.04):(116.21, 66.04) mm [Bottom layer]
+   * Pad J2-9 at (116.84, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 125 -- Clearance Violation between:
+   * Line at (117.48, 66.04):(116.21, 66.04) mm [Bottom layer]
+   * Pad J2-10 at (116.84, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 126 -- Clearance Violation between:
+   * Line at (118.75, 64.77):(117.48, 66.04) mm [Bottom layer]
+   * Pad J2-10 at (116.84, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 127 -- Clearance Violation between:
+   * Pad J2-42 at (119.38, 64.77) mm [Top layer]
+   * Line at (118.11, 66.04):(120.65, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 128 -- Clearance Violation between:
+   * Pad J2-42 at (119.38, 64.77) mm [Top layer]
+   * Line at (118.11, 63.50):(120.65, 63.50) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 129 -- Clearance Violation between:
+   * Line at (146.69, 66.04):(146.05, 65.41) mm [Bottom layer]
+   * Pad J3-10 at (147.32, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 130 -- Clearance Violation between:
+   * Line at (147.96, 66.04):(146.69, 66.04) mm [Bottom layer]
+   * Pad J3-9 at (147.32, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 131 -- Clearance Violation between:
+   * Line at (147.96, 66.04):(146.69, 66.04) mm [Bottom layer]
+   * Pad J3-10 at (147.32, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 132 -- Clearance Violation between:
+   * Line at (149.23, 64.77):(147.96, 66.04) mm [Bottom layer]
+   * Pad J3-10 at (147.32, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 133 -- Clearance Violation between:
+   * Pad J3-42 at (149.86, 64.77) mm [Top layer]
+   * Line at (148.59, 63.50):(151.13, 63.50) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 134 -- Clearance Violation between:
+   * Pad J3-42 at (149.86, 64.77) mm [Top layer]
+   * Line at (148.59, 66.04):(151.13, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 135 -- Clearance Violation between:
+   * Line at (177.17, 66.04):(176.53, 65.41) mm [Bottom layer]
+   * Pad J4-10 at (177.80, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 136 -- Clearance Violation between:
+   * Line at (178.44, 66.04):(177.17, 66.04) mm [Bottom layer]
+   * Pad J4-9 at (177.80, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 137 -- Clearance Violation between:
+   * Line at (178.44, 66.04):(177.17, 66.04) mm [Bottom layer]
+   * Pad J4-10 at (177.80, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 138 -- Clearance Violation between:
+   * Line at (179.71, 64.77):(178.44, 66.04) mm [Bottom layer]
+   * Pad J4-10 at (177.80, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 139 -- Clearance Violation between:
+   * Pad J4-42 at (180.34, 64.77) mm [Top layer]
+   * Line at (179.07, 63.50):(181.61, 63.50) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 140 -- Clearance Violation between:
+   * Pad J4-42 at (180.34, 64.77) mm [Top layer]
+   * Line at (179.07, 66.04):(181.61, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 141 -- Clearance Violation between:
+   * Line at (207.65, 66.04):(207.01, 65.41) mm [Bottom layer]
+   * Pad J6-10 at (208.28, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 142 -- Clearance Violation between:
+   * Line at (208.92, 66.04):(207.65, 66.04) mm [Bottom layer]
+   * Pad J6-9 at (208.28, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 143 -- Clearance Violation between:
+   * Line at (208.92, 66.04):(207.65, 66.04) mm [Bottom layer]
+   * Pad J6-10 at (208.28, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 144 -- Clearance Violation between:
+   * Line at (210.19, 64.77):(208.92, 66.04) mm [Bottom layer]
+   * Pad J6-10 at (208.28, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 145 -- Clearance Violation between:
+   * Pad J6-42 at (210.82, 64.77) mm [Top layer]
+   * Line at (209.55, 66.04):(212.09, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 146 -- Clearance Violation between:
+   * Pad J6-42 at (210.82, 64.77) mm [Top layer]
+   * Line at (209.55, 63.50):(212.09, 63.50) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 147 -- Clearance Violation between:
+   * Line at (238.13, 66.04):(237.49, 65.41) mm [Bottom layer]
+   * Pad J5-10 at (238.76, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 148 -- Clearance Violation between:
+   * Line at (239.40, 66.04):(238.13, 66.04) mm [Bottom layer]
+   * Pad J5-9 at (238.76, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 149 -- Clearance Violation between:
+   * Line at (239.40, 66.04):(238.13, 66.04) mm [Bottom layer]
+   * Pad J5-10 at (238.76, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 150 -- Clearance Violation between:
+   * Line at (240.67, 64.77):(239.40, 66.04) mm [Bottom layer]
+   * Pad J5-10 at (238.76, 64.77) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 151 -- Clearance Violation between:
+   * Pad J1-40 at ( 88.90, 69.85) mm [Top layer]
+   * Line at ( 87.63, 68.58):( 89.54, 68.58) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 152 -- Clearance Violation between:
+   * Pad J1-40 at ( 88.90, 69.85) mm [Top layer]
+   * Line at ( 87.63, 71.12):( 89.54, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 153 -- Clearance Violation between:
+   * Line at (116.21, 71.12):(115.57, 70.48) mm [Bottom layer]
+   * Pad J2-8 at (116.84, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 154 -- Clearance Violation between:
+   * Line at (117.48, 71.12):(116.21, 71.12) mm [Bottom layer]
+   * Pad J2-7 at (116.84, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 155 -- Clearance Violation between:
+   * Line at (117.48, 71.12):(116.21, 71.12) mm [Bottom layer]
+   * Pad J2-8 at (116.84, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 156 -- Clearance Violation between:
+   * Line at (118.75, 69.85):(117.48, 71.12) mm [Bottom layer]
+   * Pad J2-8 at (116.84, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 157 -- Clearance Violation between:
+   * Pad J2-40 at (119.38, 69.85) mm [Top layer]
+   * Line at (118.11, 71.12):(120.65, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 158 -- Clearance Violation between:
+   * Pad J2-40 at (119.38, 69.85) mm [Top layer]
+   * Line at (118.11, 68.58):(120.65, 68.58) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 159 -- Clearance Violation between:
+   * Line at (146.69, 71.12):(146.05, 70.48) mm [Bottom layer]
+   * Pad J3-8 at (147.32, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 160 -- Clearance Violation between:
+   * Line at (147.96, 71.12):(146.69, 71.12) mm [Bottom layer]
+   * Pad J3-7 at (147.32, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 161 -- Clearance Violation between:
+   * Line at (147.96, 71.12):(146.69, 71.12) mm [Bottom layer]
+   * Pad J3-8 at (147.32, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 162 -- Clearance Violation between:
+   * Line at (149.23, 69.85):(147.96, 71.12) mm [Bottom layer]
+   * Pad J3-8 at (147.32, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 163 -- Clearance Violation between:
+   * Pad J3-40 at (149.86, 69.85) mm [Top layer]
+   * Line at (148.59, 71.12):(151.13, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 164 -- Clearance Violation between:
+   * Pad J3-40 at (149.86, 69.85) mm [Top layer]
+   * Line at (148.59, 68.58):(151.13, 68.58) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 165 -- Clearance Violation between:
+   * Line at (177.17, 71.12):(176.53, 70.48) mm [Bottom layer]
+   * Pad J4-8 at (177.80, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 166 -- Clearance Violation between:
+   * Line at (178.44, 71.12):(177.17, 71.12) mm [Bottom layer]
+   * Pad J4-7 at (177.80, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 167 -- Clearance Violation between:
+   * Line at (178.44, 71.12):(177.17, 71.12) mm [Bottom layer]
+   * Pad J4-8 at (177.80, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 168 -- Clearance Violation between:
+   * Line at (179.71, 69.85):(178.44, 71.12) mm [Bottom layer]
+   * Pad J4-8 at (177.80, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 169 -- Clearance Violation between:
+   * Pad J4-40 at (180.34, 69.85) mm [Top layer]
+   * Line at (179.07, 71.12):(181.61, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 170 -- Clearance Violation between:
+   * Pad J4-40 at (180.34, 69.85) mm [Top layer]
+   * Line at (179.07, 68.58):(181.61, 68.58) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 171 -- Clearance Violation between:
+   * Line at (207.65, 71.12):(207.01, 70.48) mm [Bottom layer]
+   * Pad J6-8 at (208.28, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 172 -- Clearance Violation between:
+   * Line at (208.92, 71.12):(207.65, 71.12) mm [Bottom layer]
+   * Pad J6-7 at (208.28, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 173 -- Clearance Violation between:
+   * Line at (208.92, 71.12):(207.65, 71.12) mm [Bottom layer]
+   * Pad J6-8 at (208.28, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 174 -- Clearance Violation between:
+   * Line at (210.19, 69.85):(208.92, 71.12) mm [Bottom layer]
+   * Pad J6-8 at (208.28, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 175 -- Clearance Violation between:
+   * Pad J6-40 at (210.82, 69.85) mm [Top layer]
+   * Line at (209.55, 71.12):(212.09, 71.12) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 176 -- Clearance Violation between:
+   * Pad J6-40 at (210.82, 69.85) mm [Top layer]
+   * Line at (209.55, 68.58):(212.09, 68.58) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 177 -- Clearance Violation between:
+   * Line at (238.13, 71.12):(237.49, 70.48) mm [Bottom layer]
+   * Pad J5-8 at (238.76, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 178 -- Clearance Violation between:
+   * Line at (239.40, 71.12):(238.13, 71.12) mm [Bottom layer]
+   * Pad J5-7 at (238.76, 72.39) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 179 -- Clearance Violation between:
+   * Line at (239.40, 71.12):(238.13, 71.12) mm [Bottom layer]
+   * Pad J5-8 at (238.76, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 180 -- Clearance Violation between:
+   * Line at (240.67, 69.85):(239.40, 71.12) mm [Bottom layer]
+   * Pad J5-8 at (238.76, 69.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 181 -- Clearance Violation between:
+   * Pad J1-38 at ( 88.90, 74.93) mm [Top layer]
+   * Line at ( 87.63, 73.66):( 89.54, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 182 -- Clearance Violation between:
+   * Pad J1-38 at ( 88.90, 74.93) mm [Top layer]
+   * Line at ( 87.63, 76.20):( 89.54, 76.20) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 183 -- Clearance Violation between:
+   * Line at (116.21, 76.20):(115.57, 75.57) mm [Bottom layer]
+   * Pad J2-6 at (116.84, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 184 -- Clearance Violation between:
+   * Line at (117.48, 76.20):(116.21, 76.20) mm [Bottom layer]
+   * Pad J2-5 at (116.84, 77.47) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 185 -- Clearance Violation between:
+   * Line at (117.48, 76.20):(116.21, 76.20) mm [Bottom layer]
+   * Pad J2-6 at (116.84, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 186 -- Clearance Violation between:
+   * Line at (118.75, 74.93):(117.48, 76.20) mm [Bottom layer]
+   * Pad J2-6 at (116.84, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 187 -- Clearance Violation between:
+   * Pad J2-38 at (119.38, 74.93) mm [Top layer]
+   * Line at (118.11, 76.20):(120.65, 76.20) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 188 -- Clearance Violation between:
+   * Pad J2-38 at (119.38, 74.93) mm [Top layer]
+   * Line at (118.11, 73.66):(120.65, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 189 -- Clearance Violation between:
+   * Line at (146.69, 76.20):(146.05, 75.57) mm [Bottom layer]
+   * Pad J3-6 at (147.32, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 190 -- Clearance Violation between:
+   * Line at (147.96, 76.20):(146.69, 76.20) mm [Bottom layer]
+   * Pad J3-5 at (147.32, 77.47) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 191 -- Clearance Violation between:
+   * Line at (147.96, 76.20):(146.69, 76.20) mm [Bottom layer]
+   * Pad J3-6 at (147.32, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 192 -- Clearance Violation between:
+   * Line at (149.23, 74.93):(147.96, 76.20) mm [Bottom layer]
+   * Pad J3-6 at (147.32, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 193 -- Clearance Violation between:
+   * Pad J3-38 at (149.86, 74.93) mm [Top layer]
+   * Line at (148.59, 76.20):(151.13, 76.20) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 194 -- Clearance Violation between:
+   * Pad J3-38 at (149.86, 74.93) mm [Top layer]
+   * Line at (148.59, 73.66):(151.13, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 195 -- Clearance Violation between:
+   * Line at (177.17, 76.20):(176.53, 75.57) mm [Bottom layer]
+   * Pad J4-6 at (177.80, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 196 -- Clearance Violation between:
+   * Line at (178.44, 76.20):(177.17, 76.20) mm [Bottom layer]
+   * Pad J4-5 at (177.80, 77.47) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 197 -- Clearance Violation between:
+   * Line at (178.44, 76.20):(177.17, 76.20) mm [Bottom layer]
+   * Pad J4-6 at (177.80, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 198 -- Clearance Violation between:
+   * Line at (179.71, 74.93):(178.44, 76.20) mm [Bottom layer]
+   * Pad J4-6 at (177.80, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 199 -- Clearance Violation between:
+   * Pad J4-38 at (180.34, 74.93) mm [Top layer]
+   * Line at (179.07, 76.20):(181.61, 76.20) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 200 -- Clearance Violation between:
+   * Pad J4-38 at (180.34, 74.93) mm [Top layer]
+   * Line at (179.07, 73.66):(181.61, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 201 -- Clearance Violation between:
+   * Line at (207.65, 76.20):(207.01, 75.57) mm [Bottom layer]
+   * Pad J6-6 at (208.28, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 202 -- Clearance Violation between:
+   * Line at (208.92, 76.20):(207.65, 76.20) mm [Bottom layer]
+   * Pad J6-5 at (208.28, 77.47) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 203 -- Clearance Violation between:
+   * Line at (208.92, 76.20):(207.65, 76.20) mm [Bottom layer]
+   * Pad J6-6 at (208.28, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 204 -- Clearance Violation between:
+   * Line at (210.19, 74.93):(208.92, 76.20) mm [Bottom layer]
+   * Pad J6-6 at (208.28, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 205 -- Clearance Violation between:
+   * Pad J6-38 at (210.82, 74.93) mm [Top layer]
+   * Line at (209.55, 76.20):(212.09, 76.20) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 206 -- Clearance Violation between:
+   * Pad J6-38 at (210.82, 74.93) mm [Top layer]
+   * Line at (209.55, 73.66):(212.09, 73.66) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 207 -- Clearance Violation between:
+   * Line at (238.13, 76.20):(237.49, 75.57) mm [Bottom layer]
+   * Pad J5-6 at (238.76, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 208 -- Clearance Violation between:
+   * Line at (239.40, 76.20):(238.13, 76.20) mm [Bottom layer]
+   * Pad J5-5 at (238.76, 77.47) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 209 -- Clearance Violation between:
+   * Line at (239.40, 76.20):(238.13, 76.20) mm [Bottom layer]
+   * Pad J5-6 at (238.76, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 210 -- Clearance Violation between:
+   * Line at (240.67, 74.93):(239.40, 76.20) mm [Bottom layer]
+   * Pad J5-6 at (238.76, 74.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 211 -- Clearance Violation between:
+   * Line at ( 87.63, 76.20):( 89.54, 76.20) mm [Top layer]
+   * Pad J1-37 at ( 88.90, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 212 -- Clearance Violation between:
+   * Pad J2-5 at (116.84, 77.47) mm [Bottom layer]
+   * Line at (116.21, 78.74):(115.57, 78.11) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 213 -- Clearance Violation between:
+   * Pad J2-5 at (116.84, 77.47) mm [Bottom layer]
+   * Line at (117.48, 78.74):(116.21, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 214 -- Clearance Violation between:
+   * Pad J2-5 at (116.84, 77.47) mm [Bottom layer]
+   * Line at (118.75, 77.47):(117.48, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 215 -- Clearance Violation between:
+   * Line at (118.11, 76.20):(120.65, 76.20) mm [Top layer]
+   * Pad J2-37 at (119.38, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 216 -- Clearance Violation between:
+   * Pad J3-5 at (147.32, 77.47) mm [Bottom layer]
+   * Line at (149.23, 77.47):(147.96, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 217 -- Clearance Violation between:
+   * Pad J3-5 at (147.32, 77.47) mm [Bottom layer]
+   * Line at (147.96, 78.74):(146.69, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 218 -- Clearance Violation between:
+   * Pad J3-5 at (147.32, 77.47) mm [Bottom layer]
+   * Line at (146.69, 78.74):(146.05, 78.11) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 219 -- Clearance Violation between:
+   * Line at (148.59, 76.20):(151.13, 76.20) mm [Top layer]
+   * Pad J3-37 at (149.86, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 220 -- Clearance Violation between:
+   * Pad J4-5 at (177.80, 77.47) mm [Bottom layer]
+   * Line at (177.17, 78.74):(176.53, 78.11) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 221 -- Clearance Violation between:
+   * Pad J4-5 at (177.80, 77.47) mm [Bottom layer]
+   * Line at (178.44, 78.74):(177.17, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 222 -- Clearance Violation between:
+   * Pad J4-5 at (177.80, 77.47) mm [Bottom layer]
+   * Line at (179.71, 77.47):(178.44, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 223 -- Clearance Violation between:
+   * Line at (179.07, 76.20):(181.61, 76.20) mm [Top layer]
+   * Pad J4-37 at (180.34, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 224 -- Clearance Violation between:
+   * Pad J6-5 at (208.28, 77.47) mm [Bottom layer]
+   * Line at (210.19, 77.47):(208.92, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 225 -- Clearance Violation between:
+   * Pad J6-5 at (208.28, 77.47) mm [Bottom layer]
+   * Line at (208.92, 78.74):(207.65, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 226 -- Clearance Violation between:
+   * Pad J6-5 at (208.28, 77.47) mm [Bottom layer]
+   * Line at (207.65, 78.74):(207.01, 78.11) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 227 -- Clearance Violation between:
+   * Line at (209.55, 76.20):(212.09, 76.20) mm [Top layer]
+   * Pad J6-37 at (210.82, 77.47) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 228 -- Clearance Violation between:
+   * Pad J5-5 at (238.76, 77.47) mm [Bottom layer]
+   * Line at (238.13, 78.74):(237.49, 78.11) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 229 -- Clearance Violation between:
+   * Pad J5-5 at (238.76, 77.47) mm [Bottom layer]
+   * Line at (239.40, 78.74):(238.13, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 230 -- Clearance Violation between:
+   * Pad J5-5 at (238.76, 77.47) mm [Bottom layer]
+   * Line at (240.67, 77.47):(239.40, 78.74) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 231 -- Clearance Violation between:
+   * Pad J1-64 at ( 88.90,  8.89) mm [Top layer]
+   * Line at ( 87.63, 10.16):( 89.54, 10.16) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 232 -- Clearance Violation between:
+   * Pad J2-64 at (119.38,  8.89) mm [Top layer]
+   * Line at (118.11, 10.16):(120.65, 10.16) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 233 -- Clearance Violation between:
+   * Pad J3-64 at (149.86,  8.89) mm [Top layer]
+   * Line at (148.59, 10.16):(151.13, 10.16) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 234 -- Clearance Violation between:
+   * Pad J4-64 at (180.34,  8.89) mm [Top layer]
+   * Line at (179.07, 10.16):(181.61, 10.16) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 235 -- Clearance Violation between:
+   * Pad J6-64 at (210.82,  8.89) mm [Top layer]
+   * Line at (209.55, 10.16):(212.09, 10.16) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 236 -- Clearance Violation between:
+   * Pad J5-1 at (238.76, 87.63) mm [Bottom layer]
+   * Line at (238.13, 86.36):(237.49, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 237 -- Clearance Violation between:
+   * Pad J5-1 at (238.76, 87.63) mm [Bottom layer]
+   * Line at (239.40, 86.36):(238.13, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 238 -- Clearance Violation between:
+   * Pad J5-1 at (238.76, 87.63) mm [Bottom layer]
+   * Line at (240.67, 85.09):(239.40, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 239 -- Clearance Violation between:
+   * Pad J2-1 at (116.84, 87.63) mm [Bottom layer]
+   * Line at (118.75, 85.09):(117.48, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 240 -- Clearance Violation between:
+   * Pad J2-1 at (116.84, 87.63) mm [Bottom layer]
+   * Line at (117.48, 86.36):(116.21, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 241 -- Clearance Violation between:
+   * Pad J2-1 at (116.84, 87.63) mm [Bottom layer]
+   * Line at (116.21, 86.36):(115.57, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 242 -- Clearance Violation between:
+   * Pad J3-1 at (147.32, 87.63) mm [Bottom layer]
+   * Line at (149.23, 85.09):(147.96, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 243 -- Clearance Violation between:
+   * Pad J3-1 at (147.32, 87.63) mm [Bottom layer]
+   * Line at (147.96, 86.36):(146.69, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 244 -- Clearance Violation between:
+   * Pad J3-1 at (147.32, 87.63) mm [Bottom layer]
+   * Line at (146.69, 86.36):(146.05, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 245 -- Clearance Violation between:
+   * Pad J4-1 at (177.80, 87.63) mm [Bottom layer]
+   * Line at (177.17, 86.36):(176.53, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 246 -- Clearance Violation between:
+   * Pad J4-1 at (177.80, 87.63) mm [Bottom layer]
+   * Line at (178.44, 86.36):(177.17, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 247 -- Clearance Violation between:
+   * Pad J4-1 at (177.80, 87.63) mm [Bottom layer]
+   * Line at (179.71, 85.09):(178.44, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 248 -- Clearance Violation between:
+   * Pad J6-1 at (208.28, 87.63) mm [Bottom layer]
+   * Line at (210.19, 85.09):(208.92, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 249 -- Clearance Violation between:
+   * Pad J6-1 at (208.28, 87.63) mm [Bottom layer]
+   * Line at (208.92, 86.36):(207.65, 86.36) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 250 -- Clearance Violation between:
+   * Pad J6-1 at (208.28, 87.63) mm [Bottom layer]
+   * Line at (207.65, 86.36):(207.01, 85.73) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 251 -- Clearance Violation between:
+   * Line at ( 87.63, 63.50):( 89.54, 63.50) mm [Top layer]
+   * Pad J1-43 at ( 88.90, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 252 -- Clearance Violation between:
+   * Pad J2-10 at (116.84, 64.77) mm [Bottom layer]
+   * Line at (117.48, 63.50):(116.21, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 253 -- Clearance Violation between:
+   * Line at (118.11, 63.50):(120.65, 63.50) mm [Top layer]
+   * Pad J2-43 at (119.38, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 254 -- Clearance Violation between:
+   * Pad J3-10 at (147.32, 64.77) mm [Bottom layer]
+   * Line at (147.96, 63.50):(146.69, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 255 -- Clearance Violation between:
+   * Line at (148.59, 63.50):(151.13, 63.50) mm [Top layer]
+   * Pad J3-43 at (149.86, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 256 -- Clearance Violation between:
+   * Pad J4-10 at (177.80, 64.77) mm [Bottom layer]
+   * Line at (178.44, 63.50):(177.17, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 257 -- Clearance Violation between:
+   * Line at (179.07, 63.50):(181.61, 63.50) mm [Top layer]
+   * Pad J4-43 at (180.34, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 258 -- Clearance Violation between:
+   * Pad J6-10 at (208.28, 64.77) mm [Bottom layer]
+   * Line at (208.92, 63.50):(207.65, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 259 -- Clearance Violation between:
+   * Line at (209.55, 63.50):(212.09, 63.50) mm [Top layer]
+   * Pad J6-43 at (210.82, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 260 -- Clearance Violation between:
+   * Pad J5-10 at (238.76, 64.77) mm [Bottom layer]
+   * Line at (239.40, 63.50):(238.13, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 261 -- Clearance Violation between:
+   * Line at ( 87.63, 60.96):( 89.54, 60.96) mm [Top layer]
+   * Pad J1-43 at ( 88.90, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 262 -- Clearance Violation between:
+   * Line at ( 87.63, 60.96):( 89.54, 60.96) mm [Top layer]
+   * Pad J1-44 at ( 88.90, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 263 -- Clearance Violation between:
+   * Pad J2-11 at (116.84, 62.23) mm [Bottom layer]
+   * Line at (117.48, 60.96):(116.21, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 264 -- Clearance Violation between:
+   * Pad J2-11 at (116.84, 62.23) mm [Bottom layer]
+   * Line at (118.75, 62.23):(117.48, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 265 -- Clearance Violation between:
+   * Pad J2-11 at (116.84, 62.23) mm [Bottom layer]
+   * Line at (117.48, 63.50):(116.21, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 266 -- Clearance Violation between:
+   * Pad J2-11 at (116.84, 62.23) mm [Bottom layer]
+   * Line at (116.21, 63.50):(115.57, 62.87) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 267 -- Clearance Violation between:
+   * Line at (118.11, 60.96):(120.65, 60.96) mm [Top layer]
+   * Pad J2-43 at (119.38, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 268 -- Clearance Violation between:
+   * Line at (118.11, 60.96):(120.65, 60.96) mm [Top layer]
+   * Pad J2-44 at (119.38, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 269 -- Clearance Violation between:
+   * Pad J3-11 at (147.32, 62.23) mm [Bottom layer]
+   * Line at (149.23, 62.23):(147.96, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 270 -- Clearance Violation between:
+   * Pad J3-11 at (147.32, 62.23) mm [Bottom layer]
+   * Line at (147.96, 63.50):(146.69, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 271 -- Clearance Violation between:
+   * Pad J3-11 at (147.32, 62.23) mm [Bottom layer]
+   * Line at (146.69, 63.50):(146.05, 62.87) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 272 -- Clearance Violation between:
+   * Pad J3-11 at (147.32, 62.23) mm [Bottom layer]
+   * Line at (147.96, 60.96):(146.69, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 273 -- Clearance Violation between:
+   * Line at (148.59, 60.96):(151.13, 60.96) mm [Top layer]
+   * Pad J3-43 at (149.86, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 274 -- Clearance Violation between:
+   * Line at (148.59, 60.96):(151.13, 60.96) mm [Top layer]
+   * Pad J3-44 at (149.86, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 275 -- Clearance Violation between:
+   * Pad J4-11 at (177.80, 62.23) mm [Bottom layer]
+   * Line at (179.71, 62.23):(178.44, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 276 -- Clearance Violation between:
+   * Pad J4-11 at (177.80, 62.23) mm [Bottom layer]
+   * Line at (178.44, 63.50):(177.17, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 277 -- Clearance Violation between:
+   * Pad J4-11 at (177.80, 62.23) mm [Bottom layer]
+   * Line at (177.17, 63.50):(176.53, 62.87) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 278 -- Clearance Violation between:
+   * Pad J4-11 at (177.80, 62.23) mm [Bottom layer]
+   * Line at (178.44, 60.96):(177.17, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 279 -- Clearance Violation between:
+   * Line at (179.07, 60.96):(181.61, 60.96) mm [Top layer]
+   * Pad J4-43 at (180.34, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 280 -- Clearance Violation between:
+   * Line at (179.07, 60.96):(181.61, 60.96) mm [Top layer]
+   * Pad J4-44 at (180.34, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 281 -- Clearance Violation between:
+   * Pad J6-11 at (208.28, 62.23) mm [Bottom layer]
+   * Line at (208.92, 63.50):(207.65, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 282 -- Clearance Violation between:
+   * Pad J6-11 at (208.28, 62.23) mm [Bottom layer]
+   * Line at (207.65, 63.50):(207.01, 62.87) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 283 -- Clearance Violation between:
+   * Pad J6-11 at (208.28, 62.23) mm [Bottom layer]
+   * Line at (208.92, 60.96):(207.65, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 284 -- Clearance Violation between:
+   * Pad J6-11 at (208.28, 62.23) mm [Bottom layer]
+   * Line at (210.19, 62.23):(208.92, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 285 -- Clearance Violation between:
+   * Line at (209.55, 60.96):(212.09, 60.96) mm [Top layer]
+   * Pad J6-43 at (210.82, 62.23) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 286 -- Clearance Violation between:
+   * Line at (209.55, 60.96):(212.09, 60.96) mm [Top layer]
+   * Pad J6-44 at (210.82, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 287 -- Clearance Violation between:
+   * Pad J5-11 at (238.76, 62.23) mm [Bottom layer]
+   * Line at (239.40, 60.96):(238.13, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 288 -- Clearance Violation between:
+   * Pad J5-11 at (238.76, 62.23) mm [Bottom layer]
+   * Line at (238.13, 63.50):(237.49, 62.87) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 289 -- Clearance Violation between:
+   * Pad J5-11 at (238.76, 62.23) mm [Bottom layer]
+   * Line at (239.40, 63.50):(238.13, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 290 -- Clearance Violation between:
+   * Pad J5-11 at (238.76, 62.23) mm [Bottom layer]
+   * Line at (240.67, 62.23):(239.40, 63.50) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 291 -- Clearance Violation between:
+   * Line at ( 87.63, 58.42):( 89.54, 58.42) mm [Top layer]
+   * Pad J1-44 at ( 88.90, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 292 -- Clearance Violation between:
+   * Line at ( 87.63, 58.42):( 89.54, 58.42) mm [Top layer]
+   * Pad J1-45 at ( 88.90, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 293 -- Clearance Violation between:
+   * Pad J2-12 at (116.84, 59.69) mm [Bottom layer]
+   * Line at (117.48, 58.42):(116.21, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 294 -- Clearance Violation between:
+   * Pad J2-12 at (116.84, 59.69) mm [Bottom layer]
+   * Line at (118.75, 59.69):(117.48, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 295 -- Clearance Violation between:
+   * Pad J2-12 at (116.84, 59.69) mm [Bottom layer]
+   * Line at (117.48, 60.96):(116.21, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 296 -- Clearance Violation between:
+   * Pad J2-12 at (116.84, 59.69) mm [Bottom layer]
+   * Line at (116.21, 60.96):(115.57, 60.33) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 297 -- Clearance Violation between:
+   * Line at (118.11, 58.42):(120.65, 58.42) mm [Top layer]
+   * Pad J2-44 at (119.38, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 298 -- Clearance Violation between:
+   * Line at (118.11, 58.42):(120.65, 58.42) mm [Top layer]
+   * Pad J2-45 at (119.38, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 299 -- Clearance Violation between:
+   * Pad J3-12 at (147.32, 59.69) mm [Bottom layer]
+   * Line at (147.96, 58.42):(146.69, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 300 -- Clearance Violation between:
+   * Pad J3-12 at (147.32, 59.69) mm [Bottom layer]
+   * Line at (146.69, 60.96):(146.05, 60.33) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 301 -- Clearance Violation between:
+   * Pad J3-12 at (147.32, 59.69) mm [Bottom layer]
+   * Line at (147.96, 60.96):(146.69, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 302 -- Clearance Violation between:
+   * Pad J3-12 at (147.32, 59.69) mm [Bottom layer]
+   * Line at (149.23, 59.69):(147.96, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 303 -- Clearance Violation between:
+   * Line at (148.59, 58.42):(151.13, 58.42) mm [Top layer]
+   * Pad J3-44 at (149.86, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 304 -- Clearance Violation between:
+   * Line at (148.59, 58.42):(151.13, 58.42) mm [Top layer]
+   * Pad J3-45 at (149.86, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 305 -- Clearance Violation between:
+   * Pad J4-12 at (177.80, 59.69) mm [Bottom layer]
+   * Line at (178.44, 58.42):(177.17, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 306 -- Clearance Violation between:
+   * Pad J4-12 at (177.80, 59.69) mm [Bottom layer]
+   * Line at (179.71, 59.69):(178.44, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 307 -- Clearance Violation between:
+   * Pad J4-12 at (177.80, 59.69) mm [Bottom layer]
+   * Line at (178.44, 60.96):(177.17, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 308 -- Clearance Violation between:
+   * Pad J4-12 at (177.80, 59.69) mm [Bottom layer]
+   * Line at (177.17, 60.96):(176.53, 60.33) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 309 -- Clearance Violation between:
+   * Line at (179.07, 58.42):(181.61, 58.42) mm [Top layer]
+   * Pad J4-44 at (180.34, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 310 -- Clearance Violation between:
+   * Line at (179.07, 58.42):(181.61, 58.42) mm [Top layer]
+   * Pad J4-45 at (180.34, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 311 -- Clearance Violation between:
+   * Pad J6-12 at (208.28, 59.69) mm [Bottom layer]
+   * Line at (208.92, 60.96):(207.65, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 312 -- Clearance Violation between:
+   * Pad J6-12 at (208.28, 59.69) mm [Bottom layer]
+   * Line at (207.65, 60.96):(207.01, 60.33) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 313 -- Clearance Violation between:
+   * Pad J6-12 at (208.28, 59.69) mm [Bottom layer]
+   * Line at (208.92, 58.42):(207.65, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 314 -- Clearance Violation between:
+   * Pad J6-12 at (208.28, 59.69) mm [Bottom layer]
+   * Line at (210.19, 59.69):(208.92, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 315 -- Clearance Violation between:
+   * Line at (209.55, 58.42):(212.09, 58.42) mm [Top layer]
+   * Pad J6-44 at (210.82, 59.69) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 316 -- Clearance Violation between:
+   * Line at (209.55, 58.42):(212.09, 58.42) mm [Top layer]
+   * Pad J6-45 at (210.82, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 317 -- Clearance Violation between:
+   * Pad J5-12 at (238.76, 59.69) mm [Bottom layer]
+   * Line at (238.13, 60.96):(237.49, 60.33) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 318 -- Clearance Violation between:
+   * Pad J5-12 at (238.76, 59.69) mm [Bottom layer]
+   * Line at (239.40, 60.96):(238.13, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 319 -- Clearance Violation between:
+   * Pad J5-12 at (238.76, 59.69) mm [Bottom layer]
+   * Line at (240.67, 59.69):(239.40, 60.96) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 320 -- Clearance Violation between:
+   * Pad J5-12 at (238.76, 59.69) mm [Bottom layer]
+   * Line at (239.40, 58.42):(238.13, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 321 -- Clearance Violation between:
+   * Line at ( 87.63, 15.24):( 89.54, 15.24) mm [Top layer]
+   * Pad J1-61 at ( 88.90, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 322 -- Clearance Violation between:
+   * Line at ( 87.63, 15.24):( 89.54, 15.24) mm [Top layer]
+   * Pad J1-62 at ( 88.90, 13.97) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 323 -- Clearance Violation between:
+   * Pad J2-29 at (116.84, 16.51) mm [Bottom layer]
+   * Line at (118.75, 16.51):(117.48, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 324 -- Clearance Violation between:
+   * Pad J2-29 at (116.84, 16.51) mm [Bottom layer]
+   * Line at (117.48, 17.78):(116.21, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 325 -- Clearance Violation between:
+   * Pad J2-29 at (116.84, 16.51) mm [Bottom layer]
+   * Line at (116.21, 17.78):(115.57, 17.15) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 326 -- Clearance Violation between:
+   * Line at (118.11, 15.24):(120.65, 15.24) mm [Top layer]
+   * Pad J2-61 at (119.38, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 327 -- Clearance Violation between:
+   * Line at (118.11, 15.24):(120.65, 15.24) mm [Top layer]
+   * Pad J2-62 at (119.38, 13.97) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 328 -- Clearance Violation between:
+   * Pad J3-29 at (147.32, 16.51) mm [Bottom layer]
+   * Line at (146.69, 17.78):(146.05, 17.15) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 329 -- Clearance Violation between:
+   * Pad J3-29 at (147.32, 16.51) mm [Bottom layer]
+   * Line at (147.96, 17.78):(146.69, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 330 -- Clearance Violation between:
+   * Pad J3-29 at (147.32, 16.51) mm [Bottom layer]
+   * Line at (149.23, 16.51):(147.96, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 331 -- Clearance Violation between:
+   * Line at (148.59, 15.24):(151.13, 15.24) mm [Top layer]
+   * Pad J3-61 at (149.86, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 332 -- Clearance Violation between:
+   * Line at (148.59, 15.24):(151.13, 15.24) mm [Top layer]
+   * Pad J3-62 at (149.86, 13.97) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 333 -- Clearance Violation between:
+   * Pad J4-29 at (177.80, 16.51) mm [Bottom layer]
+   * Line at (177.17, 17.78):(176.53, 17.15) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 334 -- Clearance Violation between:
+   * Pad J4-29 at (177.80, 16.51) mm [Bottom layer]
+   * Line at (178.44, 17.78):(177.17, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 335 -- Clearance Violation between:
+   * Pad J4-29 at (177.80, 16.51) mm [Bottom layer]
+   * Line at (179.71, 16.51):(178.44, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 336 -- Clearance Violation between:
+   * Line at (179.07, 15.24):(181.61, 15.24) mm [Top layer]
+   * Pad J4-61 at (180.34, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 337 -- Clearance Violation between:
+   * Line at (179.07, 15.24):(181.61, 15.24) mm [Top layer]
+   * Pad J4-62 at (180.34, 13.97) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 338 -- Clearance Violation between:
+   * Pad J6-29 at (208.28, 16.51) mm [Bottom layer]
+   * Line at (210.19, 16.51):(208.92, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 339 -- Clearance Violation between:
+   * Pad J6-29 at (208.28, 16.51) mm [Bottom layer]
+   * Line at (208.92, 17.78):(207.65, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 340 -- Clearance Violation between:
+   * Pad J6-29 at (208.28, 16.51) mm [Bottom layer]
+   * Line at (207.65, 17.78):(207.01, 17.15) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 341 -- Clearance Violation between:
+   * Line at (209.55, 15.24):(212.09, 15.24) mm [Top layer]
+   * Pad J6-61 at (210.82, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 342 -- Clearance Violation between:
+   * Line at (209.55, 15.24):(212.09, 15.24) mm [Top layer]
+   * Pad J6-62 at (210.82, 13.97) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 343 -- Clearance Violation between:
+   * Pad J5-29 at (238.76, 16.51) mm [Bottom layer]
+   * Line at (240.67, 16.51):(239.40, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 344 -- Clearance Violation between:
+   * Pad J5-29 at (238.76, 16.51) mm [Bottom layer]
+   * Line at (239.40, 17.78):(238.13, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 345 -- Clearance Violation between:
+   * Pad J5-29 at (238.76, 16.51) mm [Bottom layer]
+   * Line at (238.13, 17.78):(237.49, 17.15) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 346 -- Clearance Violation between:
+   * Line at ( 87.63, 17.78):( 89.54, 17.78) mm [Top layer]
+   * Pad J1-60 at ( 88.90, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 347 -- Clearance Violation between:
+   * Line at ( 87.63, 17.78):( 89.54, 17.78) mm [Top layer]
+   * Pad J1-61 at ( 88.90, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 348 -- Clearance Violation between:
+   * Pad J2-28 at (116.84, 19.05) mm [Bottom layer]
+   * Line at (118.75, 19.05):(117.48, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 349 -- Clearance Violation between:
+   * Pad J2-28 at (116.84, 19.05) mm [Bottom layer]
+   * Line at (117.48, 20.32):(116.21, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 350 -- Clearance Violation between:
+   * Pad J2-28 at (116.84, 19.05) mm [Bottom layer]
+   * Line at (116.21, 20.32):(115.57, 19.69) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 351 -- Clearance Violation between:
+   * Pad J2-28 at (116.84, 19.05) mm [Bottom layer]
+   * Line at (117.48, 17.78):(116.21, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 352 -- Clearance Violation between:
+   * Line at (118.11, 17.78):(120.65, 17.78) mm [Top layer]
+   * Pad J2-60 at (119.38, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 353 -- Clearance Violation between:
+   * Line at (118.11, 17.78):(120.65, 17.78) mm [Top layer]
+   * Pad J2-61 at (119.38, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 354 -- Clearance Violation between:
+   * Pad J3-28 at (147.32, 19.05) mm [Bottom layer]
+   * Line at (146.69, 20.32):(146.05, 19.69) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 355 -- Clearance Violation between:
+   * Pad J3-28 at (147.32, 19.05) mm [Bottom layer]
+   * Line at (147.96, 20.32):(146.69, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 356 -- Clearance Violation between:
+   * Pad J3-28 at (147.32, 19.05) mm [Bottom layer]
+   * Line at (149.23, 19.05):(147.96, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 357 -- Clearance Violation between:
+   * Pad J3-28 at (147.32, 19.05) mm [Bottom layer]
+   * Line at (147.96, 17.78):(146.69, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 358 -- Clearance Violation between:
+   * Line at (148.59, 17.78):(151.13, 17.78) mm [Top layer]
+   * Pad J3-60 at (149.86, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 359 -- Clearance Violation between:
+   * Line at (148.59, 17.78):(151.13, 17.78) mm [Top layer]
+   * Pad J3-61 at (149.86, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 360 -- Clearance Violation between:
+   * Pad J4-28 at (177.80, 19.05) mm [Bottom layer]
+   * Line at (177.17, 20.32):(176.53, 19.69) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 361 -- Clearance Violation between:
+   * Pad J4-28 at (177.80, 19.05) mm [Bottom layer]
+   * Line at (178.44, 20.32):(177.17, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 362 -- Clearance Violation between:
+   * Pad J4-28 at (177.80, 19.05) mm [Bottom layer]
+   * Line at (179.71, 19.05):(178.44, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 363 -- Clearance Violation between:
+   * Pad J4-28 at (177.80, 19.05) mm [Bottom layer]
+   * Line at (178.44, 17.78):(177.17, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 364 -- Clearance Violation between:
+   * Line at (179.07, 17.78):(181.61, 17.78) mm [Top layer]
+   * Pad J4-60 at (180.34, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 365 -- Clearance Violation between:
+   * Line at (179.07, 17.78):(181.61, 17.78) mm [Top layer]
+   * Pad J4-61 at (180.34, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 366 -- Clearance Violation between:
+   * Pad J6-28 at (208.28, 19.05) mm [Bottom layer]
+   * Line at (208.92, 17.78):(207.65, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 367 -- Clearance Violation between:
+   * Pad J6-28 at (208.28, 19.05) mm [Bottom layer]
+   * Line at (210.19, 19.05):(208.92, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 368 -- Clearance Violation between:
+   * Pad J6-28 at (208.28, 19.05) mm [Bottom layer]
+   * Line at (208.92, 20.32):(207.65, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 369 -- Clearance Violation between:
+   * Pad J6-28 at (208.28, 19.05) mm [Bottom layer]
+   * Line at (207.65, 20.32):(207.01, 19.69) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 370 -- Clearance Violation between:
+   * Line at (209.55, 17.78):(212.09, 17.78) mm [Top layer]
+   * Pad J6-60 at (210.82, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 371 -- Clearance Violation between:
+   * Line at (209.55, 17.78):(212.09, 17.78) mm [Top layer]
+   * Pad J6-61 at (210.82, 16.51) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 372 -- Clearance Violation between:
+   * Pad J5-28 at (238.76, 19.05) mm [Bottom layer]
+   * Line at (239.40, 17.78):(238.13, 17.78) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 373 -- Clearance Violation between:
+   * Pad J5-28 at (238.76, 19.05) mm [Bottom layer]
+   * Line at (240.67, 19.05):(239.40, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 374 -- Clearance Violation between:
+   * Pad J5-28 at (238.76, 19.05) mm [Bottom layer]
+   * Line at (239.40, 20.32):(238.13, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 375 -- Clearance Violation between:
+   * Pad J5-28 at (238.76, 19.05) mm [Bottom layer]
+   * Line at (238.13, 20.32):(237.49, 19.69) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 376 -- Clearance Violation between:
+   * Pad J2-30 at (116.84, 13.97) mm [Bottom layer]
+   * Line at (117.48, 12.70):(116.21, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 377 -- Clearance Violation between:
+   * Pad J3-30 at (147.32, 13.97) mm [Bottom layer]
+   * Line at (147.96, 12.70):(146.69, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 378 -- Clearance Violation between:
+   * Pad J4-30 at (177.80, 13.97) mm [Bottom layer]
+   * Line at (178.44, 12.70):(177.17, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 379 -- Clearance Violation between:
+   * Pad J6-30 at (208.28, 13.97) mm [Bottom layer]
+   * Line at (208.92, 12.70):(207.65, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 380 -- Clearance Violation between:
+   * Pad J5-30 at (238.76, 13.97) mm [Bottom layer]
+   * Line at (239.40, 12.70):(238.13, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 381 -- Clearance Violation between:
+   * Pad J1-24 at ( 86.36, 29.21) mm [Bottom layer]
+   * Line at ( 88.27, 30.48):( 85.09, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 382 -- Clearance Violation between:
+   * Line at ( 87.63, 27.94):( 89.54, 27.94) mm [Top layer]
+   * Pad J1-56 at ( 88.90, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 383 -- Clearance Violation between:
+   * Line at ( 87.63, 27.94):( 89.54, 27.94) mm [Top layer]
+   * Pad J1-57 at ( 88.90, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 384 -- Clearance Violation between:
+   * Pad J2-24 at (116.84, 29.21) mm [Bottom layer]
+   * Line at (116.21, 30.48):(115.57, 29.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 385 -- Clearance Violation between:
+   * Pad J2-24 at (116.84, 29.21) mm [Bottom layer]
+   * Line at (117.48, 30.48):(116.21, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 386 -- Clearance Violation between:
+   * Pad J2-24 at (116.84, 29.21) mm [Bottom layer]
+   * Line at (118.75, 29.21):(117.48, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 387 -- Clearance Violation between:
+   * Pad J2-24 at (116.84, 29.21) mm [Bottom layer]
+   * Line at (117.48, 27.94):(116.21, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 388 -- Clearance Violation between:
+   * Line at (118.11, 27.94):(120.65, 27.94) mm [Top layer]
+   * Pad J2-56 at (119.38, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 389 -- Clearance Violation between:
+   * Line at (118.11, 27.94):(120.65, 27.94) mm [Top layer]
+   * Pad J2-57 at (119.38, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 390 -- Clearance Violation between:
+   * Pad J3-24 at (147.32, 29.21) mm [Bottom layer]
+   * Line at (147.96, 27.94):(146.69, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 391 -- Clearance Violation between:
+   * Pad J3-24 at (147.32, 29.21) mm [Bottom layer]
+   * Line at (146.69, 30.48):(146.05, 29.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 392 -- Clearance Violation between:
+   * Pad J3-24 at (147.32, 29.21) mm [Bottom layer]
+   * Line at (147.96, 30.48):(146.69, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 393 -- Clearance Violation between:
+   * Pad J3-24 at (147.32, 29.21) mm [Bottom layer]
+   * Line at (149.23, 29.21):(147.96, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 394 -- Clearance Violation between:
+   * Line at (148.59, 27.94):(151.13, 27.94) mm [Top layer]
+   * Pad J3-56 at (149.86, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 395 -- Clearance Violation between:
+   * Line at (148.59, 27.94):(151.13, 27.94) mm [Top layer]
+   * Pad J3-57 at (149.86, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 396 -- Clearance Violation between:
+   * Pad J4-24 at (177.80, 29.21) mm [Bottom layer]
+   * Line at (179.71, 29.21):(178.44, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 397 -- Clearance Violation between:
+   * Pad J4-24 at (177.80, 29.21) mm [Bottom layer]
+   * Line at (178.44, 30.48):(177.17, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 398 -- Clearance Violation between:
+   * Pad J4-24 at (177.80, 29.21) mm [Bottom layer]
+   * Line at (177.17, 30.48):(176.53, 29.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 399 -- Clearance Violation between:
+   * Pad J4-24 at (177.80, 29.21) mm [Bottom layer]
+   * Line at (178.44, 27.94):(177.17, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 400 -- Clearance Violation between:
+   * Line at (179.07, 27.94):(181.61, 27.94) mm [Top layer]
+   * Pad J4-56 at (180.34, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 401 -- Clearance Violation between:
+   * Line at (179.07, 27.94):(181.61, 27.94) mm [Top layer]
+   * Pad J4-57 at (180.34, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 402 -- Clearance Violation between:
+   * Pad J6-24 at (208.28, 29.21) mm [Bottom layer]
+   * Line at (208.92, 27.94):(207.65, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 403 -- Clearance Violation between:
+   * Pad J6-24 at (208.28, 29.21) mm [Bottom layer]
+   * Line at (207.65, 30.48):(207.01, 29.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 404 -- Clearance Violation between:
+   * Pad J6-24 at (208.28, 29.21) mm [Bottom layer]
+   * Line at (208.92, 30.48):(207.65, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 405 -- Clearance Violation between:
+   * Pad J6-24 at (208.28, 29.21) mm [Bottom layer]
+   * Line at (210.19, 29.21):(208.92, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 406 -- Clearance Violation between:
+   * Line at (209.55, 27.94):(212.09, 27.94) mm [Top layer]
+   * Pad J6-56 at (210.82, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 407 -- Clearance Violation between:
+   * Line at (209.55, 27.94):(212.09, 27.94) mm [Top layer]
+   * Pad J6-57 at (210.82, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 408 -- Clearance Violation between:
+   * Pad J5-24 at (238.76, 29.21) mm [Bottom layer]
+   * Line at (239.40, 27.94):(238.13, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 409 -- Clearance Violation between:
+   * Pad J5-24 at (238.76, 29.21) mm [Bottom layer]
+   * Line at (238.13, 30.48):(237.49, 29.85) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 410 -- Clearance Violation between:
+   * Pad J5-24 at (238.76, 29.21) mm [Bottom layer]
+   * Line at (239.40, 30.48):(238.13, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 411 -- Clearance Violation between:
+   * Pad J5-24 at (238.76, 29.21) mm [Bottom layer]
+   * Line at (240.67, 29.21):(239.40, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 412 -- Clearance Violation between:
+   * Pad J1-58 at ( 88.90, 24.13) mm [Top layer]
+   * Line at ( 87.63, 25.40):( 89.54, 25.40) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 413 -- Clearance Violation between:
+   * Pad J2-26 at (116.84, 24.13) mm [Bottom layer]
+   * Line at (117.48, 22.86):(116.21, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 414 -- Clearance Violation between:
+   * Pad J2-58 at (119.38, 24.13) mm [Top layer]
+   * Line at (118.11, 25.40):(120.65, 25.40) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 415 -- Clearance Violation between:
+   * Pad J3-26 at (147.32, 24.13) mm [Bottom layer]
+   * Line at (147.96, 22.86):(146.69, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 416 -- Clearance Violation between:
+   * Pad J3-58 at (149.86, 24.13) mm [Top layer]
+   * Line at (148.59, 25.40):(151.13, 25.40) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 417 -- Clearance Violation between:
+   * Pad J4-26 at (177.80, 24.13) mm [Bottom layer]
+   * Line at (178.44, 22.86):(177.17, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 418 -- Clearance Violation between:
+   * Pad J4-58 at (180.34, 24.13) mm [Top layer]
+   * Line at (179.07, 25.40):(181.61, 25.40) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 419 -- Clearance Violation between:
+   * Pad J6-26 at (208.28, 24.13) mm [Bottom layer]
+   * Line at (208.92, 22.86):(207.65, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 420 -- Clearance Violation between:
+   * Pad J6-58 at (210.82, 24.13) mm [Top layer]
+   * Line at (209.55, 25.40):(212.09, 25.40) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 421 -- Clearance Violation between:
+   * Pad J5-26 at (238.76, 24.13) mm [Bottom layer]
+   * Line at (239.40, 22.86):(238.13, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 422 -- Clearance Violation between:
+   * Pad J1-46 at ( 88.90, 54.61) mm [Top layer]
+   * Line at ( 87.63, 53.34):( 89.54, 53.34) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 423 -- Clearance Violation between:
+   * Pad J1-46 at ( 88.90, 54.61) mm [Top layer]
+   * Line at ( 87.63, 55.88):( 89.54, 55.88) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 424 -- Clearance Violation between:
+   * Line at (116.21, 55.88):(115.57, 55.25) mm [Bottom layer]
+   * Pad J2-14 at (116.84, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 425 -- Clearance Violation between:
+   * Line at (117.48, 55.88):(116.21, 55.88) mm [Bottom layer]
+   * Pad J2-13 at (116.84, 57.15) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 426 -- Clearance Violation between:
+   * Line at (117.48, 55.88):(116.21, 55.88) mm [Bottom layer]
+   * Pad J2-14 at (116.84, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 427 -- Clearance Violation between:
+   * Line at (118.75, 54.61):(117.48, 55.88) mm [Bottom layer]
+   * Pad J2-14 at (116.84, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 428 -- Clearance Violation between:
+   * Pad J2-46 at (119.38, 54.61) mm [Top layer]
+   * Line at (118.11, 55.88):(120.65, 55.88) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 429 -- Clearance Violation between:
+   * Pad J2-46 at (119.38, 54.61) mm [Top layer]
+   * Line at (118.11, 53.34):(120.65, 53.34) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 430 -- Clearance Violation between:
+   * Line at (146.69, 55.88):(146.05, 55.25) mm [Bottom layer]
+   * Pad J3-14 at (147.32, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 431 -- Clearance Violation between:
+   * Line at (147.96, 55.88):(146.69, 55.88) mm [Bottom layer]
+   * Pad J3-13 at (147.32, 57.15) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 432 -- Clearance Violation between:
+   * Line at (147.96, 55.88):(146.69, 55.88) mm [Bottom layer]
+   * Pad J3-14 at (147.32, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 433 -- Clearance Violation between:
+   * Line at (149.23, 54.61):(147.96, 55.88) mm [Bottom layer]
+   * Pad J3-14 at (147.32, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 434 -- Clearance Violation between:
+   * Pad J3-46 at (149.86, 54.61) mm [Top layer]
+   * Line at (148.59, 53.34):(151.13, 53.34) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 435 -- Clearance Violation between:
+   * Pad J3-46 at (149.86, 54.61) mm [Top layer]
+   * Line at (148.59, 55.88):(151.13, 55.88) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 436 -- Clearance Violation between:
+   * Line at (177.17, 55.88):(176.53, 55.25) mm [Bottom layer]
+   * Pad J4-14 at (177.80, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 437 -- Clearance Violation between:
+   * Line at (178.44, 55.88):(177.17, 55.88) mm [Bottom layer]
+   * Pad J4-13 at (177.80, 57.15) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 438 -- Clearance Violation between:
+   * Line at (178.44, 55.88):(177.17, 55.88) mm [Bottom layer]
+   * Pad J4-14 at (177.80, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 439 -- Clearance Violation between:
+   * Line at (179.71, 54.61):(178.44, 55.88) mm [Bottom layer]
+   * Pad J4-14 at (177.80, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 440 -- Clearance Violation between:
+   * Pad J4-46 at (180.34, 54.61) mm [Top layer]
+   * Line at (179.07, 55.88):(181.61, 55.88) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 441 -- Clearance Violation between:
+   * Pad J4-46 at (180.34, 54.61) mm [Top layer]
+   * Line at (179.07, 53.34):(181.61, 53.34) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 442 -- Clearance Violation between:
+   * Line at (207.65, 55.88):(207.01, 55.25) mm [Bottom layer]
+   * Pad J6-14 at (208.28, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 443 -- Clearance Violation between:
+   * Line at (208.92, 55.88):(207.65, 55.88) mm [Bottom layer]
+   * Pad J6-13 at (208.28, 57.15) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 444 -- Clearance Violation between:
+   * Line at (208.92, 55.88):(207.65, 55.88) mm [Bottom layer]
+   * Pad J6-14 at (208.28, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 445 -- Clearance Violation between:
+   * Line at (210.19, 54.61):(208.92, 55.88) mm [Bottom layer]
+   * Pad J6-14 at (208.28, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 446 -- Clearance Violation between:
+   * Pad J6-46 at (210.82, 54.61) mm [Top layer]
+   * Line at (209.55, 55.88):(212.09, 55.88) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 447 -- Clearance Violation between:
+   * Pad J6-46 at (210.82, 54.61) mm [Top layer]
+   * Line at (209.55, 53.34):(212.09, 53.34) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 448 -- Clearance Violation between:
+   * Line at (238.13, 55.88):(237.49, 55.25) mm [Bottom layer]
+   * Pad J5-14 at (238.76, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 449 -- Clearance Violation between:
+   * Line at (239.40, 55.88):(238.13, 55.88) mm [Bottom layer]
+   * Pad J5-13 at (238.76, 57.15) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 450 -- Clearance Violation between:
+   * Line at (239.40, 55.88):(238.13, 55.88) mm [Bottom layer]
+   * Pad J5-14 at (238.76, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 451 -- Clearance Violation between:
+   * Line at (240.67, 54.61):(239.40, 55.88) mm [Bottom layer]
+   * Pad J5-14 at (238.76, 54.61) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 452 -- Clearance Violation between:
+   * Line at ( 87.63, 50.80):( 89.54, 50.80) mm [Top layer]
+   * Pad J1-47 at ( 88.90, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 453 -- Clearance Violation between:
+   * Line at ( 87.63, 50.80):( 89.54, 50.80) mm [Top layer]
+   * Pad J1-48 at ( 88.90, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 454 -- Clearance Violation between:
+   * Pad J2-15 at (116.84, 52.07) mm [Bottom layer]
+   * Line at (117.48, 53.34):(116.21, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 455 -- Clearance Violation between:
+   * Pad J2-15 at (116.84, 52.07) mm [Bottom layer]
+   * Line at (118.75, 52.07):(117.48, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 456 -- Clearance Violation between:
+   * Pad J2-15 at (116.84, 52.07) mm [Bottom layer]
+   * Line at (117.48, 50.80):(116.21, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 457 -- Clearance Violation between:
+   * Pad J2-15 at (116.84, 52.07) mm [Bottom layer]
+   * Line at (116.21, 53.34):(115.57, 52.71) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 458 -- Clearance Violation between:
+   * Line at (118.11, 50.80):(120.65, 50.80) mm [Top layer]
+   * Pad J2-47 at (119.38, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 459 -- Clearance Violation between:
+   * Line at (118.11, 50.80):(120.65, 50.80) mm [Top layer]
+   * Pad J2-48 at (119.38, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 460 -- Clearance Violation between:
+   * Pad J3-15 at (147.32, 52.07) mm [Bottom layer]
+   * Line at (147.96, 50.80):(146.69, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 461 -- Clearance Violation between:
+   * Pad J3-15 at (147.32, 52.07) mm [Bottom layer]
+   * Line at (149.23, 52.07):(147.96, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 462 -- Clearance Violation between:
+   * Pad J3-15 at (147.32, 52.07) mm [Bottom layer]
+   * Line at (146.69, 53.34):(146.05, 52.71) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 463 -- Clearance Violation between:
+   * Pad J3-15 at (147.32, 52.07) mm [Bottom layer]
+   * Line at (147.96, 53.34):(146.69, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 464 -- Clearance Violation between:
+   * Line at (148.59, 50.80):(151.13, 50.80) mm [Top layer]
+   * Pad J3-47 at (149.86, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 465 -- Clearance Violation between:
+   * Line at (148.59, 50.80):(151.13, 50.80) mm [Top layer]
+   * Pad J3-48 at (149.86, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 466 -- Clearance Violation between:
+   * Pad J4-15 at (177.80, 52.07) mm [Bottom layer]
+   * Line at (178.44, 50.80):(177.17, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 467 -- Clearance Violation between:
+   * Pad J4-15 at (177.80, 52.07) mm [Bottom layer]
+   * Line at (177.17, 53.34):(176.53, 52.71) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 468 -- Clearance Violation between:
+   * Pad J4-15 at (177.80, 52.07) mm [Bottom layer]
+   * Line at (178.44, 53.34):(177.17, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 469 -- Clearance Violation between:
+   * Pad J4-15 at (177.80, 52.07) mm [Bottom layer]
+   * Line at (179.71, 52.07):(178.44, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 470 -- Clearance Violation between:
+   * Line at (179.07, 50.80):(181.61, 50.80) mm [Top layer]
+   * Pad J4-47 at (180.34, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 471 -- Clearance Violation between:
+   * Line at (179.07, 50.80):(181.61, 50.80) mm [Top layer]
+   * Pad J4-48 at (180.34, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 472 -- Clearance Violation between:
+   * Pad J6-15 at (208.28, 52.07) mm [Bottom layer]
+   * Line at (207.65, 53.34):(207.01, 52.71) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 473 -- Clearance Violation between:
+   * Pad J6-15 at (208.28, 52.07) mm [Bottom layer]
+   * Line at (208.92, 53.34):(207.65, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 474 -- Clearance Violation between:
+   * Pad J6-15 at (208.28, 52.07) mm [Bottom layer]
+   * Line at (208.92, 50.80):(207.65, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 475 -- Clearance Violation between:
+   * Pad J6-15 at (208.28, 52.07) mm [Bottom layer]
+   * Line at (210.19, 52.07):(208.92, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 476 -- Clearance Violation between:
+   * Line at (209.55, 50.80):(212.09, 50.80) mm [Top layer]
+   * Pad J6-47 at (210.82, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 477 -- Clearance Violation between:
+   * Line at (209.55, 50.80):(212.09, 50.80) mm [Top layer]
+   * Pad J6-48 at (210.82, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 478 -- Clearance Violation between:
+   * Pad J5-15 at (238.76, 52.07) mm [Bottom layer]
+   * Line at (239.40, 50.80):(238.13, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 479 -- Clearance Violation between:
+   * Pad J5-15 at (238.76, 52.07) mm [Bottom layer]
+   * Line at (238.13, 53.34):(237.49, 52.71) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 480 -- Clearance Violation between:
+   * Pad J5-15 at (238.76, 52.07) mm [Bottom layer]
+   * Line at (239.40, 53.34):(238.13, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 481 -- Clearance Violation between:
+   * Pad J5-15 at (238.76, 52.07) mm [Bottom layer]
+   * Line at (240.67, 52.07):(239.40, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 482 -- Clearance Violation between:
+   * Line at ( 87.63, 55.88):( 89.54, 55.88) mm [Top layer]
+   * Pad J1-45 at ( 88.90, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 483 -- Clearance Violation between:
+   * Pad J2-13 at (116.84, 57.15) mm [Bottom layer]
+   * Line at (116.21, 58.42):(115.57, 57.79) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 484 -- Clearance Violation between:
+   * Pad J2-13 at (116.84, 57.15) mm [Bottom layer]
+   * Line at (117.48, 58.42):(116.21, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 485 -- Clearance Violation between:
+   * Pad J2-13 at (116.84, 57.15) mm [Bottom layer]
+   * Line at (118.75, 57.15):(117.48, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 486 -- Clearance Violation between:
+   * Line at (118.11, 55.88):(120.65, 55.88) mm [Top layer]
+   * Pad J2-45 at (119.38, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 487 -- Clearance Violation between:
+   * Pad J3-13 at (147.32, 57.15) mm [Bottom layer]
+   * Line at (146.69, 58.42):(146.05, 57.79) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 488 -- Clearance Violation between:
+   * Pad J3-13 at (147.32, 57.15) mm [Bottom layer]
+   * Line at (147.96, 58.42):(146.69, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 489 -- Clearance Violation between:
+   * Pad J3-13 at (147.32, 57.15) mm [Bottom layer]
+   * Line at (149.23, 57.15):(147.96, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 490 -- Clearance Violation between:
+   * Line at (148.59, 55.88):(151.13, 55.88) mm [Top layer]
+   * Pad J3-45 at (149.86, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 491 -- Clearance Violation between:
+   * Pad J4-13 at (177.80, 57.15) mm [Bottom layer]
+   * Line at (177.17, 58.42):(176.53, 57.79) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 492 -- Clearance Violation between:
+   * Pad J4-13 at (177.80, 57.15) mm [Bottom layer]
+   * Line at (178.44, 58.42):(177.17, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 493 -- Clearance Violation between:
+   * Pad J4-13 at (177.80, 57.15) mm [Bottom layer]
+   * Line at (179.71, 57.15):(178.44, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 494 -- Clearance Violation between:
+   * Line at (179.07, 55.88):(181.61, 55.88) mm [Top layer]
+   * Pad J4-45 at (180.34, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 495 -- Clearance Violation between:
+   * Pad J6-13 at (208.28, 57.15) mm [Bottom layer]
+   * Line at (208.92, 58.42):(207.65, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 496 -- Clearance Violation between:
+   * Pad J6-13 at (208.28, 57.15) mm [Bottom layer]
+   * Line at (207.65, 58.42):(207.01, 57.79) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 497 -- Clearance Violation between:
+   * Pad J6-13 at (208.28, 57.15) mm [Bottom layer]
+   * Line at (210.19, 57.15):(208.92, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 498 -- Clearance Violation between:
+   * Line at (209.55, 55.88):(212.09, 55.88) mm [Top layer]
+   * Pad J6-45 at (210.82, 57.15) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 499 -- Clearance Violation between:
+   * Pad J5-13 at (238.76, 57.15) mm [Bottom layer]
+   * Line at (238.13, 58.42):(237.49, 57.79) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 500 -- Clearance Violation between:
+   * Pad J5-13 at (238.76, 57.15) mm [Bottom layer]
+   * Line at (239.40, 58.42):(238.13, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 501 -- Clearance Violation between:
+   * Pad J5-13 at (238.76, 57.15) mm [Bottom layer]
+   * Line at (240.67, 57.15):(239.40, 58.42) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 502 -- Clearance Violation between:
+   * Line at ( 87.63, 43.18):( 89.54, 43.18) mm [Top layer]
+   * Pad J1-50 at ( 88.90, 44.45) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 503 -- Clearance Violation between:
+   * Line at ( 87.63, 43.18):( 89.54, 43.18) mm [Top layer]
+   * Pad J1-51 at ( 88.90, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 504 -- Clearance Violation between:
+   * Pad J2-18 at (116.84, 44.45) mm [Bottom layer]
+   * Line at (118.75, 44.45):(117.48, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 505 -- Clearance Violation between:
+   * Pad J2-18 at (116.84, 44.45) mm [Bottom layer]
+   * Line at (117.48, 45.72):(116.21, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 506 -- Clearance Violation between:
+   * Pad J2-18 at (116.84, 44.45) mm [Bottom layer]
+   * Line at (116.21, 45.72):(115.57, 45.09) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 507 -- Clearance Violation between:
+   * Pad J2-18 at (116.84, 44.45) mm [Bottom layer]
+   * Line at (117.48, 43.18):(116.21, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 508 -- Clearance Violation between:
+   * Line at (118.11, 43.18):(120.65, 43.18) mm [Top layer]
+   * Pad J2-50 at (119.38, 44.45) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 509 -- Clearance Violation between:
+   * Line at (118.11, 43.18):(120.65, 43.18) mm [Top layer]
+   * Pad J2-51 at (119.38, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 510 -- Clearance Violation between:
+   * Pad J3-18 at (147.32, 44.45) mm [Bottom layer]
+   * Line at (146.69, 45.72):(146.05, 45.09) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 511 -- Clearance Violation between:
+   * Pad J3-18 at (147.32, 44.45) mm [Bottom layer]
+   * Line at (147.96, 45.72):(146.69, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 512 -- Clearance Violation between:
+   * Pad J3-18 at (147.32, 44.45) mm [Bottom layer]
+   * Line at (149.23, 44.45):(147.96, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 513 -- Clearance Violation between:
+   * Pad J3-18 at (147.32, 44.45) mm [Bottom layer]
+   * Line at (147.96, 43.18):(146.69, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 514 -- Clearance Violation between:
+   * Line at (148.59, 43.18):(151.13, 43.18) mm [Top layer]
+   * Pad J3-50 at (149.86, 44.45) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 515 -- Clearance Violation between:
+   * Line at (148.59, 43.18):(151.13, 43.18) mm [Top layer]
+   * Pad J3-51 at (149.86, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 516 -- Clearance Violation between:
+   * Pad J4-18 at (177.80, 44.45) mm [Bottom layer]
+   * Line at (177.17, 45.72):(176.53, 45.09) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 517 -- Clearance Violation between:
+   * Pad J4-18 at (177.80, 44.45) mm [Bottom layer]
+   * Line at (178.44, 45.72):(177.17, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 518 -- Clearance Violation between:
+   * Pad J4-18 at (177.80, 44.45) mm [Bottom layer]
+   * Line at (179.71, 44.45):(178.44, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 519 -- Clearance Violation between:
+   * Pad J4-18 at (177.80, 44.45) mm [Bottom layer]
+   * Line at (178.44, 43.18):(177.17, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 520 -- Clearance Violation between:
+   * Line at (179.07, 43.18):(181.61, 43.18) mm [Top layer]
+   * Pad J4-50 at (180.34, 44.45) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 521 -- Clearance Violation between:
+   * Line at (179.07, 43.18):(181.61, 43.18) mm [Top layer]
+   * Pad J4-51 at (180.34, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 522 -- Clearance Violation between:
+   * Pad J6-18 at (208.28, 44.45) mm [Bottom layer]
+   * Line at (208.92, 43.18):(207.65, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 523 -- Clearance Violation between:
+   * Pad J6-18 at (208.28, 44.45) mm [Bottom layer]
+   * Line at (207.65, 45.72):(207.01, 45.09) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 524 -- Clearance Violation between:
+   * Pad J6-18 at (208.28, 44.45) mm [Bottom layer]
+   * Line at (208.92, 45.72):(207.65, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 525 -- Clearance Violation between:
+   * Pad J6-18 at (208.28, 44.45) mm [Bottom layer]
+   * Line at (210.19, 44.45):(208.92, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 526 -- Clearance Violation between:
+   * Line at (209.55, 43.18):(212.09, 43.18) mm [Top layer]
+   * Pad J6-50 at (210.82, 44.45) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 527 -- Clearance Violation between:
+   * Line at (209.55, 43.18):(212.09, 43.18) mm [Top layer]
+   * Pad J6-51 at (210.82, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 528 -- Clearance Violation between:
+   * Pad J5-18 at (238.76, 44.45) mm [Bottom layer]
+   * Line at (238.13, 45.72):(237.49, 45.09) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 529 -- Clearance Violation between:
+   * Pad J5-18 at (238.76, 44.45) mm [Bottom layer]
+   * Line at (239.40, 45.72):(238.13, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 530 -- Clearance Violation between:
+   * Pad J5-18 at (238.76, 44.45) mm [Bottom layer]
+   * Line at (240.67, 44.45):(239.40, 45.72) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 531 -- Clearance Violation between:
+   * Pad J5-18 at (238.76, 44.45) mm [Bottom layer]
+   * Line at (239.40, 43.18):(238.13, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 532 -- Clearance Violation between:
+   * Line at ( 87.63, 40.64):( 89.54, 40.64) mm [Top layer]
+   * Pad J1-51 at ( 88.90, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 533 -- Clearance Violation between:
+   * Line at ( 87.63, 40.64):( 89.54, 40.64) mm [Top layer]
+   * Pad J1-52 at ( 88.90, 39.37) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 534 -- Clearance Violation between:
+   * Pad J2-19 at (116.84, 41.91) mm [Bottom layer]
+   * Line at (117.48, 43.18):(116.21, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 535 -- Clearance Violation between:
+   * Pad J2-19 at (116.84, 41.91) mm [Bottom layer]
+   * Line at (117.48, 40.64):(116.21, 40.64) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 536 -- Clearance Violation between:
+   * Pad J2-19 at (116.84, 41.91) mm [Bottom layer]
+   * Line at (118.75, 41.91):(117.48, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 537 -- Clearance Violation between:
+   * Pad J2-19 at (116.84, 41.91) mm [Bottom layer]
+   * Line at (116.21, 43.18):(115.57, 42.55) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 538 -- Clearance Violation between:
+   * Line at (118.11, 40.64):(120.65, 40.64) mm [Top layer]
+   * Pad J2-51 at (119.38, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 539 -- Clearance Violation between:
+   * Line at (118.11, 40.64):(120.65, 40.64) mm [Top layer]
+   * Pad J2-52 at (119.38, 39.37) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 540 -- Clearance Violation between:
+   * Pad J3-19 at (147.32, 41.91) mm [Bottom layer]
+   * Line at (147.96, 43.18):(146.69, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 541 -- Clearance Violation between:
+   * Pad J3-19 at (147.32, 41.91) mm [Bottom layer]
+   * Line at (149.23, 41.91):(147.96, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 542 -- Clearance Violation between:
+   * Pad J3-19 at (147.32, 41.91) mm [Bottom layer]
+   * Line at (146.69, 43.18):(146.05, 42.55) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 543 -- Clearance Violation between:
+   * Pad J3-19 at (147.32, 41.91) mm [Bottom layer]
+   * Line at (147.96, 40.64):(146.69, 40.64) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 544 -- Clearance Violation between:
+   * Line at (148.59, 40.64):(151.13, 40.64) mm [Top layer]
+   * Pad J3-51 at (149.86, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 545 -- Clearance Violation between:
+   * Line at (148.59, 40.64):(151.13, 40.64) mm [Top layer]
+   * Pad J3-52 at (149.86, 39.37) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 546 -- Clearance Violation between:
+   * Pad J4-19 at (177.80, 41.91) mm [Bottom layer]
+   * Line at (178.44, 43.18):(177.17, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 547 -- Clearance Violation between:
+   * Pad J4-19 at (177.80, 41.91) mm [Bottom layer]
+   * Line at (178.44, 40.64):(177.17, 40.64) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 548 -- Clearance Violation between:
+   * Pad J4-19 at (177.80, 41.91) mm [Bottom layer]
+   * Line at (177.17, 43.18):(176.53, 42.55) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 549 -- Clearance Violation between:
+   * Pad J4-19 at (177.80, 41.91) mm [Bottom layer]
+   * Line at (179.71, 41.91):(178.44, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 550 -- Clearance Violation between:
+   * Line at (179.07, 40.64):(181.61, 40.64) mm [Top layer]
+   * Pad J4-51 at (180.34, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 551 -- Clearance Violation between:
+   * Line at (179.07, 40.64):(181.61, 40.64) mm [Top layer]
+   * Pad J4-52 at (180.34, 39.37) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 552 -- Clearance Violation between:
+   * Pad J6-19 at (208.28, 41.91) mm [Bottom layer]
+   * Line at (208.92, 43.18):(207.65, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 553 -- Clearance Violation between:
+   * Pad J6-19 at (208.28, 41.91) mm [Bottom layer]
+   * Line at (208.92, 40.64):(207.65, 40.64) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 554 -- Clearance Violation between:
+   * Pad J6-19 at (208.28, 41.91) mm [Bottom layer]
+   * Line at (207.65, 43.18):(207.01, 42.55) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 555 -- Clearance Violation between:
+   * Pad J6-19 at (208.28, 41.91) mm [Bottom layer]
+   * Line at (210.19, 41.91):(208.92, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 556 -- Clearance Violation between:
+   * Line at (209.55, 40.64):(212.09, 40.64) mm [Top layer]
+   * Pad J6-51 at (210.82, 41.91) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 557 -- Clearance Violation between:
+   * Line at (209.55, 40.64):(212.09, 40.64) mm [Top layer]
+   * Pad J6-52 at (210.82, 39.37) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 558 -- Clearance Violation between:
+   * Pad J5-19 at (238.76, 41.91) mm [Bottom layer]
+   * Line at (239.40, 40.64):(238.13, 40.64) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 559 -- Clearance Violation between:
+   * Pad J5-19 at (238.76, 41.91) mm [Bottom layer]
+   * Line at (238.13, 43.18):(237.49, 42.55) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 560 -- Clearance Violation between:
+   * Pad J5-19 at (238.76, 41.91) mm [Bottom layer]
+   * Line at (239.40, 43.18):(238.13, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 561 -- Clearance Violation between:
+   * Pad J5-19 at (238.76, 41.91) mm [Bottom layer]
+   * Line at (240.67, 41.91):(239.40, 43.18) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 562 -- Clearance Violation between:
+   * Line at ( 87.63, 48.26):( 89.54, 48.26) mm [Top layer]
+   * Pad J1-48 at ( 88.90, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 563 -- Clearance Violation between:
+   * Line at ( 87.63, 48.26):( 89.54, 48.26) mm [Top layer]
+   * Pad J1-49 at ( 88.90, 46.99) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 564 -- Clearance Violation between:
+   * Pad J2-16 at (116.84, 49.53) mm [Bottom layer]
+   * Line at (116.21, 50.80):(115.57, 50.17) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 565 -- Clearance Violation between:
+   * Pad J2-16 at (116.84, 49.53) mm [Bottom layer]
+   * Line at (117.48, 50.80):(116.21, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 566 -- Clearance Violation between:
+   * Pad J2-16 at (116.84, 49.53) mm [Bottom layer]
+   * Line at (118.75, 49.53):(117.48, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 567 -- Clearance Violation between:
+   * Pad J2-16 at (116.84, 49.53) mm [Bottom layer]
+   * Line at (117.48, 48.26):(116.21, 48.26) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 568 -- Clearance Violation between:
+   * Line at (118.11, 48.26):(120.65, 48.26) mm [Top layer]
+   * Pad J2-48 at (119.38, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 569 -- Clearance Violation between:
+   * Line at (118.11, 48.26):(120.65, 48.26) mm [Top layer]
+   * Pad J2-49 at (119.38, 46.99) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 570 -- Clearance Violation between:
+   * Pad J3-16 at (147.32, 49.53) mm [Bottom layer]
+   * Line at (146.69, 50.80):(146.05, 50.17) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 571 -- Clearance Violation between:
+   * Pad J3-16 at (147.32, 49.53) mm [Bottom layer]
+   * Line at (147.96, 50.80):(146.69, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 572 -- Clearance Violation between:
+   * Pad J3-16 at (147.32, 49.53) mm [Bottom layer]
+   * Line at (149.23, 49.53):(147.96, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 573 -- Clearance Violation between:
+   * Pad J3-16 at (147.32, 49.53) mm [Bottom layer]
+   * Line at (147.96, 48.26):(146.69, 48.26) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 574 -- Clearance Violation between:
+   * Line at (148.59, 48.26):(151.13, 48.26) mm [Top layer]
+   * Pad J3-48 at (149.86, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 575 -- Clearance Violation between:
+   * Line at (148.59, 48.26):(151.13, 48.26) mm [Top layer]
+   * Pad J3-49 at (149.86, 46.99) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 576 -- Clearance Violation between:
+   * Pad J4-16 at (177.80, 49.53) mm [Bottom layer]
+   * Line at (177.17, 50.80):(176.53, 50.17) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 577 -- Clearance Violation between:
+   * Pad J4-16 at (177.80, 49.53) mm [Bottom layer]
+   * Line at (178.44, 50.80):(177.17, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 578 -- Clearance Violation between:
+   * Pad J4-16 at (177.80, 49.53) mm [Bottom layer]
+   * Line at (179.71, 49.53):(178.44, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 579 -- Clearance Violation between:
+   * Pad J4-16 at (177.80, 49.53) mm [Bottom layer]
+   * Line at (178.44, 48.26):(177.17, 48.26) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 580 -- Clearance Violation between:
+   * Line at (179.07, 48.26):(181.61, 48.26) mm [Top layer]
+   * Pad J4-48 at (180.34, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 581 -- Clearance Violation between:
+   * Line at (179.07, 48.26):(181.61, 48.26) mm [Top layer]
+   * Pad J4-49 at (180.34, 46.99) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 582 -- Clearance Violation between:
+   * Pad J6-16 at (208.28, 49.53) mm [Bottom layer]
+   * Line at (207.65, 50.80):(207.01, 50.17) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 583 -- Clearance Violation between:
+   * Pad J6-16 at (208.28, 49.53) mm [Bottom layer]
+   * Line at (208.92, 50.80):(207.65, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 584 -- Clearance Violation between:
+   * Pad J6-16 at (208.28, 49.53) mm [Bottom layer]
+   * Line at (208.92, 48.26):(207.65, 48.26) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 585 -- Clearance Violation between:
+   * Pad J6-16 at (208.28, 49.53) mm [Bottom layer]
+   * Line at (210.19, 49.53):(208.92, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 586 -- Clearance Violation between:
+   * Line at (209.55, 48.26):(212.09, 48.26) mm [Top layer]
+   * Pad J6-48 at (210.82, 49.53) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 587 -- Clearance Violation between:
+   * Line at (209.55, 48.26):(212.09, 48.26) mm [Top layer]
+   * Pad J6-49 at (210.82, 46.99) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 588 -- Clearance Violation between:
+   * Pad J5-16 at (238.76, 49.53) mm [Bottom layer]
+   * Line at (239.40, 48.26):(238.13, 48.26) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 589 -- Clearance Violation between:
+   * Pad J5-16 at (238.76, 49.53) mm [Bottom layer]
+   * Line at (238.13, 50.80):(237.49, 50.17) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 590 -- Clearance Violation between:
+   * Pad J5-16 at (238.76, 49.53) mm [Bottom layer]
+   * Line at (239.40, 50.80):(238.13, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 591 -- Clearance Violation between:
+   * Pad J5-16 at (238.76, 49.53) mm [Bottom layer]
+   * Line at (240.67, 49.53):(239.40, 50.80) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 592 -- Clearance Violation between:
+   * Pad J1-49 at ( 88.90, 46.99) mm [Top layer]
+   * Line at ( 87.63, 45.72):( 89.54, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 593 -- Clearance Violation between:
+   * Line at (116.21, 48.26):(115.57, 47.63) mm [Bottom layer]
+   * Pad J2-17 at (116.84, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 594 -- Clearance Violation between:
+   * Line at (117.48, 48.26):(116.21, 48.26) mm [Bottom layer]
+   * Pad J2-17 at (116.84, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 595 -- Clearance Violation between:
+   * Line at (118.75, 46.99):(117.48, 48.26) mm [Bottom layer]
+   * Pad J2-17 at (116.84, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 596 -- Clearance Violation between:
+   * Pad J2-49 at (119.38, 46.99) mm [Top layer]
+   * Line at (118.11, 45.72):(120.65, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 597 -- Clearance Violation between:
+   * Line at (146.69, 48.26):(146.05, 47.63) mm [Bottom layer]
+   * Pad J3-17 at (147.32, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 598 -- Clearance Violation between:
+   * Line at (147.96, 48.26):(146.69, 48.26) mm [Bottom layer]
+   * Pad J3-17 at (147.32, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 599 -- Clearance Violation between:
+   * Line at (149.23, 46.99):(147.96, 48.26) mm [Bottom layer]
+   * Pad J3-17 at (147.32, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 600 -- Clearance Violation between:
+   * Pad J3-49 at (149.86, 46.99) mm [Top layer]
+   * Line at (148.59, 45.72):(151.13, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 601 -- Clearance Violation between:
+   * Line at (177.17, 48.26):(176.53, 47.63) mm [Bottom layer]
+   * Pad J4-17 at (177.80, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 602 -- Clearance Violation between:
+   * Line at (178.44, 48.26):(177.17, 48.26) mm [Bottom layer]
+   * Pad J4-17 at (177.80, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 603 -- Clearance Violation between:
+   * Line at (179.71, 46.99):(178.44, 48.26) mm [Bottom layer]
+   * Pad J4-17 at (177.80, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 604 -- Clearance Violation between:
+   * Pad J4-49 at (180.34, 46.99) mm [Top layer]
+   * Line at (179.07, 45.72):(181.61, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 605 -- Clearance Violation between:
+   * Line at (207.65, 48.26):(207.01, 47.63) mm [Bottom layer]
+   * Pad J6-17 at (208.28, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 606 -- Clearance Violation between:
+   * Line at (208.92, 48.26):(207.65, 48.26) mm [Bottom layer]
+   * Pad J6-17 at (208.28, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 607 -- Clearance Violation between:
+   * Line at (210.19, 46.99):(208.92, 48.26) mm [Bottom layer]
+   * Pad J6-17 at (208.28, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 608 -- Clearance Violation between:
+   * Pad J6-49 at (210.82, 46.99) mm [Top layer]
+   * Line at (209.55, 45.72):(212.09, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 609 -- Clearance Violation between:
+   * Line at (238.13, 48.26):(237.49, 47.63) mm [Bottom layer]
+   * Pad J5-17 at (238.76, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 610 -- Clearance Violation between:
+   * Line at (239.40, 48.26):(238.13, 48.26) mm [Bottom layer]
+   * Pad J5-17 at (238.76, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 611 -- Clearance Violation between:
+   * Line at (240.67, 46.99):(239.40, 48.26) mm [Bottom layer]
+   * Pad J5-17 at (238.76, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 612 -- Clearance Violation between:
+   * Line at ( 87.63, 25.40):( 89.54, 25.40) mm [Top layer]
+   * Pad J1-57 at ( 88.90, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 613 -- Clearance Violation between:
+   * Pad J2-25 at (116.84, 26.67) mm [Bottom layer]
+   * Line at (118.75, 26.67):(117.48, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 614 -- Clearance Violation between:
+   * Pad J2-25 at (116.84, 26.67) mm [Bottom layer]
+   * Line at (116.21, 27.94):(115.57, 27.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 615 -- Clearance Violation between:
+   * Pad J2-25 at (116.84, 26.67) mm [Bottom layer]
+   * Line at (117.48, 27.94):(116.21, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 616 -- Clearance Violation between:
+   * Line at (118.11, 25.40):(120.65, 25.40) mm [Top layer]
+   * Pad J2-57 at (119.38, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 617 -- Clearance Violation between:
+   * Pad J3-25 at (147.32, 26.67) mm [Bottom layer]
+   * Line at (146.69, 27.94):(146.05, 27.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 618 -- Clearance Violation between:
+   * Pad J3-25 at (147.32, 26.67) mm [Bottom layer]
+   * Line at (147.96, 27.94):(146.69, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 619 -- Clearance Violation between:
+   * Pad J3-25 at (147.32, 26.67) mm [Bottom layer]
+   * Line at (149.23, 26.67):(147.96, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 620 -- Clearance Violation between:
+   * Line at (148.59, 25.40):(151.13, 25.40) mm [Top layer]
+   * Pad J3-57 at (149.86, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 621 -- Clearance Violation between:
+   * Pad J4-25 at (177.80, 26.67) mm [Bottom layer]
+   * Line at (178.44, 27.94):(177.17, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 622 -- Clearance Violation between:
+   * Pad J4-25 at (177.80, 26.67) mm [Bottom layer]
+   * Line at (177.17, 27.94):(176.53, 27.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 623 -- Clearance Violation between:
+   * Pad J4-25 at (177.80, 26.67) mm [Bottom layer]
+   * Line at (179.71, 26.67):(178.44, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 624 -- Clearance Violation between:
+   * Line at (179.07, 25.40):(181.61, 25.40) mm [Top layer]
+   * Pad J4-57 at (180.34, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 625 -- Clearance Violation between:
+   * Pad J6-25 at (208.28, 26.67) mm [Bottom layer]
+   * Line at (210.19, 26.67):(208.92, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 626 -- Clearance Violation between:
+   * Pad J6-25 at (208.28, 26.67) mm [Bottom layer]
+   * Line at (207.65, 27.94):(207.01, 27.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 627 -- Clearance Violation between:
+   * Pad J6-25 at (208.28, 26.67) mm [Bottom layer]
+   * Line at (208.92, 27.94):(207.65, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 628 -- Clearance Violation between:
+   * Line at (209.55, 25.40):(212.09, 25.40) mm [Top layer]
+   * Pad J6-57 at (210.82, 26.67) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 629 -- Clearance Violation between:
+   * Pad J5-25 at (238.76, 26.67) mm [Bottom layer]
+   * Line at (240.67, 26.67):(239.40, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 630 -- Clearance Violation between:
+   * Pad J5-25 at (238.76, 26.67) mm [Bottom layer]
+   * Line at (238.13, 27.94):(237.49, 27.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 631 -- Clearance Violation between:
+   * Pad J5-25 at (238.76, 26.67) mm [Bottom layer]
+   * Line at (239.40, 27.94):(238.13, 27.94) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 632 -- Clearance Violation between:
+   * Pad J1-52 at ( 88.90, 39.37) mm [Top layer]
+   * Line at ( 87.63, 38.10):( 89.54, 38.10) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 633 -- Clearance Violation between:
+   * Line at (116.21, 40.64):(115.57, 40.01) mm [Bottom layer]
+   * Pad J2-20 at (116.84, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 634 -- Clearance Violation between:
+   * Line at (117.48, 40.64):(116.21, 40.64) mm [Bottom layer]
+   * Pad J2-20 at (116.84, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 635 -- Clearance Violation between:
+   * Line at (118.75, 39.37):(117.48, 40.64) mm [Bottom layer]
+   * Pad J2-20 at (116.84, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 636 -- Clearance Violation between:
+   * Pad J2-52 at (119.38, 39.37) mm [Top layer]
+   * Line at (118.11, 38.10):(120.65, 38.10) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 637 -- Clearance Violation between:
+   * Line at (146.69, 40.64):(146.05, 40.01) mm [Bottom layer]
+   * Pad J3-20 at (147.32, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 638 -- Clearance Violation between:
+   * Line at (147.96, 40.64):(146.69, 40.64) mm [Bottom layer]
+   * Pad J3-20 at (147.32, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 639 -- Clearance Violation between:
+   * Line at (149.23, 39.37):(147.96, 40.64) mm [Bottom layer]
+   * Pad J3-20 at (147.32, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 640 -- Clearance Violation between:
+   * Pad J3-52 at (149.86, 39.37) mm [Top layer]
+   * Line at (148.59, 38.10):(151.13, 38.10) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 641 -- Clearance Violation between:
+   * Line at (177.17, 40.64):(176.53, 40.01) mm [Bottom layer]
+   * Pad J4-20 at (177.80, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 642 -- Clearance Violation between:
+   * Line at (178.44, 40.64):(177.17, 40.64) mm [Bottom layer]
+   * Pad J4-20 at (177.80, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 643 -- Clearance Violation between:
+   * Line at (179.71, 39.37):(178.44, 40.64) mm [Bottom layer]
+   * Pad J4-20 at (177.80, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 644 -- Clearance Violation between:
+   * Pad J4-52 at (180.34, 39.37) mm [Top layer]
+   * Line at (179.07, 38.10):(181.61, 38.10) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 645 -- Clearance Violation between:
+   * Line at (207.65, 40.64):(207.01, 40.01) mm [Bottom layer]
+   * Pad J6-20 at (208.28, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 646 -- Clearance Violation between:
+   * Line at (208.92, 40.64):(207.65, 40.64) mm [Bottom layer]
+   * Pad J6-20 at (208.28, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 647 -- Clearance Violation between:
+   * Line at (210.19, 39.37):(208.92, 40.64) mm [Bottom layer]
+   * Pad J6-20 at (208.28, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 648 -- Clearance Violation between:
+   * Pad J6-52 at (210.82, 39.37) mm [Top layer]
+   * Line at (209.55, 38.10):(212.09, 38.10) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 649 -- Clearance Violation between:
+   * Line at (238.13, 40.64):(237.49, 40.01) mm [Bottom layer]
+   * Pad J5-20 at (238.76, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 650 -- Clearance Violation between:
+   * Line at (239.40, 40.64):(238.13, 40.64) mm [Bottom layer]
+   * Pad J5-20 at (238.76, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 651 -- Clearance Violation between:
+   * Line at (240.67, 39.37):(239.40, 40.64) mm [Bottom layer]
+   * Pad J5-20 at (238.76, 39.37) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 652 -- Clearance Violation between:
+   * Pad J1-23 at ( 86.36, 31.75) mm [Bottom layer]
+   * Line at ( 88.27, 30.48):( 85.09, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 653 -- Clearance Violation between:
+   * Line at ( 87.63, 30.48):( 89.54, 30.48) mm [Top layer]
+   * Pad J1-55 at ( 88.90, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 654 -- Clearance Violation between:
+   * Line at ( 87.63, 30.48):( 89.54, 30.48) mm [Top layer]
+   * Pad J1-56 at ( 88.90, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 655 -- Clearance Violation between:
+   * Pad J2-23 at (116.84, 31.75) mm [Bottom layer]
+   * Line at (117.48, 33.02):(116.21, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 656 -- Clearance Violation between:
+   * Pad J2-23 at (116.84, 31.75) mm [Bottom layer]
+   * Line at (116.21, 33.02):(115.57, 32.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 657 -- Clearance Violation between:
+   * Pad J2-23 at (116.84, 31.75) mm [Bottom layer]
+   * Line at (118.75, 31.75):(117.48, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 658 -- Clearance Violation between:
+   * Pad J2-23 at (116.84, 31.75) mm [Bottom layer]
+   * Line at (117.48, 30.48):(116.21, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 659 -- Clearance Violation between:
+   * Line at (118.11, 30.48):(120.65, 30.48) mm [Top layer]
+   * Pad J2-55 at (119.38, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 660 -- Clearance Violation between:
+   * Line at (118.11, 30.48):(120.65, 30.48) mm [Top layer]
+   * Pad J2-56 at (119.38, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 661 -- Clearance Violation between:
+   * Pad J3-23 at (147.32, 31.75) mm [Bottom layer]
+   * Line at (147.96, 30.48):(146.69, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 662 -- Clearance Violation between:
+   * Pad J3-23 at (147.32, 31.75) mm [Bottom layer]
+   * Line at (149.23, 31.75):(147.96, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 663 -- Clearance Violation between:
+   * Pad J3-23 at (147.32, 31.75) mm [Bottom layer]
+   * Line at (147.96, 33.02):(146.69, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 664 -- Clearance Violation between:
+   * Pad J3-23 at (147.32, 31.75) mm [Bottom layer]
+   * Line at (146.69, 33.02):(146.05, 32.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 665 -- Clearance Violation between:
+   * Line at (148.59, 30.48):(151.13, 30.48) mm [Top layer]
+   * Pad J3-55 at (149.86, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 666 -- Clearance Violation between:
+   * Line at (148.59, 30.48):(151.13, 30.48) mm [Top layer]
+   * Pad J3-56 at (149.86, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 667 -- Clearance Violation between:
+   * Pad J4-23 at (177.80, 31.75) mm [Bottom layer]
+   * Line at (177.17, 33.02):(176.53, 32.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 668 -- Clearance Violation between:
+   * Pad J4-23 at (177.80, 31.75) mm [Bottom layer]
+   * Line at (178.44, 33.02):(177.17, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 669 -- Clearance Violation between:
+   * Pad J4-23 at (177.80, 31.75) mm [Bottom layer]
+   * Line at (179.71, 31.75):(178.44, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 670 -- Clearance Violation between:
+   * Pad J4-23 at (177.80, 31.75) mm [Bottom layer]
+   * Line at (178.44, 30.48):(177.17, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 671 -- Clearance Violation between:
+   * Line at (179.07, 30.48):(181.61, 30.48) mm [Top layer]
+   * Pad J4-55 at (180.34, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 672 -- Clearance Violation between:
+   * Line at (179.07, 30.48):(181.61, 30.48) mm [Top layer]
+   * Pad J4-56 at (180.34, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 673 -- Clearance Violation between:
+   * Pad J6-23 at (208.28, 31.75) mm [Bottom layer]
+   * Line at (208.92, 30.48):(207.65, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 674 -- Clearance Violation between:
+   * Pad J6-23 at (208.28, 31.75) mm [Bottom layer]
+   * Line at (210.19, 31.75):(208.92, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 675 -- Clearance Violation between:
+   * Pad J6-23 at (208.28, 31.75) mm [Bottom layer]
+   * Line at (208.92, 33.02):(207.65, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 676 -- Clearance Violation between:
+   * Pad J6-23 at (208.28, 31.75) mm [Bottom layer]
+   * Line at (207.65, 33.02):(207.01, 32.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 677 -- Clearance Violation between:
+   * Line at (209.55, 30.48):(212.09, 30.48) mm [Top layer]
+   * Pad J6-55 at (210.82, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 678 -- Clearance Violation between:
+   * Line at (209.55, 30.48):(212.09, 30.48) mm [Top layer]
+   * Pad J6-56 at (210.82, 29.21) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 679 -- Clearance Violation between:
+   * Pad J5-23 at (238.76, 31.75) mm [Bottom layer]
+   * Line at (238.13, 33.02):(237.49, 32.39) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 680 -- Clearance Violation between:
+   * Pad J5-23 at (238.76, 31.75) mm [Bottom layer]
+   * Line at (239.40, 33.02):(238.13, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 681 -- Clearance Violation between:
+   * Pad J5-23 at (238.76, 31.75) mm [Bottom layer]
+   * Line at (239.40, 30.48):(238.13, 30.48) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 682 -- Clearance Violation between:
+   * Pad J5-23 at (238.76, 31.75) mm [Bottom layer]
+   * Line at (240.67, 31.75):(239.40, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 683 -- Clearance Violation between:
+   * Line at ( 87.63, 33.02):( 89.54, 33.02) mm [Top layer]
+   * Pad J1-54 at ( 88.90, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 684 -- Clearance Violation between:
+   * Line at ( 87.63, 33.02):( 89.54, 33.02) mm [Top layer]
+   * Pad J1-55 at ( 88.90, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 685 -- Clearance Violation between:
+   * Pad J2-22 at (116.84, 34.29) mm [Bottom layer]
+   * Line at (118.75, 34.29):(117.48, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 686 -- Clearance Violation between:
+   * Pad J2-22 at (116.84, 34.29) mm [Bottom layer]
+   * Line at (117.48, 35.56):(116.21, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 687 -- Clearance Violation between:
+   * Pad J2-22 at (116.84, 34.29) mm [Bottom layer]
+   * Line at (116.21, 35.56):(115.57, 34.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 688 -- Clearance Violation between:
+   * Pad J2-22 at (116.84, 34.29) mm [Bottom layer]
+   * Line at (117.48, 33.02):(116.21, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 689 -- Clearance Violation between:
+   * Line at (118.11, 33.02):(120.65, 33.02) mm [Top layer]
+   * Pad J2-54 at (119.38, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 690 -- Clearance Violation between:
+   * Line at (118.11, 33.02):(120.65, 33.02) mm [Top layer]
+   * Pad J2-55 at (119.38, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 691 -- Clearance Violation between:
+   * Pad J3-22 at (147.32, 34.29) mm [Bottom layer]
+   * Line at (147.96, 33.02):(146.69, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 692 -- Clearance Violation between:
+   * Pad J3-22 at (147.32, 34.29) mm [Bottom layer]
+   * Line at (149.23, 34.29):(147.96, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 693 -- Clearance Violation between:
+   * Pad J3-22 at (147.32, 34.29) mm [Bottom layer]
+   * Line at (147.96, 35.56):(146.69, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 694 -- Clearance Violation between:
+   * Pad J3-22 at (147.32, 34.29) mm [Bottom layer]
+   * Line at (146.69, 35.56):(146.05, 34.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 695 -- Clearance Violation between:
+   * Line at (148.59, 33.02):(151.13, 33.02) mm [Top layer]
+   * Pad J3-54 at (149.86, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 696 -- Clearance Violation between:
+   * Line at (148.59, 33.02):(151.13, 33.02) mm [Top layer]
+   * Pad J3-55 at (149.86, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 697 -- Clearance Violation between:
+   * Pad J4-22 at (177.80, 34.29) mm [Bottom layer]
+   * Line at (177.17, 35.56):(176.53, 34.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 698 -- Clearance Violation between:
+   * Pad J4-22 at (177.80, 34.29) mm [Bottom layer]
+   * Line at (178.44, 35.56):(177.17, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 699 -- Clearance Violation between:
+   * Pad J4-22 at (177.80, 34.29) mm [Bottom layer]
+   * Line at (179.71, 34.29):(178.44, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 700 -- Clearance Violation between:
+   * Pad J4-22 at (177.80, 34.29) mm [Bottom layer]
+   * Line at (178.44, 33.02):(177.17, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 701 -- Clearance Violation between:
+   * Line at (179.07, 33.02):(181.61, 33.02) mm [Top layer]
+   * Pad J4-54 at (180.34, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 702 -- Clearance Violation between:
+   * Line at (179.07, 33.02):(181.61, 33.02) mm [Top layer]
+   * Pad J4-55 at (180.34, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 703 -- Clearance Violation between:
+   * Pad J6-22 at (208.28, 34.29) mm [Bottom layer]
+   * Line at (208.92, 33.02):(207.65, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 704 -- Clearance Violation between:
+   * Pad J6-22 at (208.28, 34.29) mm [Bottom layer]
+   * Line at (208.92, 35.56):(207.65, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 705 -- Clearance Violation between:
+   * Pad J6-22 at (208.28, 34.29) mm [Bottom layer]
+   * Line at (207.65, 35.56):(207.01, 34.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 706 -- Clearance Violation between:
+   * Pad J6-22 at (208.28, 34.29) mm [Bottom layer]
+   * Line at (210.19, 34.29):(208.92, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 707 -- Clearance Violation between:
+   * Line at (209.55, 33.02):(212.09, 33.02) mm [Top layer]
+   * Pad J6-54 at (210.82, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 708 -- Clearance Violation between:
+   * Line at (209.55, 33.02):(212.09, 33.02) mm [Top layer]
+   * Pad J6-55 at (210.82, 31.75) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 709 -- Clearance Violation between:
+   * Pad J5-22 at (238.76, 34.29) mm [Bottom layer]
+   * Line at (238.13, 35.56):(237.49, 34.93) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 710 -- Clearance Violation between:
+   * Pad J5-22 at (238.76, 34.29) mm [Bottom layer]
+   * Line at (239.40, 35.56):(238.13, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 711 -- Clearance Violation between:
+   * Pad J5-22 at (238.76, 34.29) mm [Bottom layer]
+   * Line at (240.67, 34.29):(239.40, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 712 -- Clearance Violation between:
+   * Pad J5-22 at (238.76, 34.29) mm [Bottom layer]
+   * Line at (239.40, 33.02):(238.13, 33.02) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 713 -- Clearance Violation between:
+   * Line at ( 87.63, 20.32):( 89.54, 20.32) mm [Top layer]
+   * Pad J1-59 at ( 88.90, 21.59) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 714 -- Clearance Violation between:
+   * Line at ( 87.63, 20.32):( 89.54, 20.32) mm [Top layer]
+   * Pad J1-60 at ( 88.90, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 715 -- Clearance Violation between:
+   * Pad J2-27 at (116.84, 21.59) mm [Bottom layer]
+   * Line at (118.75, 21.59):(117.48, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 716 -- Clearance Violation between:
+   * Pad J2-27 at (116.84, 21.59) mm [Bottom layer]
+   * Line at (117.48, 22.86):(116.21, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 717 -- Clearance Violation between:
+   * Pad J2-27 at (116.84, 21.59) mm [Bottom layer]
+   * Line at (116.21, 22.86):(115.57, 22.23) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 718 -- Clearance Violation between:
+   * Pad J2-27 at (116.84, 21.59) mm [Bottom layer]
+   * Line at (117.48, 20.32):(116.21, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 719 -- Clearance Violation between:
+   * Line at (118.11, 20.32):(120.65, 20.32) mm [Top layer]
+   * Pad J2-59 at (119.38, 21.59) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 720 -- Clearance Violation between:
+   * Line at (118.11, 20.32):(120.65, 20.32) mm [Top layer]
+   * Pad J2-60 at (119.38, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 721 -- Clearance Violation between:
+   * Pad J3-27 at (147.32, 21.59) mm [Bottom layer]
+   * Line at (146.69, 22.86):(146.05, 22.23) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 722 -- Clearance Violation between:
+   * Pad J3-27 at (147.32, 21.59) mm [Bottom layer]
+   * Line at (147.96, 22.86):(146.69, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 723 -- Clearance Violation between:
+   * Pad J3-27 at (147.32, 21.59) mm [Bottom layer]
+   * Line at (149.23, 21.59):(147.96, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 724 -- Clearance Violation between:
+   * Pad J3-27 at (147.32, 21.59) mm [Bottom layer]
+   * Line at (147.96, 20.32):(146.69, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 725 -- Clearance Violation between:
+   * Line at (148.59, 20.32):(151.13, 20.32) mm [Top layer]
+   * Pad J3-59 at (149.86, 21.59) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 726 -- Clearance Violation between:
+   * Line at (148.59, 20.32):(151.13, 20.32) mm [Top layer]
+   * Pad J3-60 at (149.86, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 727 -- Clearance Violation between:
+   * Pad J4-27 at (177.80, 21.59) mm [Bottom layer]
+   * Line at (177.17, 22.86):(176.53, 22.23) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 728 -- Clearance Violation between:
+   * Pad J4-27 at (177.80, 21.59) mm [Bottom layer]
+   * Line at (178.44, 22.86):(177.17, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 729 -- Clearance Violation between:
+   * Pad J4-27 at (177.80, 21.59) mm [Bottom layer]
+   * Line at (179.71, 21.59):(178.44, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 730 -- Clearance Violation between:
+   * Pad J4-27 at (177.80, 21.59) mm [Bottom layer]
+   * Line at (178.44, 20.32):(177.17, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 731 -- Clearance Violation between:
+   * Line at (179.07, 20.32):(181.61, 20.32) mm [Top layer]
+   * Pad J4-59 at (180.34, 21.59) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 732 -- Clearance Violation between:
+   * Line at (179.07, 20.32):(181.61, 20.32) mm [Top layer]
+   * Pad J4-60 at (180.34, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 733 -- Clearance Violation between:
+   * Pad J6-27 at (208.28, 21.59) mm [Bottom layer]
+   * Line at (208.92, 20.32):(207.65, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 734 -- Clearance Violation between:
+   * Pad J6-27 at (208.28, 21.59) mm [Bottom layer]
+   * Line at (210.19, 21.59):(208.92, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 735 -- Clearance Violation between:
+   * Pad J6-27 at (208.28, 21.59) mm [Bottom layer]
+   * Line at (208.92, 22.86):(207.65, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 736 -- Clearance Violation between:
+   * Pad J6-27 at (208.28, 21.59) mm [Bottom layer]
+   * Line at (207.65, 22.86):(207.01, 22.23) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 737 -- Clearance Violation between:
+   * Line at (209.55, 20.32):(212.09, 20.32) mm [Top layer]
+   * Pad J6-59 at (210.82, 21.59) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 738 -- Clearance Violation between:
+   * Line at (209.55, 20.32):(212.09, 20.32) mm [Top layer]
+   * Pad J6-60 at (210.82, 19.05) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 739 -- Clearance Violation between:
+   * Pad J5-27 at (238.76, 21.59) mm [Bottom layer]
+   * Line at (239.40, 20.32):(238.13, 20.32) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 740 -- Clearance Violation between:
+   * Pad J5-27 at (238.76, 21.59) mm [Bottom layer]
+   * Line at (240.67, 21.59):(239.40, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 741 -- Clearance Violation between:
+   * Pad J5-27 at (238.76, 21.59) mm [Bottom layer]
+   * Line at (239.40, 22.86):(238.13, 22.86) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 742 -- Clearance Violation between:
+   * Pad J5-27 at (238.76, 21.59) mm [Bottom layer]
+   * Line at (238.13, 22.86):(237.49, 22.23) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 743 -- Clearance Violation between:
+   * Pad J1-8 at ( 86.36, 69.85) mm [Bottom layer]
+   * Line at ( 83.19, 68.58):( 87.63, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 744 -- Clearance Violation between:
+   * Line at ( 87.63, 68.58):( 89.54, 68.58) mm [Top layer]
+   * Pad J1-41 at ( 88.90, 67.31) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 745 -- Clearance Violation between:
+   * Pad J2-8 at (116.84, 69.85) mm [Bottom layer]
+   * Line at (117.48, 68.58):(116.21, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 746 -- Clearance Violation between:
+   * Line at (118.11, 68.58):(120.65, 68.58) mm [Top layer]
+   * Pad J2-41 at (119.38, 67.31) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 747 -- Clearance Violation between:
+   * Pad J3-8 at (147.32, 69.85) mm [Bottom layer]
+   * Line at (147.96, 68.58):(146.69, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 748 -- Clearance Violation between:
+   * Line at (148.59, 68.58):(151.13, 68.58) mm [Top layer]
+   * Pad J3-41 at (149.86, 67.31) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 749 -- Clearance Violation between:
+   * Pad J4-8 at (177.80, 69.85) mm [Bottom layer]
+   * Line at (178.44, 68.58):(177.17, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 750 -- Clearance Violation between:
+   * Line at (179.07, 68.58):(181.61, 68.58) mm [Top layer]
+   * Pad J4-41 at (180.34, 67.31) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 751 -- Clearance Violation between:
+   * Pad J6-8 at (208.28, 69.85) mm [Bottom layer]
+   * Line at (208.92, 68.58):(207.65, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 752 -- Clearance Violation between:
+   * Line at (209.55, 68.58):(212.09, 68.58) mm [Top layer]
+   * Pad J6-41 at (210.82, 67.31) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 753 -- Clearance Violation between:
+   * Pad J5-8 at (238.76, 69.85) mm [Bottom layer]
+   * Line at (239.40, 68.58):(238.13, 68.58) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 754 -- Clearance Violation between:
+   * Line at ( 87.63, 53.34):( 89.54, 53.34) mm [Top layer]
+   * Pad J1-47 at ( 88.90, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 755 -- Clearance Violation between:
+   * Pad J2-14 at (116.84, 54.61) mm [Bottom layer]
+   * Line at (117.48, 53.34):(116.21, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 756 -- Clearance Violation between:
+   * Line at (118.11, 53.34):(120.65, 53.34) mm [Top layer]
+   * Pad J2-47 at (119.38, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 757 -- Clearance Violation between:
+   * Pad J3-14 at (147.32, 54.61) mm [Bottom layer]
+   * Line at (147.96, 53.34):(146.69, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 758 -- Clearance Violation between:
+   * Line at (148.59, 53.34):(151.13, 53.34) mm [Top layer]
+   * Pad J3-47 at (149.86, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 759 -- Clearance Violation between:
+   * Pad J4-14 at (177.80, 54.61) mm [Bottom layer]
+   * Line at (178.44, 53.34):(177.17, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 760 -- Clearance Violation between:
+   * Line at (179.07, 53.34):(181.61, 53.34) mm [Top layer]
+   * Pad J4-47 at (180.34, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 761 -- Clearance Violation between:
+   * Pad J6-14 at (208.28, 54.61) mm [Bottom layer]
+   * Line at (208.92, 53.34):(207.65, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 762 -- Clearance Violation between:
+   * Line at (209.55, 53.34):(212.09, 53.34) mm [Top layer]
+   * Pad J6-47 at (210.82, 52.07) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 763 -- Clearance Violation between:
+   * Pad J5-14 at (238.76, 54.61) mm [Bottom layer]
+   * Line at (239.40, 53.34):(238.13, 53.34) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 764 -- Clearance Violation between:
+   * Line at ( 87.63, 10.16):( 89.54, 10.16) mm [Top layer]
+   * Pad J1-63 at ( 88.90, 11.43) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 765 -- Clearance Violation between:
+   * Pad J2-31 at (116.84, 11.43) mm [Bottom layer]
+   * Line at (118.75, 11.43):(117.48, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 766 -- Clearance Violation between:
+   * Pad J2-31 at (116.84, 11.43) mm [Bottom layer]
+   * Line at (117.48, 12.70):(116.21, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 767 -- Clearance Violation between:
+   * Pad J2-31 at (116.84, 11.43) mm [Bottom layer]
+   * Line at (116.21, 12.70):(115.57, 12.07) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 768 -- Clearance Violation between:
+   * Line at (118.11, 10.16):(120.65, 10.16) mm [Top layer]
+   * Pad J2-63 at (119.38, 11.43) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 769 -- Clearance Violation between:
+   * Pad J3-31 at (147.32, 11.43) mm [Bottom layer]
+   * Line at (146.69, 12.70):(146.05, 12.07) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 770 -- Clearance Violation between:
+   * Pad J3-31 at (147.32, 11.43) mm [Bottom layer]
+   * Line at (147.96, 12.70):(146.69, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 771 -- Clearance Violation between:
+   * Pad J3-31 at (147.32, 11.43) mm [Bottom layer]
+   * Line at (149.23, 11.43):(147.96, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 772 -- Clearance Violation between:
+   * Line at (148.59, 10.16):(151.13, 10.16) mm [Top layer]
+   * Pad J3-63 at (149.86, 11.43) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 773 -- Clearance Violation between:
+   * Pad J4-31 at (177.80, 11.43) mm [Bottom layer]
+   * Line at (177.17, 12.70):(176.53, 12.07) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 774 -- Clearance Violation between:
+   * Pad J4-31 at (177.80, 11.43) mm [Bottom layer]
+   * Line at (178.44, 12.70):(177.17, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 775 -- Clearance Violation between:
+   * Pad J4-31 at (177.80, 11.43) mm [Bottom layer]
+   * Line at (179.71, 11.43):(178.44, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 776 -- Clearance Violation between:
+   * Line at (179.07, 10.16):(181.61, 10.16) mm [Top layer]
+   * Pad J4-63 at (180.34, 11.43) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 777 -- Clearance Violation between:
+   * Pad J6-31 at (208.28, 11.43) mm [Bottom layer]
+   * Line at (210.19, 11.43):(208.92, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 778 -- Clearance Violation between:
+   * Pad J6-31 at (208.28, 11.43) mm [Bottom layer]
+   * Line at (208.92, 12.70):(207.65, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 779 -- Clearance Violation between:
+   * Pad J6-31 at (208.28, 11.43) mm [Bottom layer]
+   * Line at (207.65, 12.70):(207.01, 12.07) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 780 -- Clearance Violation between:
+   * Line at (209.55, 10.16):(212.09, 10.16) mm [Top layer]
+   * Pad J6-63 at (210.82, 11.43) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 781 -- Clearance Violation between:
+   * Pad J5-31 at (238.76, 11.43) mm [Bottom layer]
+   * Line at (240.67, 11.43):(239.40, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 782 -- Clearance Violation between:
+   * Pad J5-31 at (238.76, 11.43) mm [Bottom layer]
+   * Line at (239.40, 12.70):(238.13, 12.70) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 783 -- Clearance Violation between:
+   * Pad J5-31 at (238.76, 11.43) mm [Bottom layer]
+   * Line at (238.13, 12.70):(237.49, 12.07) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 784 -- Clearance Violation between:
+   * Line at ( 87.63, 38.10):( 89.54, 38.10) mm [Top layer]
+   * Pad J1-53 at ( 88.90, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 785 -- Clearance Violation between:
+   * Pad J2-20 at (116.84, 39.37) mm [Bottom layer]
+   * Line at (117.48, 38.10):(116.21, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 786 -- Clearance Violation between:
+   * Line at (118.11, 38.10):(120.65, 38.10) mm [Top layer]
+   * Pad J2-53 at (119.38, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 787 -- Clearance Violation between:
+   * Pad J3-20 at (147.32, 39.37) mm [Bottom layer]
+   * Line at (147.96, 38.10):(146.69, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 788 -- Clearance Violation between:
+   * Line at (148.59, 38.10):(151.13, 38.10) mm [Top layer]
+   * Pad J3-53 at (149.86, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 789 -- Clearance Violation between:
+   * Pad J4-20 at (177.80, 39.37) mm [Bottom layer]
+   * Line at (178.44, 38.10):(177.17, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 790 -- Clearance Violation between:
+   * Line at (179.07, 38.10):(181.61, 38.10) mm [Top layer]
+   * Pad J4-53 at (180.34, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 791 -- Clearance Violation between:
+   * Pad J6-20 at (208.28, 39.37) mm [Bottom layer]
+   * Line at (208.92, 38.10):(207.65, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 792 -- Clearance Violation between:
+   * Line at (209.55, 38.10):(212.09, 38.10) mm [Top layer]
+   * Pad J6-53 at (210.82, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 793 -- Clearance Violation between:
+   * Pad J5-20 at (238.76, 39.37) mm [Bottom layer]
+   * Line at (239.40, 38.10):(238.13, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 794 -- Clearance Violation between:
+   * Pad J1-50 at ( 88.90, 44.45) mm [Top layer]
+   * Line at ( 87.63, 45.72):( 89.54, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 795 -- Clearance Violation between:
+   * Line at (117.48, 45.72):(116.21, 45.72) mm [Bottom layer]
+   * Pad J2-17 at (116.84, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 796 -- Clearance Violation between:
+   * Pad J2-50 at (119.38, 44.45) mm [Top layer]
+   * Line at (118.11, 45.72):(120.65, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 797 -- Clearance Violation between:
+   * Line at (147.96, 45.72):(146.69, 45.72) mm [Bottom layer]
+   * Pad J3-17 at (147.32, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 798 -- Clearance Violation between:
+   * Pad J3-50 at (149.86, 44.45) mm [Top layer]
+   * Line at (148.59, 45.72):(151.13, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 799 -- Clearance Violation between:
+   * Line at (178.44, 45.72):(177.17, 45.72) mm [Bottom layer]
+   * Pad J4-17 at (177.80, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 800 -- Clearance Violation between:
+   * Pad J4-50 at (180.34, 44.45) mm [Top layer]
+   * Line at (179.07, 45.72):(181.61, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 801 -- Clearance Violation between:
+   * Line at (208.92, 45.72):(207.65, 45.72) mm [Bottom layer]
+   * Pad J6-17 at (208.28, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 802 -- Clearance Violation between:
+   * Pad J6-50 at (210.82, 44.45) mm [Top layer]
+   * Line at (209.55, 45.72):(212.09, 45.72) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 803 -- Clearance Violation between:
+   * Line at (239.40, 45.72):(238.13, 45.72) mm [Bottom layer]
+   * Pad J5-17 at (238.76, 46.99) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 804 -- Clearance Violation between:
+   * Line at ( 87.63, 35.56):( 89.54, 35.56) mm [Top layer]
+   * Pad J1-53 at ( 88.90, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 805 -- Clearance Violation between:
+   * Line at ( 87.63, 35.56):( 89.54, 35.56) mm [Top layer]
+   * Pad J1-54 at ( 88.90, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 806 -- Clearance Violation between:
+   * Pad J2-21 at (116.84, 36.83) mm [Bottom layer]
+   * Line at (118.75, 36.83):(117.48, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 807 -- Clearance Violation between:
+   * Pad J2-21 at (116.84, 36.83) mm [Bottom layer]
+   * Line at (117.48, 38.10):(116.21, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 808 -- Clearance Violation between:
+   * Pad J2-21 at (116.84, 36.83) mm [Bottom layer]
+   * Line at (116.21, 38.10):(115.57, 37.47) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 809 -- Clearance Violation between:
+   * Pad J2-21 at (116.84, 36.83) mm [Bottom layer]
+   * Line at (117.48, 35.56):(116.21, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 810 -- Clearance Violation between:
+   * Line at (118.11, 35.56):(120.65, 35.56) mm [Top layer]
+   * Pad J2-53 at (119.38, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 811 -- Clearance Violation between:
+   * Line at (118.11, 35.56):(120.65, 35.56) mm [Top layer]
+   * Pad J2-54 at (119.38, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 812 -- Clearance Violation between:
+   * Pad J3-21 at (147.32, 36.83) mm [Bottom layer]
+   * Line at (147.96, 35.56):(146.69, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 813 -- Clearance Violation between:
+   * Pad J3-21 at (147.32, 36.83) mm [Bottom layer]
+   * Line at (149.23, 36.83):(147.96, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 814 -- Clearance Violation between:
+   * Pad J3-21 at (147.32, 36.83) mm [Bottom layer]
+   * Line at (147.96, 38.10):(146.69, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 815 -- Clearance Violation between:
+   * Pad J3-21 at (147.32, 36.83) mm [Bottom layer]
+   * Line at (146.69, 38.10):(146.05, 37.47) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 816 -- Clearance Violation between:
+   * Line at (148.59, 35.56):(151.13, 35.56) mm [Top layer]
+   * Pad J3-53 at (149.86, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 817 -- Clearance Violation between:
+   * Line at (148.59, 35.56):(151.13, 35.56) mm [Top layer]
+   * Pad J3-54 at (149.86, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 818 -- Clearance Violation between:
+   * Pad J4-21 at (177.80, 36.83) mm [Bottom layer]
+   * Line at (177.17, 38.10):(176.53, 37.47) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 819 -- Clearance Violation between:
+   * Pad J4-21 at (177.80, 36.83) mm [Bottom layer]
+   * Line at (178.44, 38.10):(177.17, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 820 -- Clearance Violation between:
+   * Pad J4-21 at (177.80, 36.83) mm [Bottom layer]
+   * Line at (179.71, 36.83):(178.44, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 821 -- Clearance Violation between:
+   * Pad J4-21 at (177.80, 36.83) mm [Bottom layer]
+   * Line at (178.44, 35.56):(177.17, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 822 -- Clearance Violation between:
+   * Line at (179.07, 35.56):(181.61, 35.56) mm [Top layer]
+   * Pad J4-53 at (180.34, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 823 -- Clearance Violation between:
+   * Line at (179.07, 35.56):(181.61, 35.56) mm [Top layer]
+   * Pad J4-54 at (180.34, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 824 -- Clearance Violation between:
+   * Pad J6-21 at (208.28, 36.83) mm [Bottom layer]
+   * Line at (208.92, 35.56):(207.65, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 825 -- Clearance Violation between:
+   * Pad J6-21 at (208.28, 36.83) mm [Bottom layer]
+   * Line at (207.65, 38.10):(207.01, 37.47) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 826 -- Clearance Violation between:
+   * Pad J6-21 at (208.28, 36.83) mm [Bottom layer]
+   * Line at (208.92, 38.10):(207.65, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 827 -- Clearance Violation between:
+   * Pad J6-21 at (208.28, 36.83) mm [Bottom layer]
+   * Line at (210.19, 36.83):(208.92, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 828 -- Clearance Violation between:
+   * Line at (209.55, 35.56):(212.09, 35.56) mm [Top layer]
+   * Pad J6-53 at (210.82, 36.83) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 829 -- Clearance Violation between:
+   * Line at (209.55, 35.56):(212.09, 35.56) mm [Top layer]
+   * Pad J6-54 at (210.82, 34.29) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 830 -- Clearance Violation between:
+   * Pad J5-21 at (238.76, 36.83) mm [Bottom layer]
+   * Line at (238.13, 38.10):(237.49, 37.47) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 831 -- Clearance Violation between:
+   * Pad J5-21 at (238.76, 36.83) mm [Bottom layer]
+   * Line at (239.40, 38.10):(238.13, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 832 -- Clearance Violation between:
+   * Pad J5-21 at (238.76, 36.83) mm [Bottom layer]
+   * Line at (240.67, 36.83):(239.40, 38.10) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 833 -- Clearance Violation between:
+   * Pad J5-21 at (238.76, 36.83) mm [Bottom layer]
+   * Line at (239.40, 35.56):(238.13, 35.56) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 834 -- Clearance Violation between:
+   * Pad J1-41 at ( 88.90, 67.31) mm [Top layer]
+   * Line at ( 87.63, 66.04):( 89.54, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 835 -- Clearance Violation between:
+   * Line at ( 83.19, 68.58):( 87.63, 68.58) mm [Bottom layer]
+   * Pad J1-9 at ( 86.36, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 836 -- Clearance Violation between:
+   * Line at (116.21, 68.58):(115.57, 67.95) mm [Bottom layer]
+   * Pad J2-9 at (116.84, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 837 -- Clearance Violation between:
+   * Line at (117.48, 68.58):(116.21, 68.58) mm [Bottom layer]
+   * Pad J2-9 at (116.84, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 838 -- Clearance Violation between:
+   * Line at (118.75, 67.31):(117.48, 68.58) mm [Bottom layer]
+   * Pad J2-9 at (116.84, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 839 -- Clearance Violation between:
+   * Pad J2-41 at (119.38, 67.31) mm [Top layer]
+   * Line at (118.11, 66.04):(120.65, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 840 -- Clearance Violation between:
+   * Line at (146.69, 68.58):(146.05, 67.95) mm [Bottom layer]
+   * Pad J3-9 at (147.32, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 841 -- Clearance Violation between:
+   * Line at (147.96, 68.58):(146.69, 68.58) mm [Bottom layer]
+   * Pad J3-9 at (147.32, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 842 -- Clearance Violation between:
+   * Line at (149.23, 67.31):(147.96, 68.58) mm [Bottom layer]
+   * Pad J3-9 at (147.32, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 843 -- Clearance Violation between:
+   * Pad J3-41 at (149.86, 67.31) mm [Top layer]
+   * Line at (148.59, 66.04):(151.13, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 844 -- Clearance Violation between:
+   * Line at (177.17, 68.58):(176.53, 67.95) mm [Bottom layer]
+   * Pad J4-9 at (177.80, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 845 -- Clearance Violation between:
+   * Line at (178.44, 68.58):(177.17, 68.58) mm [Bottom layer]
+   * Pad J4-9 at (177.80, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 846 -- Clearance Violation between:
+   * Line at (179.71, 67.31):(178.44, 68.58) mm [Bottom layer]
+   * Pad J4-9 at (177.80, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 847 -- Clearance Violation between:
+   * Pad J4-41 at (180.34, 67.31) mm [Top layer]
+   * Line at (179.07, 66.04):(181.61, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 848 -- Clearance Violation between:
+   * Line at (207.65, 68.58):(207.01, 67.95) mm [Bottom layer]
+   * Pad J6-9 at (208.28, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 849 -- Clearance Violation between:
+   * Line at (208.92, 68.58):(207.65, 68.58) mm [Bottom layer]
+   * Pad J6-9 at (208.28, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 850 -- Clearance Violation between:
+   * Line at (210.19, 67.31):(208.92, 68.58) mm [Bottom layer]
+   * Pad J6-9 at (208.28, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 851 -- Clearance Violation between:
+   * Pad J6-41 at (210.82, 67.31) mm [Top layer]
+   * Line at (209.55, 66.04):(212.09, 66.04) mm [Top layer]
+   * Calculated Clearance: 0.21mm
+Error 852 -- Clearance Violation between:
+   * Line at (238.13, 68.58):(237.49, 67.95) mm [Bottom layer]
+   * Pad J5-9 at (238.76, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+Error 853 -- Clearance Violation between:
+   * Line at (239.40, 68.58):(238.13, 68.58) mm [Bottom layer]
+   * Pad J5-9 at (238.76, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.21mm
+Error 854 -- Clearance Violation between:
+   * Line at (240.67, 67.31):(239.40, 68.58) mm [Bottom layer]
+   * Pad J5-9 at (238.76, 67.31) mm [Bottom layer]
+   * Calculated Clearance: 0.29mm
+
+854 error(s) detected.
+
+SILK SCREEN CLEARANCE VIOLATIONS:
+
+Error 855 -- Clearance Violation between:
+   * Attribute at (  8.64, 52.83) mm [Top Silk layer]
+   * Text=TP2
+   * Pad TP1-1 at ( 14.61, 55.88) mm
+   * Calculated Clearance: Touching
+Error 856 -- Clearance Violation between:
+   * Line at (  8.89, 49.53):( 11.43, 52.07) mm [Top Silk layer]
+   * Pad TP2-1 at ( 10.16, 50.80) mm
+   * Calculated Clearance: Touching
+Error 857 -- Clearance Violation between:
+   * Line at ( 13.34, 54.61):( 15.88, 57.15) mm [Top Silk layer]
+   * Pad TP1-1 at ( 14.61, 55.88) mm
+   * Calculated Clearance: Touching
+Error 858 -- Clearance Violation between:
+   * Line at ( 12.70, 44.45):( 15.24, 46.99) mm [Top Silk layer]
+   * Pad TP3-1 at ( 13.97, 45.72) mm
+   * Calculated Clearance: Touching
+Error 859 -- Clearance Violation between:
+   * Attribute at (  8.64, 42.67) mm [Top Silk layer]
+   * Text=TP4
+   * Pad TP3-1 at ( 13.97, 45.72) mm
+   * Calculated Clearance: Touching
+Error 860 -- Clearance Violation between:
+   * Line at (  8.89, 39.37):( 11.43, 41.91) mm [Top Silk layer]
+   * Pad TP4-1 at ( 10.16, 40.64) mm
+   * Calculated Clearance: Touching
+Error 861 -- Clearance Violation between:
+   * Line at ( 12.70, 34.29):( 15.24, 36.83) mm [Top Silk layer]
+   * Pad TP5-1 at ( 13.97, 35.56) mm
+   * Calculated Clearance: Touching
+Error 862 -- Clearance Violation between:
+   * Attribute at (  8.64, 32.51) mm [Top Silk layer]
+   * Text=TP6
+   * Pad TP5-1 at ( 13.97, 35.56) mm
+   * Calculated Clearance: Touching
+Error 863 -- Clearance Violation between:
+   * Line at (  8.89, 29.21):( 11.43, 31.75) mm [Top Silk layer]
+   * Pad TP6-1 at ( 10.16, 30.48) mm
+   * Calculated Clearance: Touching
+Error 864 -- Clearance Violation between:
+   * Line at ( 12.70, 24.13):( 15.24, 26.67) mm [Top Silk layer]
+   * Pad TP7-1 at ( 13.97, 25.40) mm
+   * Calculated Clearance: Touching
+Error 865 -- Clearance Violation between:
+   * Attribute at (  8.64, 22.35) mm [Top Silk layer]
+   * Text=TP8
+   * Pad TP7-1 at ( 13.97, 25.40) mm
+   * Calculated Clearance: Touching
+Error 866 -- Clearance Violation between:
+   * Line at (  8.89, 19.05):( 11.43, 21.59) mm [Top Silk layer]
+   * Pad TP8-1 at ( 10.16, 20.32) mm
+   * Calculated Clearance: Touching
+Error 867 -- Clearance Violation between:
+   * Line at ( 12.70, 13.97):( 15.24, 16.51) mm [Top Silk layer]
+   * Pad TP9-1 at ( 13.97, 15.24) mm
+   * Calculated Clearance: Touching
+Error 868 -- Clearance Violation between:
+   * Attribute at (  7.37, 68.07) mm [Top Silk layer]
+   * Text=TP11
+   * Pad  at (  8.89, 66.04) mm
+   * Calculated Clearance: Touching
+Error 869 -- Clearance Violation between:
+   * Line at (  7.62, 64.77):( 10.16, 67.31) mm [Top Silk layer]
+   * Pad TP11-1 at (  8.89, 66.04) mm
+   * Calculated Clearance: Touching
+Error 870 -- Clearance Violation between:
+   * Line at (  7.62, 64.77):( 10.16, 67.31) mm [Top Silk layer]
+   * Pad  at (  8.89, 66.04) mm
+   * Calculated Clearance: Touching
+Error 871 -- Clearance Violation between:
+   * Attribute at (  7.37, 12.19) mm [Top Silk layer]
+   * Text=TP10
+   * Pad  at (  8.89, 10.16) mm
+   * Calculated Clearance: Touching
+Error 872 -- Clearance Violation between:
+   * Attribute at (  7.37, 12.19) mm [Top Silk layer]
+   * Text=TP10
+   * Pad TP9-1 at ( 13.97, 15.24) mm
+   * Calculated Clearance: Touching
+Error 873 -- Clearance Violation between:
+   * Line at (  7.62,  8.89):( 10.16, 11.43) mm [Top Silk layer]
+   * Pad TP10-1 at (  8.89, 10.16) mm
+   * Calculated Clearance: Touching
+Error 874 -- Clearance Violation between:
+   * Line at (  7.62,  8.89):( 10.16, 11.43) mm [Top Silk layer]
+   * Pad  at (  8.89, 10.16) mm
+   * Calculated Clearance: Touching
+
+20 error(s) detected.
+
+UNCONNECTED PINS:
+
+Error 875 -- Unconnected pin:
+   * Pad J8-33 at ( 24.13, 93.35) mm
+Error 876 -- Unconnected pin:
+   * Pad J8-34 at ( 24.13,  3.18) mm
+Error 877 -- Unconnected pin:
+   * Pad J7-33 at ( 57.79, 93.35) mm
+Error 878 -- Unconnected pin:
+   * Pad J7-34 at ( 57.79,  3.18) mm
+Error 879 -- Unconnected pin:
+   * Pad J1-65 at ( 88.60, 93.27) mm
+Error 880 -- Unconnected pin:
+   * Pad J1-66 at ( 88.60,  3.28) mm
+Error 881 -- Unconnected pin:
+   * Pad J2-65 at (119.08, 93.27) mm
+Error 882 -- Unconnected pin:
+   * Pad J2-66 at (119.08,  3.28) mm
+Error 883 -- Unconnected pin:
+   * Pad J3-65 at (149.56, 93.27) mm
+Error 884 -- Unconnected pin:
+   * Pad J3-66 at (149.56,  3.28) mm
+Error 885 -- Unconnected pin:
+   * Pad J4-65 at (180.04, 93.27) mm
+Error 886 -- Unconnected pin:
+   * Pad J4-66 at (180.04,  3.28) mm
+Error 887 -- Unconnected pin:
+   * Pad J6-65 at (210.52, 93.27) mm
+Error 888 -- Unconnected pin:
+   * Pad J6-66 at (210.52,  3.28) mm
+Error 889 -- Unconnected pin:
+   * Pad J5-65 at (241.00, 93.27) mm
+Error 890 -- Unconnected pin:
+   * Pad J5-66 at (241.00,  3.28) mm
+
+16 error(s) detected.
+
+COPPER POUR VIOLATIONS:
+
+
+0 error(s) detected.
+
+PSEUDO PATTERNS:
+
+
+0 error(s) detected.
+
+DRC Summary:
+------------
+
+Net List Compare:       0
+Net List Violations:    0
+Unrouted Nets:          0
+Clearance Violations:   854
+Text Violations:        0
+Silk Violations:        20
+Unconnected Pins:       16
+Copper Pour Violations: 0
+Pseudo Patterns:        0
+
+-------------------------------------------------------------------------------
+
+09-Sep-02  11:18                                                     Page    1
+

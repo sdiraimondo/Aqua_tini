@@ -1,0 +1,517 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Guide to Running Tynamo(TM) from Flash</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Guide to Running Tynamo&trade; from Flash</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        It is possible to use Tynamo&trade; as the main user application in
+        flash, replacing Slush.  This is one of several ways of increasing the
+        reliability of your TINI server.
+        </p>
+
+        <p>
+        This guide discusses the procedures for placing Tynamo&trade; into
+        flash, but does not discuss techniques for including additional
+        material, such as web pages, images, or other files.  Please contact
+        us if you would like more information on this subject.
+        </p>
+
+        <p>
+        It is emphasized that this guide discusses only one of many ways flash
+        can be utilized for your application.  For example, Slush can still be
+        included in addition to your own program code.  There are many
+        alternative possibilities.
+        </p>
+
+        <h2>Limitation of this Guide</h2>
+
+        <p><em>
+        Because this guide does not discuss how to include static files, the
+        steps presented here require that your server relies only on servlets
+        for its content.
+        </em></p>
+
+        <hr />
+
+        <p>
+        There are four sections:
+        </p>
+
+        <ol>
+        <li><a href="#appEntryPoint">Application Entry Point</a>,</li>
+        <li><a href="#buildConfig">Build Configuration</a>,</li>
+        <li><a href="#discussion">Discussion</a>, and</li>
+        <li><a href="#suggestions">Additional Suggestions</a></li>
+        </ol>
+
+        <p>
+        And one appendix:
+        </p>
+
+        <ol class="alpha">
+        <li><em><a href="#appendix_a">Startup.java</a></em> Source</li>
+        </ol>
+
+        <hr />
+
+        <a name="appEntryPoint"></a><h2>Application Entry Point</h2>
+
+        <p>
+        First, your server will need a class that serves as the main entry
+        point to the application since Slush is no longer present.
+        <a href="#appendix_a">Appendix A</a> lists source code for a sample
+        main class that can be used as a starting point for your own custom
+        setup.
+        </p>
+
+        <p>
+        Save this in your source path as <em>Startup.java</em>.  For example,
+        if you keep your source in a directory named <em>src/</em> in your
+        project directory, then save this file as <em>src/Startup.java</em>.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="buildConfig"></a><h2>Build Configuration</h2>
+
+        <p>
+        Add <em>Startup.java</em> to your
+        <code><a href="building.html#buildConfig">src.files</a></code> setting
+        in <em>build.properties</em>, and make sure its parent location is
+        added to the <code>src.paths</code> list.  For example, if your source
+        is located in the <em>src/</em> directory, then make sure <code>src</code>
+        is in <code>src.paths</code>.  In other words, add this source file to
+        your build in the usual manner.
+        </p>
+
+        <p>
+        Next, make these changes to <em>build.xml</em>:
+        </p>
+        <ul>
+        <li>Change the value of the <tt>tini.useFlashFormat</tt> property to
+            "yes",</li>
+        <li>Change <tt>webserver.mainClass</tt> to "Startup", and</li>
+        <li>Change <tt>webserver.outputFile</tt> to "webserver.tbin".
+            </li>
+        </ul>
+
+        <p>
+        &ndash; If you are running a '390-based TINI system <em>and</em> if
+        you have enough flash to hold the generated TBIN file, then change
+        <tt>tini.useTargetAddress</tt> to "0x70100" as well.
+        </p>
+
+        <p>
+        You may wish to copy the <em>build.xml</em> file to your project
+        directory before making any changes, as outlined in step three of the
+        <a href="decoupledProjectGuide.html">Decoupling Your Project</a>
+        guide.
+        </p>
+
+        <p>
+        Build the server as usual, and a <em>webserver.tbin</em> file that
+        is suitable for uploading to your TINI instead of Slush will be
+        created in the current directory.  This is the only file needed for
+        the webserver.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="discussion"></a><h2>Discussion</h2>
+
+        <p>
+        This section explains some of the ideas presented here in more detail.
+        </p>
+
+        <h3>Other Solutions</h3>
+
+        <p>
+        It was mentioned briefly at the beginning of this document that this
+        guide discusses only one of many ways to utilize flash for your
+        application.
+        </p>
+
+        <p>
+        For instance, the "main" code presented here performs some simple
+        system initialization, stores a few important configuration files, and
+        then starts the server.  The system initialization could be skipped,
+        and Slush could be started after the server is started.  Then, the
+        benefits of Slush can be utilized.
+        </p>
+
+        <p>
+        The important thing to note is that you are not restricted by the
+        approach presented here.  In other words, "Decide what you need, and
+        then put it there."  There is a range of options.
+        </p>
+
+        <h3>Source Code</h3>
+
+        <p>
+        The <em>Startup.java</em> code deserves some explanation.  It is
+        divided into three parts that:
+        </p>
+        <ol>
+        <li>Initialize the system,</li>
+        <li>Store files into the filesystem, and</li>
+        <li>Start the webserver.</li>
+        </ol>
+
+        <p>
+        The system initialization code first sets the default streams to the
+        serial port in order for you to see what happens when the system
+        starts.  For example, when JavaKit is used, you will be able to see
+        startup messages.  The same thing is done at startup in Slush:
+        </p>
+        <blockquote class="sourceCode">
+        <pre><span class="blue">if</span> (TINIOS.isConsoleOutputEnabled()) {
+    com.dalsemi.system.Debug.setDefaultStreams(<span class="red">"serial0"</span>, 115200);
+}</pre>
+        </blockquote>
+        <p>
+        Then, the filesystem is set so that each reboot will cause everything
+        to start from a clean slate.  This can improve performance at runtime
+        since the system doesn't have to perform certain consistency checks:
+        </p>
+        <blockquote class="sourceCode">
+        <pre>TINIOS.disablePowerFailRecovery();
+TINIOS.blastHeapOnReboot(TINIOS.BLAST_ALL);</pre>
+        </blockquote>
+        <p>
+        Finally, the network parameters are set.  Be sure to set these to your
+        own values.
+        </p>
+
+        <p>
+        After this, files needed by the webserver are stored in the filesystem
+        with the call to <code>storeFiles()</code>.  Remember that we have set
+        the system up so that it starts from a clean slate every time it
+        reboots, so the files must be restored each time as well.  Please
+        consult the <a href="#suggestions">Suggestions</a> section for a few
+        more ideas on how to store files in flash.
+        </p>
+
+        <p>
+        The webserver is then started by setting up the mail handler (whose
+        most likely use is for mailing the log files), then reading the
+        configuration file, and finally starting the webserver thread.  Some
+        comments are included that explain how to shut down the server with a
+        call to <code>shutdown()</code>.
+        </p>
+
+        <h3>The Build Script</h3>
+
+        <p>
+        There are a few modifications to be made inside the <em>build.xml</em>
+        script.  These tell the build process to write out a file suitable for
+        uploading with JavaKit, and to use the new <code>Startup</code> class
+        for the main entry point instead of the usual <code>com.qindesign.tini.http.Main</code>
+        class.
+        </p>
+
+        <p>
+        Because we are replacing slush, some of the work done to initialize
+        the system has to be done ourselves.  Replacing the <tt>webserver.mainClass</tt>
+        property tells the TINIConvertor program to set this as the main entry
+        point when the system is started.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="suggestions"></a><h2>Additional Suggestions</h2>
+
+        <p>
+        This section presents some additional ideas on how to store files in
+        an alternative way, such that they are available at startup.
+        </p>
+
+        <h3>Store Files as Strings</h3>
+
+        <p>
+        It is possible to store all files as string data in fields in a class.
+        The plain text files could stay as they are, and the binary files
+        could be Base64 encoded.
+        </p>
+
+        <p>
+        The disadvantages to this approach include a slightly longer startup
+        time, and classfile size limitations.  The startup time would be
+        affected because each string would have to be extracted and written to
+        a file.  The size limitations in TINI are currently 32k for converted
+        classfiles and 64k for arrays.  This would limit the data that can be
+        stored per class, although this limitation could probably be worked
+        around with a more elaborate file extraction mechanism.
+        </p>
+
+        <h3>Store Files in Flash</h3>
+
+        <p>
+        It is possible to store arbitrary data in flash using either a native
+        TLIB library or a raw TBIN file.  Both of these approaches require you
+        to devise a storage scheme for the files and a way to access the flash
+        memory.
+        </p>
+
+        <p>
+        The TLIB format, however, is also limited to 64k by the TINI firmware.
+        </p>
+
+        <h3>Retrive Files from the Internet</h3>
+
+        <p>
+        At server startup, either inside the main entry point, or in the
+        initialization code of a servlet, a connection could be made to a host
+        somewhere on the Internet that contains the latest version of your
+        files.
+        </p>
+
+        <p>
+        Protocols such as FTP or HTTP allow you to retrieve these files in a
+        straghtforward way.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="appendix_a"></a><h2>Appendix A &mdash; <em>Startup.java</em> Source</h2>
+
+        <blockquote class="sourceCode">
+        <pre class="sourceCode"><span class="blue">import</span> com.dalsemi.system.TINIOS;
+<span class="blue">import</span> com.dalsemi.tininet.TININet;
+
+<span class="blue">import</span> java.io.*;
+<span class="blue">import</span> java.net.URL;
+<span class="blue">import</span> java.net.URLStreamHandler;
+<span class="blue">import</span> java.net.URLStreamHandlerFactory;
+<span class="blue">import</span> java.util.Properties;
+
+<span class="green">/**
+ * Demonstrates how to start the server from flash.
+ *
+ * @author Shawn Silverman
+ */</span>
+<span class="blue">public</span> class Startup {
+    <span class="green">/**
+     * Application entry point.
+     */</span>
+    <span class="blue">public static void</span> main(String[] args) <span class="blue">throws</span> IOException {
+        <span class="green">// Set the System streams to serial0</span>
+
+        <span class="blue">if</span> (TINIOS.isConsoleOutputEnabled()) {
+            com.dalsemi.system.Debug.setDefaultStreams(<span class="red">"serial0"</span>, 115200);
+        }
+
+        System.out.println();
+        System.out.println(<span class="red">"      --= System starting =--"</span>);
+
+        System.out.print(<span class="red">"Disabling power fail recovery......"</span>);
+
+        <span class="green">// Doing this will speed up the program since it's running from flash</span>
+
+        <span class="green">// It is okay to call this because we are also blasting the heap</span>
+
+        TINIOS.disablePowerFailRecovery();
+
+        <span class="green">// Blast the memory on reboot</span>
+
+        TINIOS.blastHeapOnReboot(TINIOS.BLAST_ALL);
+
+        System.out.println(<span class="red">"[DONE]"</span>);
+
+        <span class="green">// Set up the network</span>
+        <span class="green">// You can configure other things here such as the mailhost</span>
+
+        System.out.print(<span class="red">"Configuring network................"</span>);
+        TININet.setIPAddress(<span class="red">"eth0"</span>, <span class="red">"192.168.0.7"</span>);
+        TININet.setSubnetMask(<span class="red">"eth0"</span>, <span class="red">"255.255.255.0"</span>);
+        TININet.setGatewayIP(<span class="red">"eth0"</span>, <span class="red">"192.168.0.1"</span>);
+        TININet.setPrimaryDNS(<span class="red">"192.168.0.1"</span>);
+        System.out.println(<span class="red">"[DONE]"</span>);
+
+        System.out.print(<span class="red">"Storing files......................"</span>);
+        storeFiles();
+        System.out.println(<span class="red">"[DONE]"</span>);
+
+        System.out.println();
+
+        <span class="green">// Load the properties file</span>
+
+        System.out.print(<span class="red">"Loading web server properties..."</span>);
+        Properties props = <span class="blue">new</span> Properties();
+        String propsFile = <span class="red">"/web/bin/webserver.props"</span>;
+        <span class="blue">try</span> {
+            FileInputStream in = <span class="blue">new</span> FileInputStream(propsFile);
+            props.load(in);
+            <span class="blue">try</span> { in.close(); } <span class="blue">catch</span> (IOException ex) { }
+        } <span class="blue">catch</span> (FileNotFoundException ex) {
+            System.err.println(<span class="red">"File '"</span> + propsFile + <span class="red">"' not found."</span>);
+            System.exit(1);
+        }
+        System.out.println(<span class="red">"done."</span>);
+
+        <span class="green">// Set up our "mailto" handler, if needed</span>
+        <span class="green">// The ability to mail the logs depends on this, for example</span>
+
+        URL.setURLStreamHandlerFactory(<span class="blue">new</span> URLStreamHandlerFactory() {
+                <span class="blue">public</span> URLStreamHandler createURLStreamHandler(String protocol) {
+                    <span class="blue">if</span> (<span class="red">"mailto"</span>.equalsIgnoreCase(protocol)) {
+                        <span class="blue">return</span> com.qindesign.protocol.mailto.Handler.instance;
+                    }
+                    <span class="blue">return null</span>;
+                }
+            });
+
+        <span class="green">// Start the webserver</span>
+
+        System.out.println(<span class="red">"Starting web server..."</span>);
+        com.qindesign.tini.http.HttpServer server =
+                <span class="blue">new</span> com.qindesign.tini.http.ServletHttpServer(props);
+        <span class="blue">new</span> Thread(server).start();
+
+        <span class="green">// Now other tasks can be performed here</span>
+        <span class="green">// The server can be shut down with "server.shutdown()"</span>
+    }
+
+    <span class="green">/**
+     * Store the data for the configuration files.
+     */</span>
+    <span class="blue">private static void</span> storeFiles() <span class="blue">throws</span> IOException {
+        <span class="green">// Create the necessary parent directories</span>
+
+        <span class="blue">if</span> (!<span class="blue">new</span> File(<span class="red">"/web"</span>).mkdir()
+              || !<span class="blue">new</span> File(<span class="red">"/web/bin"</span>).mkdir()
+              || !<span class="blue">new</span> File(<span class="red">"/web/logs"</span>).mkdir()
+              || !<span class="blue">new</span> File(<span class="red">"/web/http-root"</span>).mkdir()) {
+            <span class="blue">throw new</span> IOException(<span class="red">"Error creating directories"</span>);
+        }
+
+        <span class="green">// Store /web/bin/webserver.props</span>
+
+        FileOutputStream out = <span class="blue">new</span> FileOutputStream("/web/bin/webserver.props");
+        out.write((<span class="red">"server.port=80\n"</span>
+                  + <span class="red">"server.bufferSize=1024\n"</span>
+                  + <span class="red">"server.mimeTypesFile=/web/bin/mimeTypes.props\n"</span>
+                  + <span class="red">"server.rootDir=/web/http-root\n"</span>
+                  + <span class="red">"server.sendServerHeader=true\n"</span>
+                  + <span class="red">"server.shutdownEnabled=true\n"</span>
+                  + <span class="red">"server.shutdownPasswordFile=/web/logs/shutdown.pwd\n"</span>
+                  + <span class="red">"servlet.propsFile=/web/bin/servlets.props\n"</span>
+                  + <span class="red">"servlet.reloadingEnabled=true\n"</span>
+                  + <span class="red">"server.log.logFile=/web/logs/webserver.log\n"</span>
+                  + <span class="red">"server.log.transferLogFile=/web/logs/transfer.log\n"</span>
+                  + <span class="red">"server.log.stackTraceEnabled=true\n"</span>)
+                  .getBytes());
+        out.flush();
+        out.close();
+
+        <span class="green">// Store /web/bin/servlets.props</span>
+
+        out = <span class="blue">new</span> FileOutputStream("/web/bin/servlets.props");
+        out.write((<span class="red">"default.mapping=/\n"</span>
+                  + <span class="red">"default.class=com.qindesign.servlet.DefaultServlet\n"</span>
+                  + <span class="red">"default.initParams=canBrowseDirs=true\n"</span>
+                  + <span class="red">"default.loadOnStartup=true\n"</span>
+                  + <span class="red">"RequestInfo.mapping=/servlet/RequestInfo/*\n"</span>
+                  + <span class="red">"RequestInfo.class=com.qindesign.servlet.example.RequestInfoServlet\n"</span>
+                  + <span class="red">"AuthExample.mapping=/servlet/AuthExample\n"</span>
+                  + <span class="red">"AuthExample.class=com.qindesign.servlet.example.AuthExampleServlet\n"</span>
+                  + <span class="red">"TiniInfo.mapping=/servlet/TiniInfo\n"</span>
+                  + <span class="red">"TiniInfo.class=com.qindesign.servlet.example.TiniInfoServlet\n"</span>
+                  + <span class="red">"LogViewer.mapping=/servlet/LogViewer\n"</span>
+                  + <span class="red">"LogViewer.class=com.qindesign.servlet.example.LogViewerServlet\n"</span>
+                  + <span class="red">"OneWireServlet.mapping=/servlet/OneWireServlet\n"</span>
+                  + <span class="red">"OneWireServlet.class=com.qindesign.servlet.example.OneWireServlet\n"</span>
+                  + <span class="red">"OneWireServlet.initParams="</span>
+                        + <span class="red">"familyCode10=TemperatureInclude,"</span>
+                        + <span class="red">"familyCode21=TemperatureInclude,"</span>
+                        + <span class="red">"familyCode05=SwitchInclude,"</span>
+                        + <span class="red">"familyCode12=SwitchInclude,"</span>
+                        + <span class="red">"familyCode1f=SwitchInclude,"</span>
+                        + <span class="red">"familyCode29=SwitchInclude,"</span>
+                        + <span class="red">"familyCode20=FamilyCode20Include\n"</span>
+                  + <span class="red">"OneWireServlet.loadOnStartup=true\n"</span>
+                  + <span class="red">"TemperatureInclude.mapping=\n"</span>
+                  + <span class="red">"TemperatureInclude.class=com.qindesign.servlet.example.TemperatureInclude\n"</span>
+                  + <span class="red">"SwitchInclude.mapping=\n"</span>
+                  + <span class="red">"SwitchInclude.class=com.qindesign.servlet.example.SwitchInclude\n"</span>
+                  + <span class="red">"FamilyCode20Include.mapping=\n"</span>
+                  + <span class="red">"FamilyCode20Include.class=com.qindesign.servlet.example.FamilyCode20Include\n"</span>)
+                  .getBytes());
+        out.flush();
+        out.close();
+
+        <span class="green">// Store /web/bin/mimeTypes.props</span>
+
+        out = <span class="blue">new</span> FileOutputStream("/web/bin/mimeTypes.props");
+        out.write((<span class="red">".class=application/java-class\n"</span>
+                  + <span class="red">".css=text/css\n"</span>
+                  + <span class="red">".gif=image/gif\n"</span>
+                  + <span class="red">".htm=text/html\n"</span>
+                  + <span class="red">".html=text/html\n"</span>
+                  + <span class="red">".ico=image/x-icon\n"</span>
+                  + <span class="red">".jar=application/java-archive\n"</span>
+                  + <span class="red">".java=text/x-java-source\n"</span>
+                  + <span class="red">".jpeg=image/jpeg\n"</span>
+                  + <span class="red">".jpg=image/jpeg\n"</span>
+                  + <span class="red">".jnlp=application/x-java-jnlp-file\n"</span>
+                  + <span class="red">".js=application/x-javascript\n"</span>
+                  + <span class="red">".pdf=application/pdf\n"</span>
+                  + <span class="red">".png=image/png\n"</span>
+                  + <span class="red">".ser=application/x-java-serialized-object\n"</span>
+                  + <span class="red">".txt=text/plain\n"</span>
+                  + <span class="red">".xml=text/xml\n"</span>
+                  + <span class="red">".zip=application/zip\n"</span>)
+                  .getBytes());
+        out.flush();
+        out.close();
+    }
+}</pre>
+        </blockquote>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

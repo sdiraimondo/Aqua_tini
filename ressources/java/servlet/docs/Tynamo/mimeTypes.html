@@ -1,0 +1,84 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>MIME Types Property File</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">MIME Types Property File</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        This document describes how to write a properties file that maps file
+        extensions to an appropriate content type.
+        </p>
+
+        <p>
+        By default, the server sends <code>application/octet-stream</code> as the
+        content type for all unmapped file extensions.  Additionally, if there is
+        no configuration file, all file extensions are considered to be unmapped.
+        </p>
+
+        <p>
+        The server looks for a file specified by the
+        <code><a href="props.html#server.mimeTypesFile">server.mimeTypesFile</a></code>
+        property.  Each line must contain an extension and type.  Note that
+        the dot prefix is included for readability, and is required.
+        </p>
+
+        <p>
+        Here is a sample "mimeTypes.props" file:
+        </p>
+
+        <blockquote class="example">
+        <pre>.class=application/java-class
+.css=text/css
+.gif=image/gif
+.htm=text/html
+.html=text/html
+.ico=image/x-icon
+.jar=application/java-archive
+.java=text/x-java-source
+.jpeg=image/jpeg
+.jpg=image/jpeg
+.jnlp=application/x-java-jnlp-file
+.js=application/x-javascript
+.pdf=application/pdf
+.png=image/png
+.ser=application/x-java-serialized-object
+.txt=text/plain
+.xml=text/xml
+.zip=application/zip</pre>
+        </blockquote>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Servlet Reloading Guide</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Servlet Reloading Guide</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        This guide discusses the steps necessary to effectively use the
+        servlet reloading feature of Tynamo&trade; with your applications.  It
+        is a companion to the <a href="servletReloading.html">Servlet
+        Reloading</a> document, which discusses some points in further detail.
+        </p>
+
+        <p>
+        <strong><em>NOTE:</em></strong> Servlet reloading only works on TINI
+        firmware 1.1x and later.
+        </p>
+
+        <p>
+        One of the main reasons for using servlet reloading is the ability to
+        change the behaviour of your application on the fly, to "hot swap".
+        Due to the way it is implemented, the feature can be enabled or
+        disabled with no difference to the end user.  Your applications will
+        look and behave exactly the same.  This is the main difference from
+        the <a href="loaderServletGuide.html">Loader Servlet</a>.
+        </p>
+
+        <p>
+        The disadvantage is that the server must be restarted whenever the
+        <em><a href="servletProps.html">servlet.props</a></em> file is
+        updated.
+        </p>
+
+        <p>
+        There are three sections:
+        </p>
+
+        <ol>
+        <li><a href="#steps">Steps to Activate This Feature</a>,</li>
+        <li><a href="#examples">Examples</a>, and</li>
+        <li><a href="#discussion">Discussion</a></li>
+        </ol>
+
+        <hr />
+
+        <a name="steps"></a><h2>Steps to Activate Reloading</h2>
+
+        <ol>
+        <li class="spaced">
+            Set <tt>include.servletReloading=true</tt> in the <em><a href="building.html#buildConfig">build.properties</a></em>
+            file.
+            </li>
+        <li class="spaced">
+            Set these properties in the <em><a href="props.html">webserver.props</a></em>
+            file:
+            <blockquote class="example">
+            <pre>servlet.reloadingEnabled=true
+servlet.classpath=/web/classes</pre>
+            </blockquote>
+            <p>
+            The classpath setting can be changed to suit your needs, but this
+            is discussed in more detail below.</p>
+            </li>
+        <li class="spaced">
+            Set up your servlets in the <em><a href="servletProps.html">servlets.props</a></em>
+            file.
+            </li>
+        <li class="spaced">
+            Build, deploy, and then start the server.
+            </li>
+        <li class="spaced">
+            Change and update your servlets as needed.</li>
+        </ol>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="examples"></a><h2>Examples</h2>
+
+        <p>
+        Start by setting up a servlet in <em>servlets.props</em>:
+        </p>
+        <blockquote class="example">
+        <pre>HelloWorld.mapping=/servlet/HelloWorld
+HelloWorld.class=HelloWorldServlet</pre>
+        </blockquote>
+
+        <h3>Start the Server</h3>
+
+        <p>
+        Build, deploy, and start the server as usual.  Then, try to access the
+        <em>HelloWorld</em> servlet:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/HelloWorld</pre>
+        </blockquote>
+
+        <p>
+        You should get an error stating that the servlet cannot be found.
+        This is expected because we haven't yet given it the servlet class.
+        It is looking for a class with a full name of <code>HelloWorldServlet</code>
+        because that's what is specified for the <code>HelloWorld.class</code>
+        property above.
+        </p>
+
+        <h3>Create the Servlet</h3>
+
+        <p>
+        Next, write the servlet code:
+        </p>
+
+        <blockquote class="sourceCode">
+        <pre class="sourceCode"><span class="blue">import</span> java.io.IOException;
+<span class="blue">import</span> javax.servlet.ServletOutputStream;
+<span class="blue">import</span> javax.servlet.ServletException;
+<span class="blue">import</span> javax.servlet.http.HttpServlet;
+<span class="blue">import</span> javax.servlet.http.HttpServletRequest;
+<span class="blue">import</span> javax.servlet.http.HttpServletResponse;
+
+<span class="green">/**
+ * Simple Hello World servlet.
+ *
+ * @author Shawn Silverman
+ */</span>
+<span class="blue">public class</span> HelloWorldServlet <span class="blue">extends</span> HttpServlet {
+    <span class="green">/**
+     * Process a GET request.
+     */</span>
+    <span class="blue">protected void</span> doGet(HttpServletRequest req, HttpServletResponse resp)
+        <span class="blue">throws</span> ServletException, IOException
+    {
+        resp.setContentType("text/html");
+        ServletOutputStream out = resp.getOutputStream();
+        out.print(<span class="red">"&lt;html&gt;&lt;head&gt;&lt;title&gt;Hello World Servlet&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"</span>);
+        out.print(<span class="red">"&lt;h1&gt;Hello, World!&lt;/h1&gt;"</span>);
+        out.print(<span class="red">"&lt;/body&gt;&lt;/html&gt;"</span>);
+    }
+}</pre>
+        </blockquote>
+
+        <p>
+        Save this code as <em>HelloWorldServlet.java</em> in a convenient place.
+        </p>
+
+        <h3>Compile</h3>
+
+        <p>
+        Next, compile this into <em>HelloWorldServlet.class</em>.  The
+        <em>tws_core.jar</em> file in the <em>lib/</em> directory of the
+        Tynamo&trade; distribution contains the <code>javax.servlet</code>
+        servlet framework, so this needs to be in your classpath.  A sample
+        command-line is (<small><em>note that the line may be wrapped, but
+        should be on one line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>javac -target 1.1 -classpath <em>&lt;tynamo-dist&gt;</em>/lib/tws_core.jar HelloWorldServlet.java</tt></p>
+        </blockquote>
+
+        <p>
+        The <tt class="noWrap">-target 1.1</tt> option is required if you are
+        using JDK 1.4 or later, and is not required otherwise.
+        </p>
+
+        <h3>Upload</h3>
+
+        <p>
+        Use an FTP client to place the <em>HelloWorldServlet.class</em> file
+        into a directory named <em>/web/classes</em> on your TINI.  Remember
+        that the servlet container is expecting to find classes here because
+        that's what was specified for its classpath.
+        </p>
+
+        <p>
+        Finally, use your web browser to go to this location:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/HelloWorld</pre>
+        </blockquote>
+
+        <p>
+        The page should look like this:
+        </p>
+        <blockquote class="renderedHTML">
+        <h1>Hello, World!</h1>
+        </blockquote>
+
+        <p>
+        Reload the page and notice that it takes less time to load.  This is
+        because the servlet is now loaded and initialized.
+        </p>
+
+        <h3>Change</h3>
+
+        <p>
+        Change the page text to read "Changed!" instead of "Hello, World!",
+        then recompile and upload the class again.
+        </p>
+
+        <p>
+        Reload the page, and you should now see:
+        </p>
+        <blockquote class="renderedHTML">
+        <h1>Changed!</h1>
+        </blockquote>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="discussion"></a><h2>Discussion</h2>
+
+        <p>
+        One of the first things you may notice is that the servlet takes
+        longer than normal to load the first time it is accessed.  This is
+        because more work has to be done by the firmware and by the server:
+        The classfile must be loaded, checked, and converted internally into
+        the native TINI format.  Then, the server loads the class via a
+        <code>Class.forName</code> call and has to verify it has the correct
+        superclass.  Next, the servlet is initialized via its <code>init()</code>
+        method, and finally its GET handler is invoked.
+        </p>
+
+        <p>
+        Once the servlet has been accessed once, it does not need to repeat
+        the first part ot the process.
+        </p>
+
+        <h3>Classnames</h3>
+
+        <p>
+        The full classname of the servlet dictates where it must be placed in
+        the filesystem, but does not affect how the servlet is loaded, unlike
+        the <a href="loaderServletGuide.html#discussion">Loader Servlet</a>.
+        </p>
+
+        <p>
+        The class must be located in the correct directory structure underneath
+        the servlet classpath (<code><a href="props.html#servlet.classpath">servlet.classpath</a></code>
+        property in <em>webserver.props</em>).  For example, if our servlet
+        class was named <code>com.xxx.Myservlet</code>, then it must be placed
+        into <em>/web/classes/com/xxx/MyServlet.class</em> in order for the
+        reloading engine to find it.
+        </p>
+
+        <p>
+        Regardless of how you name your class, though, the servlet will be
+        accessed with the exact same URL, as specified by the servlet mapping
+        (<code>HelloWorld.mapping</code> property for our example).
+        </p>
+
+        <h3>Different Classpath</h3>
+
+        <p>
+        It is not required that you use the <em>/web/classes</em> directory
+        for your classes.  You can specify anything you like, provided the
+        location you put them and the servlet classpath match.  Simply change
+        the <code><a href="props.html#servlet.classpath">servlet.classpath</a></code>
+        property in <em>webserver.props</em> to your desired location.
+        </p>
+
+        <p>
+        A change in this setting requires a server restart.
+        </p>
+
+        <h3>Referenced Classes</h3>
+
+        <p>
+        It is important to note that if your servlet depends on other classes,
+        then these must also be uploaded to the location of the servlet
+        classpath, using the correct directory structure if they are in a
+        package.
+        </p>
+
+        <h3>The Servlet Mapping</h3>
+
+        <p>
+        Unlike the <a href="loaderServletGuide.html">Loader Servlet</a>,
+        servlet reloading requires that a mapping for each servlet is
+        specified in the <em><a href="servletProps.html">servlet.props</a></em>
+        file as normal.  This means that the URL used to access the servlet
+        does not need to change when reloading is turned off.
+        </p>
+
+        <p>
+        In other words, use one entry in this file per servlet class as
+        before, and remember to restart the server when anything in this file
+        changes.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <p>
+        Servlet reloading is discussed in more detail in the
+        <a href="servletReloading.html">Servlet Reloading</a> document.
+        </p>
+
+        <!--<h2>Include and Enable Reloading</h2>
+
+        <p>
+        The reloading capabilities must be built into the server at compile
+        time.  Simply set <tt>include.servletReloading=true</tt> in the
+        <em><a href="building.html#buildConfig">build.properties</a></em>
+        file.
+        </p>
+
+        <p>
+        The server also needs to know about this at runtime, so set
+        <tt>servlet.reloadingEnabled=true</tt> in the
+        <em><a href="props.html#servlet">webserver.props</a></em> file.
+        </p>
+
+        <p>
+        This step tells the build process to include all the classes you need
+        to utilize servlet reloading, and tells the server to enable them.
+        </p>
+
+        <h2>Set the Servlet Classpath</h2>
+
+        <p>
+        Lastly, set the <tt>servlet.classpath</tt> property in
+        <em><a href="props.html#servlet">webserver.props</a></em> to a
+        directory on the filesystem where your servlet classes will reside.
+        For example:
+        </p>
+        <blockquote style="background-color: #f0f0ff">
+        <pre>servlet.classpath=/web/classes</pre>
+        </blockquote>
+
+        <p>
+        Please note that the classes must be placed in the correct hierarchy.
+        For example, say your setting is <tt>servlet.classpath=/web/classes</tt>
+        and there is a servlet class named <code>com.coolthings.MyServlet</code>.
+        In order for the servlet to be found, then <tt>MyServlet.class</tt>
+        must be placed in the <tt>/web/classes/<strong>com/coolthings</strong></tt> directory.
+        </p>
+
+        <p>
+        Remember that this is the standard Java convention: packages are
+        represented by the corresponding directory hierarchy in the filesystem.
+        </p>
+
+        <p>
+        If your servlet does not exist within a package, then it can go
+        straight into your servlet classpath.  For example, the class named
+        <code>OtherServlet</code> can be placed directly into <tt>/web/classes</tt>.
+        </p>-->
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Loader Servlet Guide</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Loader Servlet Guide</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        The <em>Loader Servlet</em> allows servlets to be loaded without
+        having to include them in the webserver binary, and without having to
+        specify them in the <a href="servletProps.html">servlet
+        configuration</a> file.  Just upload your servlet class(es) and go.
+        </p>
+
+        <p>
+        <strong><em>NOTE:</em></strong> The Loader Servlet only works on TINI
+        firmware 1.1x and later.
+        </p>
+
+        <p>
+        The main advantage of this feature is that it allows you to update,
+        change, and create servlets without having to stop and restart the
+        server each time.  The classes can be uploaded and then immediately
+        used.  The disadvantage is that you need to use a special URL to call
+        the servlet.
+        </p>
+
+        <p>
+        There are four sections:
+        </p>
+
+        <ol>
+        <li><a href="#steps">Steps to Activate This Feature</a>,</li>
+        <li><a href="#examples">Examples</a>,</li>
+        <li><a href="#discussion">Discussion</a>, and</li>
+        <li><a href="#rapidTesting">Rapid Testing</a></li>
+        </ol>
+
+        <hr />
+
+        <a name="steps"></a><h2>Steps to Activate the <em>Loader Servlet</em></h2>
+
+        <ol>
+        <li class="spaced">
+            Set <tt>include.loaderServlet=true</tt> in the
+            <em><a href="building.html#buildConfig">build.properties</a></em>
+            file.
+            </li>
+        <li class="spaced">
+            Set these properties in the <em><a href="servletProps.html">servlets.props</a></em>
+            file:
+            <blockquote class="example">
+            <pre>Loader.mapping=/servlet/Loader/*
+Loader.class=com.qindesign.servlet.LoaderServlet
+Loader.initParams=classpath=/web/classes</pre>
+            </blockquote>
+            <p>
+            The first and third settings can be changed to suit your needs,
+            but this is discussed in more detail below.</p>
+            </li>
+        <li class="spaced">
+            Build, deploy, and then start the server.</li>
+        </ol>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="examples"></a><h2>Examples</h2>
+
+        Start by creating a simple servlet:
+
+        <blockquote class="sourceCode">
+        <pre class="sourceCode"><span class="blue">import</span> java.io.IOException;
+<span class="blue">import</span> javax.servlet.ServletOutputStream;
+<span class="blue">import</span> javax.servlet.ServletException;
+<span class="blue">import</span> javax.servlet.http.HttpServlet;
+<span class="blue">import</span> javax.servlet.http.HttpServletRequest;
+<span class="blue">import</span> javax.servlet.http.HttpServletResponse;
+
+<span class="green">/**
+ * Simple Hello World servlet.
+ *
+ * @author Shawn Silverman
+ */</span>
+<span class="blue">public class</span> HelloWorldServlet <span class="blue">extends</span> HttpServlet {
+    <span class="green">/**
+     * Process a GET request.
+     */</span>
+    <span class="blue">protected void</span> doGet(HttpServletRequest req, HttpServletResponse resp)
+        <span class="blue">throws</span> ServletException, IOException
+    {
+        resp.setContentType("text/html");
+        ServletOutputStream out = resp.getOutputStream();
+        out.print(<span class="red">"&lt;html&gt;&lt;head&gt;&lt;title&gt;Hello World Servlet&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"</span>);
+        out.print(<span class="red">"&lt;h1&gt;Hello, World!&lt;/h1&gt;"</span>);
+        out.print(<span class="red">"&lt;/body&gt;&lt;/html&gt;"</span>);
+    }
+}</pre>
+        </blockquote>
+
+        <p>
+        Save this code as <em>HelloWorldServlet.java</em> in a convenient place.
+        </p>
+
+        <h3>Compile</h3>
+
+        <p>
+        Next, compile this into <em>HelloWorldServlet.class</em>.  The
+        <em>tws_core.jar</em> file in the <em>lib/</em> directory of the
+        Tynamo&trade; distribution contains the <code>javax.servlet</code>
+        servlet framework, so this needs to be in your classpath.  A sample
+        command-line is (<small><em>note that the line may be wrapped, but
+        should be on one line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>javac -target 1.1 -classpath <em>&lt;tynamo-dist&gt;</em>/lib/tws_core.jar HelloWorldServlet.java</tt></p>
+        </blockquote>
+
+        <p>
+        The <tt>-target 1.1</tt> option is required if you are using JDK 1.4
+        or later, and is not required otherwise.
+        </p>
+
+        <h3>Upload</h3>
+
+        <p>
+        Use an FTP client to place the <em>HelloWorldServlet.class</em> file
+        into a directory named <em>/web/classes</em> on your TINI.  Remember
+        that the <em>Loader Servlet</em> is expecting to find classes here
+        because that's what was specified for its classpath.
+        </p>
+
+        <p>
+        Finally, use your web browser to go to this location:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/Loader/HelloWorldServlet</pre>
+        </blockquote>
+
+        <p>
+        The page should look like this:
+        </p>
+        <blockquote class="renderedHTML">
+        <h1>Hello, World!</h1>
+        </blockquote>
+
+        <h3>Change</h3>
+
+        <p>
+        Change the page text to read "Changed!" instead of "Hello, World!",
+        then recompile and upload the class again.
+        </p>
+
+        <p>
+        Reload the page, and you should now see:
+        </p>
+        <blockquote class="renderedHTML">
+        <h1>Changed!</h1>
+        </blockquote>
+
+        <h3>Class Change</h3>
+
+        <p>
+        Change the classname to <code>MyServlet</code> (for example) by
+        changing the source code and the file name.  If you wish, change the
+        servlet output as well.
+        </p>
+
+        <p>
+        Compile <em>MyServlet.java</em> and upload <em>MyServlet.class</em> to
+        <em>/web/classes</em> on your TINI.
+        </p>
+
+        <p>
+        Now, direct your web browser to:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/Loader/MyServlet</pre>
+        </blockquote>
+
+        <p>
+        You should see the changes you just made.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="discussion"></a><h2>Discussion</h2>
+
+        <p>
+        One of the first things you may notice is that the servlet takes
+        longer than normal to load.  This is because more work has to be done
+        by the firmware and by the server:  The classfile must be loaded,
+        checked, and converted internally into the native TINI format.  Then,
+        the server loads the class via a <code>Class.forName</code> call and
+        has to verify it has the correct superclass.  Next, the servlet is
+        initialized via its <code>init()</code> method, and finally its GET
+        handler is invoked.
+        </p>
+
+        <p>
+        In fact, it's amazing how quickly the servlet loads, given all these
+        factors.
+        </p>
+
+        <h3>Classnames</h3>
+
+        <p>
+        The full classname must be provided when loading your servlet.  For
+        example, if <code>MyServlet</code> exists in the package
+        <code>com.xxx</code>, then the web browser request would look like
+        this:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/Loader/com.xxx.MyServlet</pre>
+        </blockquote>
+
+        <p>
+        Additionally, the class must be located in the correct directory
+        structure underneath the Loader Servlet's classpath.  For the above
+        example, place the <code>com.xxx.MyServlet</code> class into
+        <em>/web/classes/com/xxx/MyServlet.class</em>.
+        </p>
+
+        <p>
+        Regardless of how you name your class, though, all request parameters
+        and path information will be passed as usual to your servlet.
+        </p>
+
+        <h3>Different Classpath</h3>
+
+        <p>
+        It is not required that you use the <em>/web/classes</em> directory
+        for your classes.  You can specify anything you like, provided the
+        location you put them and the Loader Servlet's classpath match.
+        Simply change the <tt>classpath</tt> initialization parameter in
+        <code>Loader.initParams</code> to your desired location.
+        </p>
+
+        <p>
+        A change in this setting requires a server restart.
+        </p>
+
+        <h3>Different Request Path</h3>
+
+        <p>
+        It is also possible to change the <tt>/servlet/Loader</tt> request
+        path if you wish.  Simply change the <code>Loader.mapping</code> setting
+        to something else, <tt>/doLoad/*</tt>, for example.  Be sure, however,
+        to include the <tt>/*</tt> at the end of the path.
+        </p>
+
+        <p>
+        A change in this setting requires a server restart.
+        </p>
+
+        <h3>Referenced Classes</h3>
+
+        <p>
+        It is important to note that if your servlet depends on other classes,
+        then these must also be uploaded to the location of the Loader
+        Servlet's classpath, using the correct directory structure if they are
+        in a package.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="rapidTesting"></a><h2>Rapid Testing</h2>
+
+        <p>
+        It should be apparent that very little work needs to be done in order
+        to get basic servlet reloading with the Loader Servlet to work.
+        You do not have to specify the servlet in the <a href="servletProps.html">servlet
+        configuration</a>, nor do you have to know in advance what servlets
+        you are going to test in the future.
+        </p>
+
+        <p>
+        This enables you to rapidly test your servlets every time a change is
+        made.  Significant amounts of time will be saved because you don't
+        have to continuously stop and restart the server.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <p>
+        The Loader Servlet is discussed in more detail in the
+        <a href="servletReloading.html">Servlet Reloading</a> document.
+        </p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

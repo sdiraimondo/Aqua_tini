@@ -1,0 +1,437 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>Getting Started Tutorial with Tynamo(TM)-TINI</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Getting Started Tutorial</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        This document is a short but effective tutorial on how to write your
+        own servlets for Tynamo&trade;-TINI.  Below are steps that describe
+        the entire process, from downloading the tools, to accessing your
+        servlet or servlets from an HTTP client.  More details can be found in
+        the <a href="building.html">Building a Web Server</a> document.
+        </p>
+
+        <h2>Table of Steps</h2>
+
+        <ol start="0">
+        <li><a href="#li0">Pre-Setup</a></li>
+        <li><a href="#li1">Download Tynamo&trade;</a></li>
+        <li><a href="#li2">Write Servlets</a></li>
+        <li><a href="#li3">Update the Build Configuration</a></li>
+        <li><a href="#li4">Build Using Ant</a></li>
+        <li><a href="#li5">Update the Servlet Configuration</a></li>
+        <li><a href="#li6">Additional Configuration</a></li>
+        <li><a href="#li7">Transfer to Your TINI</a></li>
+        <li><a href="#li8">Invoke the Web Server</a></li>
+        <li><a href="#li9">Enjoy Your Servlets!</a></li>
+        </ol>
+
+        <hr />
+
+        <a name="li0"></a><h2>0. Pre-Setup</h2>
+
+        <p>
+        Before beginning this sequence of steps, it is important to have all
+        the necessary tools and utilities installed.  Thus, this step "0" is
+        here to provide instruction on this initial setup, if needed.
+        </p>
+        <p>
+        There are two tools, besides the JDK and TINI SDK, that the build
+        process uses.  These are <a href="http://ant.apache.org/">Ant</a> and
+        <a href="http://tiniant.sourceforge.net/">TiniAnt</a>.  As of this
+        writing, the latest versions of these tools are Ant 1.6.1 and TiniAnt
+        1.2.0.  Ant also requires the
+        <a href="http://jakarta.apache.org/commons/net/index.html">Jakarta
+        Commons/Net</a> library for deployment using FTP.
+        </p>
+        <p>
+        Briefly, Ant needs the <tt>ANT_HOME</tt> and <tt>JAVA_HOME</tt>
+        environment variables set correctly, and the <em>bin</em> subdirectory
+        of the Ant installation added to the path.  As well, the
+        <tt>TiniAnt.jar</tt> and <tt>commons-net.jar</tt> (it may be named
+        <tt>commons-net-1.1.0.jar</tt> or something similar) libraries need to
+        be placed into Ant's <em>lib/</em> subdirectory.
+        </p>
+        <p>
+        One additional point is that the Tynamo&trade; distribution, by
+        default, includes some example TINI binaries and configuration files.
+        These binaries can be safely deleted, and the configuration files
+        modified to conform to this tutorial.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li1"></a><h2>1. Download Tynamo&trade;</h2>
+
+        <p>
+        Download the latest version of Tynamo&trade; from
+        <a href="http://tynamo.qindesign.com/">tynamo.qindesign.com</a>.
+        (This is the current homepage.)  The easiest way to install the
+        package is to create a directory, such as 'tynamo-tini-1.0', and unzip
+        the file into this location.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li2"></a><h2>2. Write Servlets</h2>
+
+        <p>
+        This step demonstrates how to write a simple servlet.  There is much
+        literature on this subject, for example in the
+        <a href="http://java.sun.com/products/servlet/docs.html">Documentation</a>
+        section of the <a href="http://java.sun.com/products/servlet/">Servlets
+        home page</a>, so a relatively small example is presented here.
+        Please remember, however, that Tynamo&trade; complies with the Servlet
+        2.2 specification, and not 2.3 or above.
+        </p>
+        <blockquote class="sourceCode">
+        <pre class="sourceCode"><span class="blue">import</span> com.dalsemi.onewire.*;
+<span class="blue">import</span> com.dalsemi.onewire.adapter.DSPortAdapter;
+<span class="blue">import</span> com.dalsemi.onewire.container.OneWireContainer;
+
+<span class="blue">import</span> java.io.IOException;
+<span class="blue">import</span> java.util.Enumeration;
+<span class="blue">import</span> javax.servlet.ServletOutputStream;
+<span class="blue">import</span> javax.servlet.ServletException;
+<span class="blue">import</span> javax.servlet.http.HttpServlet;
+<span class="blue">import</span> javax.servlet.http.HttpServletRequest;
+<span class="blue">import</span> javax.servlet.http.HttpServletResponse;
+
+<span class="green">/**
+ * Simple servlet that lists all 1-Wire devices found on all adapters.
+ *
+ * @author Shawn Silverman
+ */</span>
+<span class="blue">public class</span> OneWireListServlet <span class="blue">extends</span> HttpServlet {
+    <span class="green">/**
+     * Process a GET request.
+     */</span>
+    <span class="blue">protected void</span> doGet(HttpServletRequest req, HttpServletResponse resp)
+        <span class="blue">throws</span> ServletException, IOException
+    {
+        resp.setContentType("text/html");
+        ServletOutputStream out = resp.getOutputStream();
+        out.print(<span class="red">"&lt;html&gt;&lt;head&gt;&lt;title&gt;1-Wire List Servlet&lt;/title&gt;&lt;/head&gt;&lt;body&gt;"</span>);
+        out.print(<span class="red">"&lt;h1&gt;1-Wire List&lt;/h1&gt;"</span>);
+        out.print(<span class="red">"&lt;p&gt;This servlet lists all 1-Wire devices on all the adapters.&lt;/p&gt;"</span>);
+
+        <span class="green">// Iterate through the adapters</span>
+
+        Enumeration adapters = OneWireAccessProvider.enumerateAllAdapters();
+        <span class="blue">while</span> (adapters.hasMoreElements()) {
+            DSPortAdapter a = (DSPortAdapter)adapters.nextElement();
+            out.print(<span class="red">"&lt;h2&gt;Adapter: "</span>);
+            out.print(a.getAdapterName());
+            out.print(<span class="red">"&lt;/h2&gt;"</span>);
+
+            <span class="green">// Print all 1-Wire containers on this adapter</span>
+
+            <span class="blue">try</span> {
+                OneWireContainer c = a.getFirstDeviceContainer();
+                <span class="blue">if</span> (c != null) {
+                    out.print(<span class="red">"&lt;p&gt;1-Wire devices found:&lt;/p&gt;&lt;ul&gt;"</span>);
+                    <span class="blue">do</span> {
+                        out.print(<span class="red">"&lt;li&gt;"</span>);
+                        out.print(c.getAddressAsString());
+                        out.write(' ');
+                        out.print(c.getName());
+                        out.print(<span class="red">"&lt;/li&gt;"</span>);
+
+                        c = a.getNextDeviceContainer();
+                    } <span class="blue">while</span> (c != null);
+                    out.print(<span class="red">"&lt;/ul&gt;"</span>);
+                } <span class="blue">else</span> {
+                    out.print(<span class="red">"No 1-Wire devices found."</span>);
+                }
+            } <span class="blue">catch</span> (OneWireException ex) {
+                out.print(<span class="red">"&lt;strong&gt;Error while accessing adapter: "</span>);
+                out.print(ex.toString());
+                out.print(<span class="red">"&lt;/strong&gt;"</span>);
+            }
+        }
+
+        out.print(<span class="red">"&lt;/body&gt;&lt;/html&gt;"</span>);
+    }
+}</pre>
+        </blockquote>
+
+        <p>
+        Save this code as <em>OneWireListServlet.java</em> in a directory
+        named <em>src</em> underneath the Tynamo&trade; installation.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li3"></a><h2>3. Update the Build Configuration</h2>
+
+        <p>
+        Open the <em>build.properties</em> file in the root of your
+        Tynamo&trade; installation.  The first thing you need to do is change
+        the <code>tini.path</code> property to point to the root of your TINI
+        SDK installation.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>tini.path=/Java/tini1.12</pre>
+        </blockquote>
+        <p>
+        <em><big><strong>Note:</strong></big> if you use backslashes (\) as
+        the file separator, then you must use them in pairs (eg.
+        <tt class="noWrap">tini.path=C:\\Java\\tini1.12</tt>).  This applies
+        to all of the build properties.</em>
+        </p>
+        <p>
+        Next, change <code>src.paths</code> to point to the root
+        of your servlet source code.  For example, if you have a directory
+        named <em>src</em> underneath <em>/projects/myapp</em>, then change
+        <code>src.paths</code> to read:
+        </p>
+        <blockquote class="example">
+        <pre>src.paths=/projects/myapp/src</pre>
+        </blockquote>
+        <p>
+        Personally, I like to place a <em>src/</em> directory underneath the
+        root of the Tynamo&trade; installation.  If you have done this, then
+        <code>src.paths</code> should read something like:
+        </p>
+        <blockquote class="example">
+        <pre>src.paths=/tynamo-tini-1.0/src</pre>
+            <p>
+            (This assumes that the Tynamo&trade; installation resides at
+            <tt>/tynamo-tini-1.0</tt>.)
+            </p>
+        </blockquote>
+        <p>
+        After this, add an Ant-style list of source files to the
+        <code>src.files</code> property.  For the example above, this would
+        read:
+        </p>
+        <blockquote class="example">
+        <pre>src.files=OneWireListServlet.java</pre>
+        </blockquote>
+        <p>
+        Finally, if you are using TINI firmware 1.10 or later, then add your
+        full servlet classnames to <code>reflect.classes</code>.  Again, for
+        the example above:
+        </p>
+        <blockquote class="example">
+        <pre>reflect.classes=OneWireListServlet</pre>
+        </blockquote>
+
+        <h3>More <code>src.files</code> Examples</h3>
+        <p>
+        If, say, you have more than one source file in the package
+        <code>com.entity.myapp</code>, then <code>src.files</code> would read as:
+        </p>
+        <blockquote class="example">
+        <pre>src.files=com/entity/myapp/*.java</pre>
+        </blockquote>
+        <p>
+        You can even include more than one subpackage by doing this:
+        </p>
+        <blockquote class="example">
+        <pre>src.files=com/entity/myapp/**/*.java</pre>
+        </blockquote>
+        <p>
+        Please consult the <a href="http://ant.apache.org/">Ant</a> documentation
+        for more details about specifying files.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li4"></a><h2>4. Build Using Ant</h2>
+
+        <p>
+        Build the TINI executable using Ant.  In many cases, all you need to
+        do is execute the <tt>ant</tt> command from the commandline, in the
+        same place as your Tynamo&trade; installation.  Ant will automatically
+        look for the included <em>build.xml</em> file, use your new build
+        configuration, and then proceed to build the <tt>.tini</tt> file.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li5"></a><h2>5. Update the Servlet Configuration</h2>
+
+        <p>
+        Open the <em>servlets.props</em> file in the <em>tini/bin/</em>
+        directory of your Tynamo&trade; installation.  You must provide a
+        mapping, a classname, and any initialization arguments for each
+        servlet.  Further details can be found in the
+        <a href="servletProps.html">Servlet Configuration Properties</a>
+        document.  For our 1-Wire example, one possibility for these settings
+        is:
+        </p>
+        <blockquote class="example">
+        <pre>OneWireList.mapping=/servlet/OneWireList
+OneWireList.class=OneWireListServlet</pre>
+        </blockquote>
+        <p>
+        We have just indicated to the web server that any request for the path
+        <em>/servlet/OneWireList</em> will access our example servlet.  Also,
+        it is worthwhile to note that this class does not exist inside of a
+        package, so the full classname is just the classname itself:
+        <code>OneWireListServlet</code> as oppsed to
+        <code>com.widgets.OneWireListServlet</code>.
+        </p>
+        <p>
+        It is also worth mentioning that smaller <em>servlets.props</em> files
+        take less time to load.  Removing unnecessary lines will cause the server
+        to start faster.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li6"></a><h2>6. Additional Configuration</h2>
+
+        <p>
+        For additional web server configuration, you are referred to the
+        <a href="props.html">Server Configuration Properties</a> and
+        <a href="mimeTypes.html">MIME Types</a> documents.
+        </p>
+        <p>
+        Note that some of the configuration properties refer to
+        <em>http-root</em> and <em>logs</em> directories.  When transferring
+        files to your TINI, create these directories also.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li7"></a><h2>7. Transfer to Your TINI</h2>
+
+        <p>
+        Simply use an FTP client to transfer the entire contents of the
+        <em>tini/</em> subdirectory to your TINI.
+        </p>
+        <p>
+        There is a convenience script in <em>tini/bin/</em>, called
+        <em>WebServer</em>, that can be used to invoke the web server on the
+        TINI itself.  Other than modifying the absolute paths in this file,
+        all other files should remain as they are.  (With the exception of any
+        example binaries, which can be deleted.)
+        </p>
+        <p>
+        It is recommended to have some sort of dedicated user, 'web' for example,
+        in whose account all the files are stored.  Inside this user's home
+        directory, create these subdirectories:
+        </p>
+        <ul>
+        <li><em>bin</em> for the the above-mentioned binaries and configurations,</li>
+        <li><em>http-root</em> for any static content such as HTML files, and</li>
+        <li><em>logs</em> to store the transfer logs and any server messages.</li>
+        </ul>
+        <p>
+        Alternatively, the server can be <a href="deploying.html">deployed using
+        Ant</a>.
+        </p>
+
+        <h3>Example Command-Line FTP Session</h3>
+        <p>
+        What follows is a sample FTP session that transfers the server to your
+        TINI.  It is assumed that the FTP command was invoked from the root of
+        your distribution.
+        </p>
+        <blockquote class="example">
+        <pre>ftp <em>tini_address</em>
+root                <em>Log in as 'root'</em>
+tini                <em>Password is 'tini'</em>
+bin                 <em>Change the transfer mode to binary</em>
+mkdir web           <em>Create a root location for the webserver</em>
+cd web
+mkdir bin           <em>Create directories necessary for the webserver</em>
+mkdir http-root
+mkdir logs
+cd bin              <em>Change to the 'bin' directory</em>
+lcd tini/bin        <em>Change to the 'tini/bin' directory on the local machine</em>
+prompt off          <em>Suppress prompting for each file</em>
+mput *              <em>Transfer all files in this directory</em>
+cd ../http-root     <em>Transfer all web pages and images</em>
+lcd ../http-root
+mput *
+quit                <em>End the session</em></pre>
+        </blockquote>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li8"></a><h2>8. Invoke the Web Server</h2>
+
+        <p>
+        Log on to your TINI, navigate to the location of the files transferred in
+        the previous step, and run the <code>.tini</code> file.  You can do this
+        in one of two ways: by calling the <em>WebServer</em> script with the
+        command <tt class="noWrap">source WebServer</tt>, or by running the
+        <code>.tini</code> binary directly.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="li9"></a><h2>9. Enjoy Your Servlets!</h2>
+
+        <p>
+        Use a web browser or some other HTTP client and connect to your TINI web
+        server:
+        </p>
+        <blockquote class="example">
+        <pre>http://<em>{TINI address}</em>/servlet/OneWireList</pre>
+        </blockquote>
+        <p>
+        <strong>Enjoy!!</strong>
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

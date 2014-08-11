@@ -1,0 +1,437 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Building a Custom Web Server</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Building a Custom Web Server</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        You may want to add additional features to the web server with your own
+        <a href="http://java.sun.com/products/servlet/2.2/">servlets</a>.  This
+        document discusses how to do this.
+        </p>
+
+        <p>
+        The build process relies on the <a href="http://ant.apache.org/">Ant</a>
+        build tool from <a href="http://jakarta.apache.org/">The Jakarta Project</a>.
+        A <em>build.xml</em> file is included, and the only file you need to modify
+        for your own configuration is the <em>build.properties</em> file.
+        </p>
+
+        <p>
+        An additional tool, called <em>TiniAnt</em>, is also required.  This
+        supplies an Ant task that knows how to work with and convert TINI
+        executables.  It can be found at
+        <a class="noWrap" href="http://tiniant.sourceforge.net/index.html">http://tiniant.sourceforge.net/index.html</a>.
+        Version 1.2.0 or later is required.
+        </p>
+
+        <h2>Subject Menu</h2>
+
+        <ul>
+        <li><a href="#ownSource">Including Your Own Source</a></li>
+        <li><a href="#ownClasses">Including Your Own Classes</a></li>
+        <li><a href="#buildConfig">Build Configuration &mdash; the <em>build.properties</em> File</a></li>
+        <li><a href="#buildRelated">Description of Other Build-Related Files</a></li>
+        </ul>
+
+        <hr />
+
+        <a name="ownSource"></a><h2>Including Your Own Source</h2>
+
+        <p>
+        The build process allows you to include your own source.  You will need
+        to modify at least two build properties:
+        <code><a href="#src.paths">src.paths</a></code>,
+        <code><a href="#src.files">src.files</a></code>, and possibly
+        <code><a href="#dependency.classpath">dependency.classpath</a></code>.
+        </p>
+
+        <p>
+        Place the location of the source files in <code>src.paths</code>, and a
+        list of files in <code>src.files</code>.  If your code depends on further
+        libraries, you may need to modify <code>dependency.classpath</code> as
+        well.  See the <a href="#buildConfig">build configuration</a> section
+        for more details.
+        </p>
+
+        <p>
+        Additionally, if any of your classes are accessed via a
+        <code>Class.forName</code> call, or for that matter, any reflection call,
+        then you must also add those full classnames to
+        <code><a href="#reflect.classes">reflect.classes</a></code>.  The
+        reason for this is that reflection information for all classes not
+        specified here is excluded from the build.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="ownClasses"></a><h2>Including Your Own Classes</h2>
+
+        <p>
+        It is also possible to include your own pre-built classes in the build
+        process.  To do this, define a dependency group in a file specified in
+        <code><a href="#dependency.files">dependency.files</a></code>, include the
+        group name in <code><a href="#dependency.groups">dependency.groups</a></code>,
+        and add the location of the classes to
+        <code><a href="#dependency.classpath">dependency.classpath</a></code>.
+        </p>
+
+        <p>
+        Furthermore, the same note about reflection applies here as it does to
+        <a href="#ownSource">your own source files</a>.  You need to add any
+        "reflected" classnames to <code><a href="#reflect.classes">reflect.classes</a></code>.
+        This includes any class obtained from a call to <code>Class.forName</code>.
+        </p>
+
+        <h3>A more elaborate explanation</h3>
+
+        <p>
+        Including pre-built libraries and classes in your server binary
+        deserves more explanation, as it is probably the most confusing aspect
+        of the build process.  The following steps will guide you through an
+        example that illustrates the proper way to go about this.  Unfortunately,
+        it is a bit of a manual process due to the way the TINI <em>BuildDependency</em>
+        program works.
+        </p>
+
+        <ol>
+        <li>Create a dependency file such as <em>my_dep.txt</em>.</li>
+        <li>Determine which classes are used.  For example, your servlets may
+            depend on:
+            <ul>
+            <li><code>com.db.DBConnectionPool</code> and</li>
+            <li><code>com.db.DBUtils</code></li>
+            </ul>
+            In turn, <code>com.db.DBConnectionPool</code> may depend on:
+            <ul>
+            <li><code>com.db.DBConnectionFactory</code> and</li>
+            <li><code>com.db.util.ObjectPool</code></li>
+            </ul></li>
+        <li>Pick a descriptive name for this "group" of classes.  (A
+            <em>dependency group</em> simply means "a group of classes on
+            which your code depends").  This name will refer to all of the
+            above "dependencies".  For example, choose <em>DB_TOOLS</em>.
+            Then, place this line into <em>my_dep.txt</em> (<small><em>note
+            that the line may be wrapped, but should be on one
+            line</em></small>):
+            <blockquote class="example">
+            <pre>DB_TOOLS=com.db.DBConnectionPool;
+         com.db.DBUtils;
+         com.db.DBConnectionFactory;
+         com.db.util.ObjectPool</pre>
+            </blockquote></li>
+        <li>Add the group we've just created to
+            <code><a href="#dependency.groups">dependency.groups</a></code>.
+            For example, say your code also depends on <code>OneWireContainer10</code>.
+            The proper setting, then, will look something like this:
+            <blockquote class="example">
+            <pre>dependency.groups=OneWireContainer10,DB_TOOLS</pre>
+            </blockquote>
+            Additionally, if any of the classes added here need to be accessed
+            with reflection, then be sure to add the full classname to
+            <code><a href="#reflect.classes">reflect.classes</a></code>.
+            </li>
+        <li>Add this new dependency file to the
+            <code><a href="#dependency.files">dependency.files</a></code>
+            property:
+            <blockquote class="example">
+            <pre>dependency.files=<em>&lt;path_to&gt;/</em>my_dep.txt</pre>
+            </blockquote></li>
+        <li>Lastly, tell the build tools where to find these
+            <em><code>com.db.*</code></em> and <em><code>com.db.util.*</code></em>
+            classes by adding the appropriate path to
+            <code><a href="#dependency.classpath">dependency.classpath</a></code>.
+            For example, a JAR file called <em>dbtools.jar</em> may contain
+            these classes:
+            <blockquote class="example">
+            <pre>dependency.classpath=<em>&lt;path_to&gt;/</em>dbtools.jar</pre>
+            </blockquote>
+            If the classes reside do not reside in a JAR, but in a directory
+            called <em>dbtools</em>, then the setting may instead look like:
+            <blockquote class="example">
+            <pre>dependency.classpath=<em>&lt;path_to&gt;/</em>dbtools</pre>
+            </blockquote></li>
+        </ol>
+
+        <p>
+        It is possible to set up a more complex set of dependencies, with
+        multiple groups and files.  However, you are referred to the
+        <em>BuildDependency</em> documentation in your TINI firmware
+        distribution for more information.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="buildConfig"></a><h2>Build Configuration &mdash; The
+            <em>build.properties</em> File</h2>
+
+        <p>
+        The <em>build.properties</em> file is the only place you are required to
+        manage your build configuration.  The syntax requrements are only that a
+        forward slash (/) for the file separator, and a colon (:) for the path
+        separator, are used.  Also, any non-required properties may be left
+        unspecified.
+        </p>
+
+        <p>
+        <em><big><strong>Note:</strong></big> If you choose to use backslashes
+        (\) for your paths, say, in Windows, then you must use pairs (eg.
+        <tt class="noWrap">tini.path=C:\\Java\\tini1.12</tt>).  This is
+        because in properties files, backslashes are treated specially.  They
+        act to change the meaning of the following character.  Please consult
+        the Java documentation for more information.</em>
+        </p>
+
+        <a name="tini.path"></a><h3><code>tini.path</code></h3>
+
+        <p>
+        This points to the location of your TINI firmware installation.  For
+        example:
+        </p>
+        <blockquote class="example">
+        <pre>tini.path=C:/Java/tini1.12</pre>
+        </blockquote>
+        <p>
+        This property is required.
+        </p>
+
+        <a name="src.paths"></a><h3><code>src.paths</code></h3>
+
+        <p>
+        This points to the location(s) of your source files.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>src.paths=mysrc:myservlets/src</pre>
+        </blockquote>
+
+        <p>
+        A path separator is used between different paths.
+        </p>
+
+        <a name="src.files"></a><h3><code>src.files</code></h3>
+
+        <p>
+        A comma- or space-separated list of source files.  This may be specified
+        using Ant-style <a href="http://ant.apache.org/manual/dirtasks.html">wildcard
+        patterns</a>.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>src.files=com/mycompany/util/*.java,com/theircompany/**/*.java</pre>
+        </blockquote>
+        <p>
+        It is not a good idea to specify <code>**/*.java</code> since that may
+        include unwanted source files.  Instead, be more specific with the package
+        structure, as in the above example.
+        </p>
+
+        <a name="include.loaderServlet"></a><h3><code>include.loaderServlet</code></h3>
+
+        <p>
+        When this property is set to <code>true</code>, a special servlet that
+        can load arbitrary servlets is included in the binary.  The property
+        is ignored if the build is not for version 1.10 or later firmware.  Starting
+        with 1.10, the TINI firmware added classloading capabilities, and this
+        makes it possible to include reloading functionality.
+        </p>
+        <p>
+        The full classname of the servlet is <code>com.qindesign.servlet.LoaderServlet</code>,
+        and an example of using it in the <code><a href="servletProps.html">servlet.props</a></code>
+        file is as follows:
+        </p>
+        <blockquote class="example">
+        <pre>Loader.mapping=/servlet/Loader/*
+Loader.class=com.qindesign.servlet.LoaderServlet
+Loader.initParams=classpath=/web/servlet/classes</pre>
+        </blockquote>
+        <p>
+        The "<code>/*</code>" is necessary at the end of the mapping.  More
+        details about this special servlet can be found in the
+        <a href="servletReloading.html#LoaderServlet">Servlet Reloading</a> document.
+        </p>
+        <p>
+        The binary will be larger with this feature enabled because much more
+        reflection information has to be included.  Note that the build process
+        automatically includes this class in the <code><a href="#reflect.classes">reflect.classes</a></code>
+        build property for you.
+        </p>
+
+        <a name="include.servletReloading"></a><h3><code>include.servletReloading</code></h3>
+
+        <p>
+        When this property is set to <code>true</code>, support for servlet
+        reloading is added to the binary.  It is ignored if the build is not for
+        version 1.10 or later firmware.  Starting with 1.10, the TINI firmware
+        added classloading capabilities, and this makes it possible to include
+        reloading functionality.
+        </p>
+        <p>
+        The binary will be larger with this feature enabled because much more
+        reflection information has to be included.
+        </p>
+        <p>
+        Please see the <a href="servletReloading.html">Servlet Reloading</a>
+        document for more details.
+        </p>
+
+        <a name="dependency.files"></a><h3><code>dependency.files</code></h3>
+
+        <p>
+        A comma-separated list of dependency files for the TINI development
+        kit's build-dependency program.  Note that the <em>owapi_dep.txt</em> file
+        containing all the 1-Wire dependencies is automatically included, and does
+        not need to be specified here.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>dependency.files=my_dep_file.txt</pre>
+        </blockquote>
+        <p>
+        When writing a dependency file, do make sure that any defined group
+        names don't conflict with those in another dependency file.  The
+        build-dependency program internally creates one big list and seems to
+        ignore conflicts.  For example, don't have two groups named "ROOT" when
+        substituting for a base package name.  Instead, use a more meaningful name
+        such as "COM_COMPANY_ROOT".
+        </p>
+
+        <a name="dependency.groups"></a><h3><code>dependency.groups</code></h3>
+
+        <p>
+        A comma-, colon-, or semicolon-separated list of dependency group names.
+        You may include groups from the TINI development kit's <em>owapi_dep.txt</em>
+        file, or from your own dependency files listed in the
+        <code>dependency.files</code> property.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>dependency.groups=Switches,\
+                  OneWireContainer10,\
+                  OneWireContainer21,\
+                  OneWireContainer20,\
+                  OneWireContainer23,\
+                  OneWireContainer09,\
+                  OneWireContainer01,\
+                  ExampleServlets</pre>
+        </blockquote>
+        <p>
+        Additionally, if any of the classes added here need to be accessed
+        with reflection, then be sure to add the full classnames to
+        <code><a href="#reflect.classes">reflect.classes</a></code>.  For
+        example, the firmware protocol handler classes, such as
+        <code>com.dalsemi.protocol.http.Handler</code> from the "HTTP" group,
+        are accessed through reflection, as are all the other
+        <code>com.dalsemi.protocol.<em>protocol_name</em>.Handler</code>
+        classes, and also all the 1-Wire container classes.
+        </p>
+
+        <a name="dependency.classpath"></a><h3><code>dependency.classpath</code></h3>
+
+        <p>
+        This specifies a CLASSPATH-like list of paths and archives containing
+        classes specified by the dependency group names.  Any TINI-related
+        library, such as <em>owapi.jar</em> and the 1.1 <em>modules.jar</em>,
+        is automatically included, and does not need to be specified here.
+        For example:
+        </p>
+        <blockquote class="example">
+        <pre>dependency.classpath=mylibrary.jar</pre>
+        </blockquote>
+
+        <a name="reflect.classes"></a><h3><code>reflect.classes</code></h3>
+
+        <p>
+        The TINI 1.10 or later firmware requires that reflection information
+        be included in the build process if <code>Class.forName</code> is to
+        work.  Because both the servlet container and 1-Wire adapters use this
+        call to create servlets and 1-Wire containers, any related classes
+        must be included in this list.  For example:
+        </p>
+        <blockquote class="example">
+        <pre>reflect.classes=com.qindesign.servlet.DefaultServlet,\
+                com.qindesign.servlet.example.RequestInfoServlet,\
+                com.qindesign.servlet.example.AuthExampleServlet,\
+                com.qindesign.servlet.example.TiniInfoServlet,\
+                com.qindesign.servlet.example.OneWireServlet,\
+                com.qindesign.servlet.example.SwitchInclude,\
+                com.qindesign.servlet.example.TemperatureInclude,\
+                com.dalsemi.onewire.container.OneWireContainer05,\
+                com.dalsemi.onewire.container.OneWireContainer12,\
+                com.dalsemi.onewire.container.OneWireContainer1F,\
+                com.dalsemi.onewire.container.OneWireContainer10,\
+                com.dalsemi.onewire.container.OneWireContainer21,\
+                com.dalsemi.onewire.container.OneWireContainer20,\
+                com.dalsemi.onewire.container.OneWireContainer23,\
+                com.dalsemi.onewire.container.OneWireContainer09,\
+                com.dalsemi.onewire.container.OneWireContainer01</pre>
+        </blockquote>
+        <p>
+        Note that all servlets must be included here, as well as any of the
+        firmware protocol handler classes, 1-Wire containers, and all classes
+        accessed by a dynamically loaded servlet.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="buildRelated"></a><h2>Other Build-Related Files</h2>
+
+        <p>
+        This section discusses the other files needed in the build process.
+        </p>
+
+        <h3>The <em>build.xml</em> file</h3>
+
+        <p>
+        The <em>build.xml</em> file is the Ant build script.  Its default task
+        will automatically create a TINI executable named <em>webserver.tini</em>
+        in the <em>tini/bin/</em> directory.
+        </p>
+
+        <p>
+        By default, all compiled classes will be written to a directory named
+        <em>classes/</em>.  This can be changed by changing the
+        <code>javac.destination</code> property to something else.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

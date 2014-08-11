@@ -1,0 +1,309 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Tynamo(TM) Servlet Reloading</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<p class="noMargin"><a name="top"></a></p>
+
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Servlet Reloading</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        Servlet reloading was introduced because, starting with TINI firmware
+        1.10, dynamic classloading became possible.  In the Tynamo&trade;
+        server, it is possible to turn this feature on or off, and even to
+        exclude it from the web server binary.
+        </p>
+
+        <p>
+        Some definitions are necessary:
+        </p>
+        <dl>
+            <dt><strong>Servlet Reloading</strong></dt>
+            <dd>In this document, this refers to the mechanism used to load
+                and reload servlets <em>except</em> when they are loaded with
+                the special Loader Servlet.</dd>
+            <dt><strong>Loader Servlet</strong></dt>
+            <dd>This is a special servlet, optionally included in the build,
+                that can load and reload servlets <em>without</em> specifying
+                them in the <a href="servletProps.html">servlet
+                configuration</a> file.</dd>
+        </dl>
+
+        <h2>Subject Menu</h2>
+
+        <ul>
+        <li><a href="#building">Building reloading into the binary</a></li>
+        <li><a href="#servletConfig">Servlet configuration</a></li>
+        <li><a href="#servletClasspath">Servlet classpath</a></li>
+        <li><a href="#internals">Servlet reloading internals</a></li>
+        <li><a href="#LoaderServlet">The Loader Servlet</a></li>
+        <li><a href="#summary">Summary</a></li>
+        </ul>
+
+        <hr />
+
+        <a name="building"></a><h2>Building Reloading into the Binary</h2>
+
+        <p>
+        There are two build properties, <code><a href="building.html#include.servletReloading">include.servletReloading</a></code>
+        and <code><a href="building.html#include.loaderServlet">include.loaderServlet</a></code>,
+        that control how the build process incorporates support for servlet
+        reloading.  Reloading is not possible if this support is not built
+        into the binary.
+        </p>
+
+        <p>
+        Because a dynamically loaded class may reference any member from the
+        <a href="http://java.sun.com/products/servlet/2.2/javadoc/index.html">Servlet
+        API</a>, it is necessary to include much more reflection information and
+        some support classes.  This has the effect of increasing the size of the
+        binary by approximately 8k.  Other than classloading speed, this is the
+        only deterministic disadvantage of including reloading support in your
+        server.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="servletConfig"></a><h2>Servlet Configuration</h2>
+
+        <p>
+        All servlets, <em>including</em> dynamically loaded servlets not loaded
+        by the special <a href="#LoaderServlet">Loader Servlet</a>, must be
+        specified in your <a href="servletProps.html">servlet configuration</a>
+        file.  The server cannot find your servlet if it is not declared here.
+        </p>
+
+        <p>
+        In other words, declare your servlets as normal in the
+        <em><a href="servletProps.html">servlets.props</a></em> file.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="servletClasspath"></a><h2>The Servlet Classpath</h2>
+
+        <p>
+        The reloading mechanism first looks for classes in the default and
+        user classpaths, and then in the paths specified by the
+        <code><a href="props.html#servlet.classpath">servlet.classpath</a></code>
+        configuration property.
+        </p>
+
+        <!--<p>
+        Additionally, the current directory is always searched for classes, even
+        if "." is not part of the classpath.
+        </p>-->
+
+        <div class="quoted">
+        <p>
+        <strong><big>[Motivation:</big></strong>
+        The user and default classpaths are specified with the '-classpath'
+        and '-bootclasspath' options when starting a program with the 'java'
+        command in Slush.  For example (<small><em>note that the line may be
+        wrapped, but should be on one line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>java -classpath /myclasses:/web/classes webserver.tini /web/bin/webserver.props &amp;</tt></p>
+        </blockquote>
+
+        <p>
+        In this case, <em>/myclasses</em> and <em>/web/classes</em> will be
+        searched first by the system classloader, and the paths specified in
+        <code><a href="props.html#servlet.classpath">servlet.classpath</a></code>
+        will be searched next.  Classes loaded by the system classloader cannot
+        be reloaded, and that is the reason for having this extra configuration
+        property.
+        <strong><big>]</big></strong>
+        </p>
+        </div>
+
+        <p>
+        In other words, don't use the '-classpath' option for your classes.
+        </p>
+
+        <p>
+        Note that the <a href="#LoaderServlet">Loader Servlet</a> does not use
+        this property, and has its own classpath mechanism.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="internals"></a><h2>Servlet Reloading Internals You Need to Know About</h2>
+
+        <p>
+        Even with servlet reloading capabilities built into the binary, it is
+        still possible to turn this feature off with the
+        <code><a href="props.html#servlet.reloadingEnabled">servlet.reloadingEnabled</a></code>
+        configuration property.  With this value set to <code>false</code>, the
+        servlet container will not search for new classes.
+        </p>
+
+        <p>
+        <em>Second</em>, there is a property called
+        <code><a href="props.html#servlet.maxTimeBeforeDestroy">servlet.maxTimeBeforeDestroy</a></code>
+        that controls the maximum amount of time the container spends waiting for
+        uncompleted <code>service</code> calls on a servlet.  After this time has
+        elapsed, the servlet is destroyed regardless.  While the default value for
+        this property is 20 seconds, the safest is probably an indefinite wait
+        time, indicated by a value of 0 seconds.
+        </p>
+
+        <p>To quote from Section 3.3.4 of the servlet 2.2 specification, "End of
+        Service":
+        </p>
+        <blockquote class="quoted">
+        <p>"Before the servlet container can call the destroy method, it must
+        allow any threads that are currently running in the service method of
+        the servlet to either complete, or exceed a server defined time limit,
+        before the container can proceed with calling the destroy method."</p>
+        </blockquote>
+
+        <p>
+        <em>Third</em>, if a servlet was dynamically loaded and its classfile
+        disappears, then the container will reuse the one it has already loaded.
+        If this is undesirable behaviour, please let us know.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="LoaderServlet"></a><h2>The Loader Servlet</h2>
+
+        <p>
+        The "Loader Servlet" is a special servlet included with the
+        distribution that can load servlets, given only the classname.  It
+        searches the path specified by an initialization parameter.  For
+        example:
+        </p>
+        <blockquote class="example">
+        <pre>Loader.mapping=/servlet/Loader/*
+Loader.class=com.qindesign.servlet.LoaderServlet
+Loader.initParams=classpath=/web/servlet/classes</pre>
+        </blockquote>
+
+        <p>
+        For the above specification, the servlet will search the default and
+        user classpaths, and then <em>/web/servlet/classes</em> for a given
+        classname.  Notice how the search classpath is specified.  It is a
+        servlet initialization parameter named "classpath".
+        </p>
+
+        <p>
+        Further details about the "<code>/*</code>" at the end of the mapping
+        can be found in the Servlet 2.2
+        <a href="http://java.sun.com/products/servlet/2.2/">Specification</a>,
+        but in short, it allows extra information to be passed to the servlet
+        in the form of a path.  This is called the "Path Info" part of the
+        request.
+        </p>
+
+        <div class="quoted">
+        <p>
+        <strong><big>[Motivation:</big></strong>
+        The Path Info specifies the classname of the servlet to load, and any
+        parameters are passed to the servlet as normal.  This is the
+        motivation for using the Path Info for the servlet.  It allows the
+        parameters to be passed untouched.
+        </p>
+
+        <p>
+        For example, if we use the above mapping, this request
+        (<small><em>note that the line may be wrapped, but should be on one
+        line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>/servlet/Loader/com.qindesign.servlet.example.RequestInfoServlet?param1=value1&amp;param2=value2</tt></p>
+        </blockquote>
+        <p>
+        will call the <code>com.qindesign.servlet.example.RequestInfoServlet</code>
+        servlet with <code>param1</code> and <code>param2</code> as parameters.
+        <strong><big>]</big></strong>
+        </p>
+        </div>
+
+        <p>
+        Lastly, for each requested servlet, a new instance is always created,
+        and the servlet goes through its entire lifecycle, from <code>init</code>
+        to <code>destroy</code>.
+        </p>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <hr />
+
+        <a name="summary"></a><h2>Summary</h2>
+
+        <p>
+        In summary, here are the things you need to do to take advantage of
+        Tynamo&trade;'s servlet reloading capabilities:
+        </p>
+        <ol>
+        <li>Include this feature in the binary using the <code><a href="building.html#include.servletReloading">include.servletReloading</a></code>
+            property of the <a href="building.html">build properties</a> file.
+            </li>
+        <li>Ensure reloading is turned on via a value of <code>true</code> for the
+            <code><a href="props.html#servlet.reloadingEnabled">servlet.reloadingEnabled</a></code>
+            configuration property.</li>
+        <li>Take care that your servlets are mentioned in the
+            <a href="servletProps.html">servlet configuration file</a>.</li>
+        <li>Specify the location of your classes in the
+            <code><a href="props.html#servlet.classpath">servlet.classpath</a></code>
+            property.
+            </li>
+        </ol>
+
+        <p>
+        To take advantage of the Loader Servlet, follow these steps:
+        </p>
+        <ol>
+        <li>Include this feature in the binary using the <code><a href="building.html#include.loaderServlet">include.loaderServlet</a></code>
+            property of the <a href="building.html">build properties</a> file.
+            </li>
+        <li>Properly configure the Loader Servlet in the
+            <a href="servletProps.html">servlet configuration file</a>.
+            </li>
+        </ol>
+
+        <p>[<a href="#top">Top</a>]</p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

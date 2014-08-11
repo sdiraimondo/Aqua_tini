@@ -1,0 +1,194 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Deploying Tynamo(TM)-TINI with Ant</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Deploying with Ant</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        Tynamo&trade; can be <strong>deployed</strong> to your TINI using Ant.
+        A target called <em>deploy</em> in the build script is provided for
+        this purpose.
+        <!--It is separate from the main build file since you may have an
+        alternate deployment scheme.-->
+        Simply execute Ant as you would normally, but add the string "deploy" on
+        the commandline.  Also remember to fill in the appropriate values in the
+        <em>deploy.properties</em> file.
+        </p>
+
+        <p>
+        [<em>BIG NOTE</em>: The "mkdir" FTP action does not work with firmware
+        1.02e.  This is because 1.02e uses a slightly non-standard "mkdir"
+        command.  This means that this deployment scheme won't work properly with
+        this firmware.  However, firmware 1.02f fixes this.]
+        </p>
+
+        <p>
+        Tynamo&trade; can also be <strong>started</strong> using the
+        <em>startserver</em> target.  This will execute a specifiable startup
+        command via Telnet.
+        </p>
+
+        <h2>Setup</h2>
+
+        <p>
+        First, in order to provide the required FTP and Telnet support, Ant
+        needs either the
+        <a href="http://www.savarese.org/oro/index.html">NetComponents.jar</a>
+        or <a href="http://jakarta.apache.org/commons/net/index.html">Jakarta
+        Commons/Net</a> library, depending on the version of Ant:
+        NetComponents is required for Ant versions 1.5.4 and earler, and the
+        Jakarta Commons/Net library is required for Ant versions 1.6.1 and
+        later.
+        </p>
+
+        <p>
+        This library must be copied into Ant's <em>lib/</em> directory.
+        For those not using the default Ant execution script, this JAR file must
+        be added manually somehow to the CLASSPATH before Ant is executed.
+        </p>
+
+        <h2>Transfer</h2>
+
+        <p>
+        The deploy script will first check for the existence of the FTP
+        library, and display a message if it is not found.  If it <em>is</em>
+        found, then the build is deployed to the TINI according to the
+        following structure.
+        </p>
+
+        <p>
+        If the transfer doesn't work, then try setting the FTP client to
+        passive mode by changing
+        <tt><span class="blue">passive=</span><span class="green">"no"</span></tt>
+        to <tt><span class="blue">passive=</span><span class="green">"yes"</span></tt>
+        in all the <tt><span class="navy">&lt;ftp&gt;</span></tt> tags in your
+        <em>build.xml</em> file.
+        </p>
+
+        <h3>Structure</h3>
+
+        <p>
+        The script will first try to create the <a href="#deploy.rootdir">deploy
+        root directory</a>, and then a <em>logs/</em> directory below this.
+        </p>
+
+        <p>
+        Next, all the files below <em>tini/</em> on the local disk will be
+        transferred to the appropriate place under <em>&lt;deploy.rootdir&gt;</em>
+        on the TINI.
+        </p>
+
+        <h2>Starting the Server</h2>
+
+        <p>
+        The startup script will connect to the <a href="#deploy.server">deployment
+        server</a> via Telnet using its own userid and password, and then execute
+        a single, specifiable command.
+        </p>
+
+        <p>
+        Remember that it is also possible to start the server from the startup
+        script in Slush.
+        </p>
+
+        <h2>The <em>deploy.properties</em> File</h2>
+
+        <p>
+        The <em>deploy.properties</em> file is used to control the deploy and
+        startup processes.  There are four properties that describe how the build
+        is to be transferred, and three that help describe how to start the
+        server.
+        </p>
+
+        <table border="1" width="100%" cellpadding="3">
+        <tr class="tableHeader">
+            <th>Property Name</th>
+            <th>Description</th>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="deploy.server">deploy.server</a></code></td>
+            <td>The address of the TINI.  The FTP server must be running.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="deploy.userid">deploy.userid</a></code></td>
+            <td>The FTP client will log in with this username.  If there is a root
+                directory with this name on the TINI to which this user has access,
+                then the FTP client will start with this as its current directory.
+                </td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="deploy.password">deploy.password</a></code></td>
+            <td>The FTP client will use this as the password when logging in.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="deploy.rootdir">deploy.rootdir</a></code></td>
+            <td>All transfers will be relative to the directory specified here.
+                If this is the same as the default user directory, then it should
+                be the string ".".</td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="startserver.userid">startserver.userid</a></code></td>
+            <td>The Telnet client will log in with this username.  The webserver
+                will be started under this user.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="startserver.password">startserver.password</a></code></td>
+            <td>The Telnet client will use this as the login password.</td>
+        </tr>
+
+        <tr valign="top">
+            <td><code><a name="startserver.command">startserver.command</a></code></td>
+            <td>The startup script will wait for a "&gt;" character, execute this
+                command, wait for another "&gt;" character, and then exit the
+                session.  It is a good idea for the command to execute as a
+                background process.
+                <p>
+                For example, the supplied <em>WebServer</em> script starts the
+                server as a background process: this is what's executed in the
+                default <em>deploy.properties</em> file.
+                </p>
+            </td>
+        </tr>
+        </table>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>

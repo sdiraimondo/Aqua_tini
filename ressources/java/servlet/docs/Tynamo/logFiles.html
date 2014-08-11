@@ -1,0 +1,151 @@
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Log Files</title>
+    <meta name="Author" content="Shawn Silverman" />
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table class="centered" border="0" width="80%" cellspacing="1" cellpadding="4">
+
+    <tr><td class="header" align="center">
+        <table cellpadding="5" cellspacing="0">
+        <tr>
+        <td class="logo"><img title="Tynamo(TM) Logo" src="images/logo2.gif" alt="[Tynamo(TM) Logo]" /></td>
+        <td class="headerTitle" valign="middle">Log Files</td>
+        </tr>
+        </table>
+    </td></tr>
+    <tr><td class="menu" align="center">
+        <a class="menu" href="index.html">[Back to Index]</a>
+    </td></tr>
+    <tr><td class="mainContent">
+
+        <!-- MAIN CONTENT -->
+
+        <p>
+        The server tracks its activity using two log files.  The <em>transfer
+        log</em> keeps track of all incoming requests, while the <em>server
+        log</em> stores server and servlet status messages.
+        </p>
+
+        <p>
+        The server log is utilized from your own servlets via its
+        <code>ServletContext</code> object.  Please consult the servlet
+        documentation for more details.  Additionally, the
+        <a href="exampleServlets.html#LogViewer">LogViewer</a> example servlet
+        demonstrates how to read the log files from within a servlet.
+        </p>
+
+        <h2>Transfer Log Format</h2>
+
+        <p>
+        The transfer log is stored in the <em>Extended Common Log Format</em>.
+        Each line of the log contains the following information:
+        </p>
+
+        <table border="1" cellpadding="3">
+            <tr>
+                <th class="tableHeader" align="left">remotehost</th>
+                <td>Address of the client that made the request.  For
+                    performance reasons, the server does not look up the host
+                    name.</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">rfc931</th>
+                <td>The remote login name of the user.  This will be a single "-".</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">authuser</th>
+                <td>This will be the name that the user used to authenticate
+                    himself, if requesting a protected page.</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">[date]</th>
+                <td>The date and time of the request.</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">"request"</th>
+                <td>The exact request line from the client.</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">status</th>
+                <td>This will be the HTTP status code sent by the server</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">bytes</th>
+                <td>The number of bytes sent to the client.</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">"referer"</th>
+                <td>The URL the client was viewing before making the current
+                    request.  (Note that the spelling of "referer" is an
+                    unfortunate mistake in the HTTP specification.)</td>
+            </tr>
+            <tr>
+                <th class="tableHeader" align="left">"user_agent"</th>
+                <td>The user agent the client claims to be using.</td>
+            </tr>
+        </table>
+
+        <p>
+        There will be a "-" in each entry that is not known, or cannot be
+        determined, by the server.
+        </p>
+
+        <p>
+        Here is an example of an entry in the transfer log (<small><em>note
+        that the line may be wrapped, but should be on one line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>192.168.1.12 - test [Fri Oct 10 10:46:06 CST 2003] "GET /servlet/AuthExample HTTP/1.1" 200 - "http://tini.qindesign.com/" "Mozilla/5.0 (Macintosh; U; PPC Mac OS X; en-us) AppleWebKit/85.7 (KHTML, like Gecko) Safari/85.5"</tt></p>
+        </blockquote>
+
+        <p>
+        <a href="http://www.bacuslabs.com/WsvlCLF.html">http://www.bacuslabs.com/WsvlCLF.html</a>
+        has another description of this format.
+        </p>
+
+        <h2>Server Log</h2>
+
+        <p>
+        Each line of the server log will contain a date and a message.  Some
+        messages may include exception stack traces, while some will just
+        contain descriptive text.  For example (<small><em>note that some
+        lines may be wrapped, but should be on one line</em></small>):
+        </p>
+        <blockquote class="example">
+        <p><tt>[Wed Aug 27 10:40:38 CST 2003]SendMail: init<br />
+            [Wed Aug 27 10:40:41 CST 2003]ServletException(Error while sending mail: Unexpected reply: 501 5.1.8 Domain of sender address kgjfhdkh@fdhgfhddfhgf.com does not exist) with request path '/servlet/SendMail'<br />
+            [Tue Sep 16 22:22:37 CST 2003]Transfer log mailed to some@address.net?from=another@address.com<br />
+            [Wed Sep 17 03:24:15 CST 2003]java.io.IOException<br />
+            No other stack trace info available.
+        </tt></p>
+        </blockquote>
+
+        <h2>Log Configuration</h2>
+
+        <p>
+        The log files are configured using the
+        <a href="props.html#logging">logging properties</a> in the
+        <a href="props.html">server properties</a> file.  It is possible to
+        configure the log file locations, their maximum size, and where they
+        will get emailed when full.
+        </p>
+
+        <!-- END MAIN CONTENT -->
+
+    </td></tr>
+    <tr><td class="footer">
+        <address>
+        <img class="footerLogo" title="Small Tynamo(TM) Logo" src="images/logo.gif" alt="" /> Tynamo&trade;-TINI/1.0<br />
+        Email: <a href="mailto:shawn@pobox.com">shawn@pobox.com</a><br />
+        &copy; 2002-2004 Shawn Silverman
+        </address>
+    </td></tr>
+
+</table>
+</body>
+</html>
